@@ -1,5 +1,4 @@
-# kTools - by The Sunnyface.com
-![App Icon][appicon]
+# kTools - by The Sunnyface.com ![App Icon][appicon]
 
 
 A little GUI writen in swift 3.0 that helps developper in the everyday task. This tools aims to simplify little taks like starting and stoping services without the need of open the console and typing all the commands whe dont normaly remember.
