@@ -30,10 +30,10 @@ The app itself its a tab style application, with 2 views for now,
 
 
 
-
-
 #
-
+###
+###
+###
 
 
 [appicon]: https://github.com/kikoseijo/kTools/raw/master/kTools/Images/icon32x32.png "App icon"
