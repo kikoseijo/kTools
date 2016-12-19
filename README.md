@@ -1,4 +1,4 @@
-# ![App Icon][appicon] kTools - by The Sunnyface.com
+# ![App Icon][appicon]  kTools - <small>by The Sunnyface.com</small>
 
 
 A little GUI writen in swift 3.0 that helps developper in the everyday task. This tools aims to simplify little taks like starting and stoping services without the need of open the console and typing all the commands whe dont normaly remember.
@@ -36,5 +36,5 @@ The app itself its a tab style application, with 2 views for now,
 
 
 
-[appicon]: https://github.com/kikoseijo/kTools/raw/master/kTools/Images/icon26x26.png "App icon"
+[appicon]: https://github.com/kikoseijo/kTools/raw/master/kTools/Images/icon32x32.png "App icon"
 [Brew-capture]: https://github.com/kikoseijo/kTools/raw/master/kTools/Images/Brew-capture.png "Brew screen capture"
