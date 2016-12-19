@@ -3,7 +3,9 @@
 ###
 
 A little GUI writen in swift 3.0 that helps developper in the everyday task. This tools aims to simplify little taks like starting and stoping services without the need of open the console and typing all the commands whe dont normaly remember.
+
 Its on a very ***BETA stage***, anyone interested its wellcome to contribute in this project.
+
 This will be everyday taks that needs to be done on a regular basis with every new project, and the intention its to build over the time.
 
 ![Brew screen capture][Brew-capture]
