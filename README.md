@@ -36,5 +36,5 @@ The app itself its a tab style application, with 2 views for now,
 
 
 
-[appicon]: https://github.com/kikoseijo/kTools/raw/master/kTools/Images/icon80x80.png "App icon"
+[appicon]: https://github.com/kikoseijo/kTools/raw/master/kTools/Images/icon46x46.png "App icon"
 [Brew-capture]: https://github.com/kikoseijo/kTools/raw/master/kTools/Images/Brew-capture.png "Brew screen capture"
