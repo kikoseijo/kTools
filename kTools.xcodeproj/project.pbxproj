@@ -7,19 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9224C0511E06F58F00BE8DDD /* btn-power.png in Resources */ = {isa = PBXBuildFile; fileRef = 9224C0501E06F58F00BE8DDD /* btn-power.png */; };
+		9224C0531E06F88F00BE8DDD /* ImagesTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9224C0521E06F88F00BE8DDD /* ImagesTools.swift */; };
+		9238DEF51E0722FE00350AB6 /* SshViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9238DEF41E0722FE00350AB6 /* SshViewController.swift */; };
 		928B99AC1E0312D200992F02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B99AB1E0312D200992F02 /* AppDelegate.swift */; };
-		928B99AE1E0312D200992F02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B99AD1E0312D200992F02 /* ViewController.swift */; };
+		928B99AE1E0312D200992F02 /* BrewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B99AD1E0312D200992F02 /* BrewViewController.swift */; };
 		928B99B01E0312D200992F02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928B99AF1E0312D200992F02 /* Assets.xcassets */; };
 		928B99B31E0312D200992F02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928B99B11E0312D200992F02 /* Main.storyboard */; };
+		928B99BB1E0313BE00992F02 /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B99BA1E0313BE00992F02 /* CommandLine.swift */; };
+		928B99BE1E0318F100992F02 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B99BD1E0318F100992F02 /* NetworkTools.swift */; };
+		92AF36091E06BAD900830DC9 /* TextGui.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF36081E06BAD900830DC9 /* TextGui.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9224C0501E06F58F00BE8DDD /* btn-power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-power.png"; sourceTree = "<group>"; };
+		9224C0521E06F88F00BE8DDD /* ImagesTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesTools.swift; sourceTree = "<group>"; };
+		9238DEF41E0722FE00350AB6 /* SshViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SshViewController.swift; sourceTree = "<group>"; };
 		928B99A81E0312D200992F02 /* kTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		928B99AB1E0312D200992F02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		928B99AD1E0312D200992F02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		928B99AD1E0312D200992F02 /* BrewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewViewController.swift; sourceTree = "<group>"; };
 		928B99AF1E0312D200992F02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		928B99B21E0312D200992F02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		928B99B41E0312D200992F02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		928B99BA1E0313BE00992F02 /* CommandLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommandLine.swift; path = Tools/CommandLine.swift; sourceTree = "<group>"; };
+		928B99BD1E0318F100992F02 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		92AF36081E06BAD900830DC9 /* TextGui.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextGui.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +45,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9224C04B1E06F2BA00BE8DDD /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9224C0501E06F58F00BE8DDD /* btn-power.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		928B999F1E0312D200992F02 = {
 			isa = PBXGroup;
 			children = (
@@ -52,13 +72,27 @@
 		928B99AA1E0312D200992F02 /* kTools */ = {
 			isa = PBXGroup;
 			children = (
+				9224C04B1E06F2BA00BE8DDD /* Images */,
+				928B99BC1E0313C500992F02 /* Tools */,
 				928B99AB1E0312D200992F02 /* AppDelegate.swift */,
-				928B99AD1E0312D200992F02 /* ViewController.swift */,
+				928B99AD1E0312D200992F02 /* BrewViewController.swift */,
+				9238DEF41E0722FE00350AB6 /* SshViewController.swift */,
 				928B99AF1E0312D200992F02 /* Assets.xcassets */,
 				928B99B11E0312D200992F02 /* Main.storyboard */,
 				928B99B41E0312D200992F02 /* Info.plist */,
 			);
 			path = kTools;
+			sourceTree = "<group>";
+		};
+		928B99BC1E0313C500992F02 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				928B99BA1E0313BE00992F02 /* CommandLine.swift */,
+				928B99BD1E0318F100992F02 /* NetworkTools.swift */,
+				92AF36081E06BAD900830DC9 /* TextGui.swift */,
+				9224C0521E06F88F00BE8DDD /* ImagesTools.swift */,
+			);
+			name = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				928B99B01E0312D200992F02 /* Assets.xcassets in Resources */,
+				9224C0511E06F58F00BE8DDD /* btn-power.png in Resources */,
 				928B99B31E0312D200992F02 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,7 +168,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				928B99AE1E0312D200992F02 /* ViewController.swift in Sources */,
+				928B99BE1E0318F100992F02 /* NetworkTools.swift in Sources */,
+				9238DEF51E0722FE00350AB6 /* SshViewController.swift in Sources */,
+				92AF36091E06BAD900830DC9 /* TextGui.swift in Sources */,
+				928B99BB1E0313BE00992F02 /* CommandLine.swift in Sources */,
+				9224C0531E06F88F00BE8DDD /* ImagesTools.swift in Sources */,
+				928B99AE1E0312D200992F02 /* BrewViewController.swift in Sources */,
 				928B99AC1E0312D200992F02 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +329,7 @@
 				928B99B91E0312D200992F02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
