@@ -1,10 +1,12 @@
 # kTools - by The Sunnyface.com
+![App Icon][appicon]
+
 
 A little GUI writen in swift 3.0 that helps developper in the everyday task. This tools aims to simplify little taks like starting and stoping services without the need of open the console and typing all the commands whe dont normaly remember.
 Its on a very BETA stage, anyone interested its wellcome to contribute in this project.
 This will be everyday taks that needs to be done on a regular basis with every new project, and the intention its to build over the time.
 
-![Brew screen capture](https://github.com/kikoseijo/kTools/raw/master/kTools/Images/Brew-capture.png "Brew screen capture")
+![Brew screen capture][Brew-capture]
 
 ## Current task done so far
 
@@ -28,4 +30,12 @@ The app itself its a tab style application, with 2 views for now,
 - Install Wordpress or Laravel with a single click in choosen Webserver (Using SSH keys without the need to login, and trough command line install packages on remote servers)
 
 
-![App Icon](https://github.com/kikoseijo/kTools/raw/master/kTools/Images/icon80x80.png "App icon")
+
+
+
+#
+
+
+
+[appicon]: https://github.com/kikoseijo/kTools/raw/master/kTools/Images/icon80x80.png "App icon"
+[Brew-capture]: https://github.com/kikoseijo/kTools/raw/master/kTools/Images/Brew-capture.png "Brew screen capture"
