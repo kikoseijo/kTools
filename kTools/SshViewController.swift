@@ -13,13 +13,16 @@ import Cocoa
 class SshViewController: NSViewController {
     
     
-    @IBOutlet var outputTextView: NSTextView!
+     @IBOutlet var sshTextView: NSTextView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        sshTextView.insertionPointColor = NSColor.white
+        sshTextView.textColor = NSColor.white
+        sshTextView.textStorage?.foregroundColor = NSColor.black
+
     
     }
     
@@ -31,14 +34,22 @@ class SshViewController: NSViewController {
     
     @IBAction func actionKnown_host(_ sender: NSButton)
     {
-        let command = "usr/local/bin/atom ~/.ssh/known_hosts"
-        run(comandToRun: command, textView: outputTextView)
+        let command = "/usr/local/bin/atom ~/.ssh/known_hosts"
+        run(comandToRun: command, textView: sshTextView)
     }
+    
+    @IBAction func editNginxConf(_ sender: NSButton)
+    {
+        let command = "/usr/local/bin/atom /usr/local/etc/nginx/nginx.conf"
+        run(comandToRun: command, textView: sshTextView)
+    }
+    
+
     
     @IBAction func testFunction(_ sender: NSButton) {
         let fileManager = FileManager.default
         let path = fileManager.currentDirectoryPath
-        outputTextView.append(string: path)
+        sshTextView.append(string: path)
     }
     
     @IBAction func flushDnsCache(_ sender: NSButton) {

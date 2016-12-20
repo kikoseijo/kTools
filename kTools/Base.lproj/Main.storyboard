@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
@@ -746,12 +746,53 @@
                                     <action selector="flushDnsCache:" target="DRT-oW-UdM" id="gBb-Km-JC3"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hI-bl-f5t">
+                                <rect key="frame" x="66" y="88" width="133" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Edit Nginx.conf" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b2l-I3-jHe">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="editNginxConf:" target="DRT-oW-UdM" id="GqK-gS-rOv"/>
+                                </connections>
+                            </button>
+                            <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrK-Fo-6ST">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="69"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <clipView key="contentView" ambiguous="YES" id="u7D-8S-t9h">
+                                    <rect key="frame" x="1" y="1" width="448" height="67"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView ambiguous="YES" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="l1c-RD-hek">
+                                            <rect key="frame" x="0.0" y="0.0" width="448" height="67"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="448" height="67"/>
+                                            <size key="maxSize" width="463" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="e6j-GR-CmE">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="oPc-Rx-b5z">
+                                    <rect key="frame" x="433" y="1" width="16" height="67"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="sshTextView" destination="l1c-RD-hek" id="L0r-1P-nT2"/>
+                    </connections>
                 </viewController>
                 <customObject id="oC0-sw-2QE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="585" y="510"/>
+            <point key="canvasLocation" x="679" y="482"/>
         </scene>
         <!--Brew-->
         <scene sceneID="eXh-nl-3Vk">
@@ -831,6 +872,17 @@
                                                                     </buttonCell>
                                                                     <connections>
                                                                         <action selector="reloadBrewService:" target="7Hq-Uf-9Oj" id="Qwv-5C-FDR"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="75P-81-GAf">
+                                                                    <rect key="frame" x="364" y="154" width="25" height="25"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="reload-icon-2.png" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="H7n-ag-9sE">
+                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="reloadServiceAction:" target="7Hq-Uf-9Oj" id="FfF-fo-RQ0"/>
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
@@ -1034,6 +1086,7 @@
                         <outlet property="brewServicesPopUp" destination="40k-3j-7Yv" id="p1l-yn-0dh"/>
                         <outlet property="brewStatusImg" destination="dHy-UA-2To" id="CE8-65-J08"/>
                         <outlet property="outputTextView" destination="PTY-yP-EPD" id="jub-Tv-q1G"/>
+                        <outlet property="reloadService" destination="75P-81-GAf" id="Wrh-l3-Vfc"/>
                         <outlet property="servicesTableView" destination="hpK-Ma-3md" id="Rcx-eK-hUt"/>
                     </connections>
                 </viewController>
@@ -1044,5 +1097,6 @@
     </scenes>
     <resources>
         <image name="btn-power" width="94.766067504882812" height="101.24421691894531"/>
+        <image name="reload-icon-2.png" width="128" height="128"/>
     </resources>
 </document>

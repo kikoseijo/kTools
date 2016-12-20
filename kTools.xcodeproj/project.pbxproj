@@ -17,6 +17,8 @@
 		928B99BB1E0313BE00992F02 /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B99BA1E0313BE00992F02 /* CommandLine.swift */; };
 		928B99BE1E0318F100992F02 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B99BD1E0318F100992F02 /* NetworkTools.swift */; };
 		92AF36091E06BAD900830DC9 /* TextGui.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF36081E06BAD900830DC9 /* TextGui.swift */; };
+		ADDE21581E093734007CCBF5 /* icon80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = ADDE21561E093734007CCBF5 /* icon80x80.png */; };
+		ADDE21591E093734007CCBF5 /* reload-icon-2.png in Resources */ = {isa = PBXBuildFile; fileRef = ADDE21571E093734007CCBF5 /* reload-icon-2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		928B99BA1E0313BE00992F02 /* CommandLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommandLine.swift; path = Tools/CommandLine.swift; sourceTree = "<group>"; };
 		928B99BD1E0318F100992F02 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		92AF36081E06BAD900830DC9 /* TextGui.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextGui.swift; sourceTree = "<group>"; };
+		ADDE21561E093734007CCBF5 /* icon80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80x80.png; sourceTree = "<group>"; };
+		ADDE21571E093734007CCBF5 /* reload-icon-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload-icon-2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +52,8 @@
 		9224C04B1E06F2BA00BE8DDD /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				ADDE21561E093734007CCBF5 /* icon80x80.png */,
+				ADDE21571E093734007CCBF5 /* reload-icon-2.png */,
 				9224C0501E06F58F00BE8DDD /* btn-power.png */,
 			);
 			path = Images;
@@ -156,8 +162,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				928B99B01E0312D200992F02 /* Assets.xcassets in Resources */,
+				ADDE21581E093734007CCBF5 /* icon80x80.png in Resources */,
 				9224C0511E06F58F00BE8DDD /* btn-power.png in Resources */,
 				928B99B31E0312D200992F02 /* Main.storyboard in Resources */,
+				ADDE21591E093734007CCBF5 /* reload-icon-2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

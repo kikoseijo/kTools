@@ -108,6 +108,13 @@ class BrewViewController: NSViewController {
         
     }
     
+    @IBOutlet weak var reloadService: NSButton!
+    
+    @IBAction func reloadServiceAction(_ sender: NSButton) {
+        let service = brewServicesPopUp.selectedItem?.title
+        let command = "/usr/local/bin/brew services reload " + service!
+        run(comandToRun: command, textView: outputTextView)
+    }
     
   
 }
