@@ -13,7 +13,14 @@ import Cocoa
 class SshViewController: NSViewController {
     
     
-     @IBOutlet var sshTextView: NSTextView!
+    @IBOutlet var sshTextView: NSTextView!
+    @IBOutlet weak var runAsSudo: NSButton!
+    @IBOutlet weak var execCommandTF: NSTextField!
+    @IBOutlet weak var execCommandSpinner: NSProgressIndicator!
+    @IBOutlet weak var execCommandBtn: NSButton!
+    
+    
+    
     
     
     override func viewDidLoad() {
@@ -55,6 +62,20 @@ class SshViewController: NSViewController {
         // NSAppleScript(source: "do shell script \"sudo killall -HUP mDNSResponder\" with administrator " +
         //    "privileges")!.executeAndReturnError(nil)
         flushDNS()
+    }
+    
+    
+    @IBAction func execCommandAction(_ sender: NSButton) {
+        
+        var command = execCommandTF.stringValue
+        if runAsSudo.state == 1 {
+            command = "sudo " + command
+        }
+        execCommandSpinner.startAnimation(self)
+        run(comandToRun: command, textView: sshTextView)
+        
+        execCommandSpinner.stopAnimation(self)
+        
     }
     
     

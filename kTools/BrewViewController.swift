@@ -13,7 +13,7 @@ import Cocoa
 class BrewViewController: NSViewController {
     
     
-    
+    let brew = Brew()
     
     var brewServices = [String : Bool]()
     var servicesArray = [String]()
@@ -60,25 +60,21 @@ class BrewViewController: NSViewController {
     private func loadBrewServices()
     {
         
-        brewServicesPopUp.removeAllItems()
+        
         servicesArray.removeAll()
         
-        let command = "sudo brew services list"
-        let output = command.runAsCommand()
-        outputTextView.append(string: "$ sudo brew services list\n" + output)
+        let servicesOutput = brew.getIsntalledServices()
+        servicesArray = servicesOutput.servicesArray
+        brewServices = servicesOutput.brewServices
+ 
         
-        var t=0
-        let lines = output.characters.split{ $0 == "\n"}.map(String.init)
-        for line in lines {
-            if t>0 {
-                let services = line.characters.split{ $0 == " "}.map(String.init)
-                servicesArray.append(services[0])
-                brewServices[services[0]] = services[1] == "stopped" ? false : true
-                brewServicesPopUp.addItem(withTitle: services[0])
-                
-            }
-            t += 1
-        }
+        brewServicesPopUp.removeAllItems()
+        brewServicesPopUp.addItems(withTitles: servicesArray)
+        
+        
+        outputTextView.append(string: "$ sudo brew services list\n" + servicesOutput.output)
+        
+        
         
         
         
