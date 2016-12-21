@@ -17,6 +17,7 @@ class BrewViewController: NSViewController {
     
     var brewServices = [String : Bool]()
     var servicesArray = [String]()
+    var phpVersions = ["php55", "php56", "php70", "php71"]
     
     
     @IBOutlet var outputTextView: NSTextView!
@@ -62,9 +63,9 @@ class BrewViewController: NSViewController {
         brewServicesPopUp.removeAllItems()
         servicesArray.removeAll()
         
-        let command = "/usr/local/bin/brew services list"
+        let command = "sudo brew services list"
         let output = command.runAsCommand()
-        outputTextView.append(string: "$ brew services list\n" + output)
+        outputTextView.append(string: "$ sudo brew services list\n" + output)
         
         var t=0
         let lines = output.characters.split{ $0 == "\n"}.map(String.init)

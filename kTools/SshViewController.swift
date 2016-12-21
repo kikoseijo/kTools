@@ -22,9 +22,8 @@ class SshViewController: NSViewController {
         sshTextView.insertionPointColor = NSColor.white
         sshTextView.textColor = NSColor.white
         sshTextView.textStorage?.foregroundColor = NSColor.black
-
-    
     }
+
     
     override var representedObject: Any? {
         didSet {

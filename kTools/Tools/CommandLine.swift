@@ -58,7 +58,8 @@ extension String {
     func runAsCommand() -> String {
         let pipe = Pipe()
         let task = Process()
-        task.launchPath = "/bin/sh"
+        let env = ProcessInfo.processInfo.environment as [String: String]
+        task.launchPath = env["SHELL"]! //env["PATH"]!
         task.arguments = ["-c", String(format:"%@", self)]
         task.standardOutput = pipe
         let file = pipe.fileHandleForReading

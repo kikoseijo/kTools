@@ -710,81 +710,113 @@
             <objects>
                 <viewController title="SSH" id="DRT-oW-UdM" customClass="SshViewController" customModule="kTools" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Pv0-0O-pew" customClass="S">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="775" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mlz-GP-AU6">
-                                <rect key="frame" x="57" y="207" width="151" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="known_host" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CVM-GL-xWa">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="actionKnown_host:" target="DRT-oW-UdM" id="KPO-Ys-ZCW"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vJ-84-pS5">
-                                <rect key="frame" x="57" y="174" width="151" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="path" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6HF-28-shT">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="testFunction:" target="DRT-oW-UdM" id="uFg-E2-VbV"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eY5-vp-txC">
-                                <rect key="frame" x="62" y="141" width="146" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Flush DNS Cache" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wxh-8T-iBl">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="flushDnsCache:" target="DRT-oW-UdM" id="gBb-Km-JC3"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hI-bl-f5t">
-                                <rect key="frame" x="66" y="88" width="133" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Edit Nginx.conf" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b2l-I3-jHe">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="editNginxConf:" target="DRT-oW-UdM" id="GqK-gS-rOv"/>
-                                </connections>
-                            </button>
-                            <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrK-Fo-6ST">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="69"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <clipView key="contentView" ambiguous="YES" id="u7D-8S-t9h">
-                                    <rect key="frame" x="1" y="1" width="448" height="67"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textView ambiguous="YES" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="l1c-RD-hek">
-                                            <rect key="frame" x="0.0" y="0.0" width="448" height="67"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="448" height="67"/>
-                                            <size key="maxSize" width="463" height="10000000"/>
-                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        </textView>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="e6j-GR-CmE">
-                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="oPc-Rx-b5z">
-                                    <rect key="frame" x="433" y="1" width="16" height="67"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
+                            <splitView arrangesAllSubviews="NO" dividerStyle="paneSplitter" translatesAutoresizingMaskIntoConstraints="NO" id="cWC-pK-jLI">
+                                <rect key="frame" x="0.0" y="0.0" width="775" height="300"/>
+                                <subviews>
+                                    <customView fixedFrame="YES" id="LQg-A0-HFs">
+                                        <rect key="frame" x="0.0" y="0.0" width="775" height="142"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <subviews>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mlz-GP-AU6">
+                                                <rect key="frame" x="14" y="102" width="151" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="push" title="known_host" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CVM-GL-xWa">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="actionKnown_host:" target="DRT-oW-UdM" id="KPO-Ys-ZCW"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vJ-84-pS5">
+                                                <rect key="frame" x="14" y="69" width="151" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="push" title="path" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6HF-28-shT">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="testFunction:" target="DRT-oW-UdM" id="uFg-E2-VbV"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eY5-vp-txC">
+                                                <rect key="frame" x="19" y="36" width="146" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="push" title="Flush DNS Cache" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wxh-8T-iBl">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="flushDnsCache:" target="DRT-oW-UdM" id="gBb-Km-JC3"/>
+                                                </connections>
+                                            </button>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hI-bl-f5t">
+                                                <rect key="frame" x="32" y="13" width="133" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="push" title="Edit Nginx.conf" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b2l-I3-jHe">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="editNginxConf:" target="DRT-oW-UdM" id="GqK-gS-rOv"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </customView>
+                                    <customView id="hqP-cC-L0u">
+                                        <rect key="frame" x="0.0" y="152" width="775" height="148"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <subviews>
+                                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrK-Fo-6ST">
+                                                <rect key="frame" x="5" y="5" width="765" height="138"/>
+                                                <clipView key="contentView" id="u7D-8S-t9h">
+                                                    <rect key="frame" x="1" y="1" width="763" height="136"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <subviews>
+                                                        <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="l1c-RD-hek">
+                                                            <rect key="frame" x="0.0" y="0.0" width="763" height="136"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <size key="minSize" width="763" height="136"/>
+                                                            <size key="maxSize" width="763" height="10000000"/>
+                                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        </textView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </clipView>
+                                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="e6j-GR-CmE">
+                                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </scroller>
+                                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="oPc-Rx-b5z">
+                                                    <rect key="frame" x="748" y="1" width="16" height="136"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </scroller>
+                                            </scrollView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="HrK-Fo-6ST" firstAttribute="top" secondItem="hqP-cC-L0u" secondAttribute="top" constant="5" id="RHA-BI-cH1"/>
+                                            <constraint firstAttribute="trailing" secondItem="HrK-Fo-6ST" secondAttribute="trailing" constant="5" id="ZaJ-XM-NnM"/>
+                                            <constraint firstAttribute="bottom" secondItem="HrK-Fo-6ST" secondAttribute="bottom" constant="5" id="fen-FQ-hVp"/>
+                                            <constraint firstItem="HrK-Fo-6ST" firstAttribute="leading" secondItem="hqP-cC-L0u" secondAttribute="leading" constant="5" id="h8J-zr-A1a"/>
+                                        </constraints>
+                                    </customView>
+                                </subviews>
+                                <holdingPriorities>
+                                    <real value="250"/>
+                                    <real value="250"/>
+                                </holdingPriorities>
+                            </splitView>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="cWC-pK-jLI" secondAttribute="bottom" id="3st-Ts-sjJ"/>
+                            <constraint firstAttribute="trailing" secondItem="cWC-pK-jLI" secondAttribute="trailing" id="AOo-kc-IwS"/>
+                            <constraint firstItem="cWC-pK-jLI" firstAttribute="top" secondItem="Pv0-0O-pew" secondAttribute="top" id="Cgp-IS-bSn"/>
+                            <constraint firstItem="cWC-pK-jLI" firstAttribute="leading" secondItem="Pv0-0O-pew" secondAttribute="leading" id="Lgn-b5-Jr7"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="sshTextView" destination="l1c-RD-hek" id="L0r-1P-nT2"/>
@@ -792,7 +824,7 @@
                 </viewController>
                 <customObject id="oC0-sw-2QE" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="679" y="482"/>
+            <point key="canvasLocation" x="841.5" y="482"/>
         </scene>
         <!--Brew-->
         <scene sceneID="eXh-nl-3Vk">

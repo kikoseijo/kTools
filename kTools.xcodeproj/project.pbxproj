@@ -17,6 +17,7 @@
 		928B99BB1E0313BE00992F02 /* CommandLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B99BA1E0313BE00992F02 /* CommandLine.swift */; };
 		928B99BE1E0318F100992F02 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B99BD1E0318F100992F02 /* NetworkTools.swift */; };
 		92AF36091E06BAD900830DC9 /* TextGui.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF36081E06BAD900830DC9 /* TextGui.swift */; };
+		AD0F48D51E0A8FC2009A3FF7 /* Brew.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F48D41E0A8FC2009A3FF7 /* Brew.swift */; };
 		ADDE21581E093734007CCBF5 /* icon80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = ADDE21561E093734007CCBF5 /* icon80x80.png */; };
 		ADDE21591E093734007CCBF5 /* reload-icon-2.png in Resources */ = {isa = PBXBuildFile; fileRef = ADDE21571E093734007CCBF5 /* reload-icon-2.png */; };
 /* End PBXBuildFile section */
@@ -34,6 +35,7 @@
 		928B99BA1E0313BE00992F02 /* CommandLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommandLine.swift; path = Tools/CommandLine.swift; sourceTree = "<group>"; };
 		928B99BD1E0318F100992F02 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		92AF36081E06BAD900830DC9 /* TextGui.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextGui.swift; sourceTree = "<group>"; };
+		AD0F48D41E0A8FC2009A3FF7 /* Brew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "\U0010Brew.swift"; sourceTree = "<group>"; };
 		ADDE21561E093734007CCBF5 /* icon80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80x80.png; sourceTree = "<group>"; };
 		ADDE21571E093734007CCBF5 /* reload-icon-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload-icon-2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -97,6 +99,7 @@
 				928B99BD1E0318F100992F02 /* NetworkTools.swift */,
 				92AF36081E06BAD900830DC9 /* TextGui.swift */,
 				9224C0521E06F88F00BE8DDD /* ImagesTools.swift */,
+				AD0F48D41E0A8FC2009A3FF7 /* Brew.swift */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				928B99BB1E0313BE00992F02 /* CommandLine.swift in Sources */,
 				9224C0531E06F88F00BE8DDD /* ImagesTools.swift in Sources */,
 				928B99AE1E0312D200992F02 /* BrewViewController.swift in Sources */,
+				AD0F48D51E0A8FC2009A3FF7 /* Brew.swift in Sources */,
 				928B99AC1E0312D200992F02 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
