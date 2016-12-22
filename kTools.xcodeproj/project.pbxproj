@@ -18,6 +18,7 @@
 		928B99BE1E0318F100992F02 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B99BD1E0318F100992F02 /* NetworkTools.swift */; };
 		92AF36091E06BAD900830DC9 /* TextGui.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AF36081E06BAD900830DC9 /* TextGui.swift */; };
 		AD0F48D51E0A8FC2009A3FF7 /* Brew.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0F48D41E0A8FC2009A3FF7 /* Brew.swift */; };
+		AD135F1F1E0BF15A00FD7101 /* Cons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD135F1E1E0BF15A00FD7101 /* Cons.swift */; };
 		ADDE21581E093734007CCBF5 /* icon80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = ADDE21561E093734007CCBF5 /* icon80x80.png */; };
 		ADDE21591E093734007CCBF5 /* reload-icon-2.png in Resources */ = {isa = PBXBuildFile; fileRef = ADDE21571E093734007CCBF5 /* reload-icon-2.png */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		928B99BD1E0318F100992F02 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		92AF36081E06BAD900830DC9 /* TextGui.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextGui.swift; sourceTree = "<group>"; };
 		AD0F48D41E0A8FC2009A3FF7 /* Brew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "\U0010Brew.swift"; sourceTree = "<group>"; };
+		AD135F1E1E0BF15A00FD7101 /* Cons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cons.swift; sourceTree = "<group>"; };
 		ADDE21561E093734007CCBF5 /* icon80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80x80.png; sourceTree = "<group>"; };
 		ADDE21571E093734007CCBF5 /* reload-icon-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload-icon-2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +82,7 @@
 		928B99AA1E0312D200992F02 /* kTools */ = {
 			isa = PBXGroup;
 			children = (
+				AD135F1D1E0BF13500FD7101 /* Lib */,
 				9224C04B1E06F2BA00BE8DDD /* Images */,
 				928B99BC1E0313C500992F02 /* Tools */,
 				928B99AB1E0312D200992F02 /* AppDelegate.swift */,
@@ -102,6 +105,14 @@
 				AD0F48D41E0A8FC2009A3FF7 /* Brew.swift */,
 			);
 			name = Tools;
+			sourceTree = "<group>";
+		};
+		AD135F1D1E0BF13500FD7101 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				AD135F1E1E0BF15A00FD7101 /* Cons.swift */,
+			);
+			name = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD135F1F1E0BF15A00FD7101 /* Cons.swift in Sources */,
 				928B99BE1E0318F100992F02 /* NetworkTools.swift in Sources */,
 				9238DEF51E0722FE00350AB6 /* SshViewController.swift in Sources */,
 				92AF36091E06BAD900830DC9 /* TextGui.swift in Sources */,

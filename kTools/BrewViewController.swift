@@ -13,11 +13,12 @@ import Cocoa
 class BrewViewController: NSViewController {
     
     
-    let brew = Brew()
+    private let brew = Brew()
+    private let commander = Commander()
     
     var brewServices = [String : Bool]()
     var servicesArray = [String]()
-    var phpVersions = ["php55", "php56", "php70", "php71"]
+    private var phpVersions = ["php55", "php56", "php70", "php71"]
     
     
     @IBOutlet var outputTextView: NSTextView!
@@ -74,10 +75,6 @@ class BrewViewController: NSViewController {
         
         outputTextView.append(string: "$ sudo brew services list\n" + servicesOutput.output)
         
-        
-        
-        
-        
         if let thisService = brewServicesPopUp.selectedItem?.title {
             updateBrewServiceImageStatus(status: thisService)
         }
@@ -99,7 +96,7 @@ class BrewViewController: NSViewController {
         let action = sender.tag == 1 ? "start" : "stop"
         let service = brewServicesPopUp.selectedItem?.title
         let command = "/usr/local/bin/brew services " + action + " " + service!
-        run(comandToRun: command, textView: outputTextView)
+        commander.run(comandToRun: command, textView: outputTextView)
         brewServices[service!] = !brewServices[service!]!
         updateBrewServiceImageStatus(status: service!)
         
@@ -110,7 +107,7 @@ class BrewViewController: NSViewController {
     @IBAction func reloadServiceAction(_ sender: NSButton) {
         let service = brewServicesPopUp.selectedItem?.title
         let command = "/usr/local/bin/brew services reload " + service!
-        run(comandToRun: command, textView: outputTextView)
+        commander.run(comandToRun: command, textView: outputTextView)
     }
     
   
