@@ -67,7 +67,7 @@ The app itself its a tab style application, with the following tabs:
 ###
 ###
 ###
-* Made in Spain, with love, by ***Kiko Seijo***
+ Made in Spain, with love, by ***Kiko Seijo***
 
 #
 
