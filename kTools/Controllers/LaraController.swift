@@ -14,18 +14,24 @@ class LaraController: NSViewController {
     
     let dbManager = PlistManager.sharedInstance
     var projects: Array<Dictionary<String, String>> = []
+    var currProject: Int = -1
     
     @IBOutlet weak var projectsTable: NSTableView!
-    @IBOutlet weak var nameLb: NSTextField!
-    @IBOutlet weak var lpathLb: NSTextField!
-    @IBOutlet weak var rpathLb: NSTextField!
-    @IBOutlet weak var typeLb: NSTextField!
+    @IBOutlet weak var nameTf: NSTextField!
+    @IBOutlet weak var lPathTf: NSTextField!
+    @IBOutlet weak var rPathTf: NSTextField!
+    @IBOutlet weak var typePf: NSPopUpButton!
+    @IBOutlet weak var newBtn: NSButton!
+    @IBOutlet weak var saveBtn: NSButton!
+    @IBOutlet weak var deleteBtn: NSButton!
+
     
     @IBOutlet weak var refreshSeedBtn: NSButton!
+    @IBOutlet weak var atomBtn: NSButton!
     
     @IBAction func refreshAndSeedDb(_ sender: NSButton) {
         
-        let localPath = lpathLb.stringValue
+        let localPath = lPathTf.stringValue
         if localPath.isEmpty {
             return
         }
@@ -37,8 +43,67 @@ class LaraController: NSViewController {
         
     }
     
+    @IBAction func atomAction(_ sender: NSButton) {
+        let localPath = lPathTf.stringValue
+        if localPath.isEmpty {
+            return
+        }
+        let commando = "/usr/local/bin/atom \(localPath)"
+        let output = commando.runAsCommand()
+        
+        print(output)
+        
+    }
+    
     @IBAction func addProject(_ sender: NSButton) {
     }
+    
+    @IBAction func newProject(_ sender: NSButton) {
+        clearForm()
+        saveBtn.isHidden = false
+        newBtn.isHidden = true
+        deleteBtn.isHidden = true
+        
+    }
+    
+    @IBAction func saveProject(_ sender: NSButton) {
+        
+        let tipo = typePf.selectedItem?.title
+        
+        let newProject: [String:String] = [
+            "name" : nameTf.stringValue,
+            "type" : tipo!,
+            "localPath" : lPathTf.stringValue,
+            "remotePath" : rPathTf.stringValue,
+            ]
+        
+        projects.append(newProject)
+        dbManager.saveValue(value: projects as AnyObject, forKey: "LaraProjects")
+        projectsTable.reloadData()
+        
+        clearForm()
+        
+        saveBtn.isHidden = true
+        newBtn.isHidden = false
+        deleteBtn.isHidden = true
+        
+        
+        
+    }
+    
+    @IBAction func deleteProject(_ sender: NSButton) {
+    }
+    
+    private func clearForm(){
+        nameTf.stringValue = ""
+        lPathTf.stringValue = ""
+        rPathTf.stringValue = ""
+        typePf.stringValue = ""
+        
+        refreshSeedBtn.isEnabled = true
+        atomBtn.isEnabled = true
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +111,9 @@ class LaraController: NSViewController {
         projectsTable.dataSource = self
         
         refreshSeedBtn.isEnabled = false
+        atomBtn.isEnabled = false
+        saveBtn.isHidden = true
+        deleteBtn.isHidden = true
         
     }
     
@@ -79,14 +147,23 @@ extension LaraController: NSTableViewDelegate {
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        print(currProject)
+        currProject = row
+        print(currProject)
+        
         let projecto = projects[row]
         
-        nameLb.stringValue = projecto["name"]!
-        lpathLb.stringValue = projecto["localPath"]!
-        rpathLb.stringValue = projecto["remotePath"]!
-        typeLb.stringValue = projecto["type"]!
+        nameTf.stringValue = projecto["name"]!
+        lPathTf.stringValue = projecto["localPath"]!
+        rPathTf.stringValue = projecto["remotePath"]!
+        typePf.stringValue = projecto["type"]!
         
         refreshSeedBtn.isEnabled = true
+        atomBtn.isEnabled = true
+        
+        saveBtn.isHidden = false
+        newBtn.isHidden = false
+        deleteBtn.isHidden = false
         
         return true
     }
