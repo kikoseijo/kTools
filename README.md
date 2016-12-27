@@ -68,6 +68,7 @@ The app itself its a tab style application, with the following tabs:
 ###
 ###
 * Made in Spain, with love, by ***Kiko Seijo***
+
 #
 
 [appicon]: https://github.com/kikoseijo/kTools/raw/master/kTools/Images/icon32x32.png "App icon"
