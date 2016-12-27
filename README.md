@@ -17,6 +17,7 @@ The app itself its a tab style application, with 2 views for now,
 - Allows you to `Start` or `Stop` Homebrew installed services
 - Has build in NSTextView  simulating a log console to output the commands executed.
 - At init will enquire `brew` to get services installed parsing the response of `/usr/local/bin/brew services list` command and creating a NSTableView to list the services and informs about where its Stopped or Running.
+- Interface to interact with projects, its uses the users `Library/Application Support/kTools` directory to save a `.plist` file to save projects with Name, LocalPath, Remote Path and Type
 
 ## Future taks
 

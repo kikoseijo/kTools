@@ -3,14 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>LaraProjects</key>
-	<array/>
-	<key>Name</key>
-	<string>Ba-bit Cientific</string>
-	<key>LocalPath</key>
-	<string>/Users/smac/Developer/LavarelProjects/babit</string>
-	<key>RemotePath</key>
-	<string>/home/babit</string>
-	<key>Type</key>
-	<string>Laravel</string>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>Babit Cientific</string>
+			<key>type</key>
+			<string>Laravel</string>
+			<key>localPath</key>
+			<string>/Users/smac/Developer/LavarelProjects/babit</string>
+			<key>remotePath</key>
+			<string>/home/babit</string>
+		</dict>
+	</array>
 </dict>
 </plist>

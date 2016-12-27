@@ -9,6 +9,7 @@
 import Foundation
 
 enum App:String {
+    case name = "kTools"
     case version = "0.0.1"
 }
 

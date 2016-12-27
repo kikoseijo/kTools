@@ -44,6 +44,7 @@
 		928B99AF1E0312D200992F02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		928B99B21E0312D200992F02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		928B99B41E0312D200992F02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92F8B6CE1E128F2200734D9E /* Laravel-dbRefresh.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "Laravel-dbRefresh.sh"; path = "Bash/Laravel-dbRefresh.sh"; sourceTree = "<group>"; };
 		ADDE21561E093734007CCBF5 /* icon80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80x80.png; sourceTree = "<group>"; };
 		ADDE21571E093734007CCBF5 /* reload-icon-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload-icon-2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,6 +121,7 @@
 		928B99AA1E0312D200992F02 /* kTools */ = {
 			isa = PBXGroup;
 			children = (
+				92F8B6CD1E128ED900734D9E /* Bash */,
 				927C1E191E126DDF00E2A506 /* Lib */,
 				927C1E1C1E126DE000E2A506 /* Tools */,
 				9224C04B1E06F2BA00BE8DDD /* Images */,
@@ -130,6 +132,14 @@
 				928B99B41E0312D200992F02 /* Info.plist */,
 			);
 			path = kTools;
+			sourceTree = "<group>";
+		};
+		92F8B6CD1E128ED900734D9E /* Bash */ = {
+			isa = PBXGroup;
+			children = (
+				92F8B6CE1E128F2200734D9E /* Laravel-dbRefresh.sh */,
+			);
+			name = Bash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

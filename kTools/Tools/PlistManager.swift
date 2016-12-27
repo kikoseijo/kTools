@@ -8,7 +8,7 @@
 
 import Foundation
 
-let plistFileName:String = "MyData"
+let plistFileName:String = "ProjectsDB"
 
 struct Plist {
   
@@ -18,6 +18,7 @@ struct Plist {
   }
   
   let name:String
+  let fileManager = FileManager.default
   
   var sourcePath:String? {
     guard let path = Bundle.main.path(forResource: name, ofType: "plist") else { return .none }
@@ -26,15 +27,24 @@ struct Plist {
   
   var destPath:String? {
     guard sourcePath != .none else { return .none }
-    let dir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-    return (dir as NSString).appendingPathComponent("\(name).plist")
+    let dir = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)[0]
+    let appFolder = (dir as NSString).appendingPathComponent("\(App.name.rawValue)")
+    var isDir: ObjCBool = false
+    if false == fileManager.fileExists(atPath: appFolder, isDirectory: &isDir) {
+        do {
+            try fileManager.createDirectory(atPath: appFolder, withIntermediateDirectories: true, attributes: nil)
+        } catch let error as NSError {
+            print("Error: \(error.localizedDescription)")
+        }
+    }
+    return (appFolder as NSString).appendingPathComponent("/\(name).plist")
   }
   
   init?(name:String) {
     
     self.name = name
     
-    let fileManager = FileManager.default
+    //print(destPath)
     
     guard let source = sourcePath else { return nil }
     guard let destination = destPath else { return nil }
@@ -52,7 +62,6 @@ struct Plist {
   }
   
   func getValuesInPlistFile() -> NSDictionary?{
-    let fileManager = FileManager.default
     if fileManager.fileExists(atPath: destPath!) {
       guard let dict = NSDictionary(contentsOfFile: destPath!) else { return .none }
       return dict
@@ -62,7 +71,6 @@ struct Plist {
   }
   
   func getMutablePlistFile() -> NSMutableDictionary?{
-    let fileManager = FileManager.default
     if fileManager.fileExists(atPath: destPath!) {
       guard let dict = NSMutableDictionary(contentsOfFile: destPath!) else { return .none }
       return dict
@@ -72,7 +80,6 @@ struct Plist {
   }
   
   func addValuesToPlistFile(dictionary:NSDictionary) throws {
-    let fileManager = FileManager.default
     if fileManager.fileExists(atPath: destPath!) {
       if !dictionary.write(toFile: destPath!, atomically: false) {
         print("[PlistManager] File not written successfully")
