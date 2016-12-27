@@ -15,6 +15,7 @@ class LaraController: NSViewController {
     let dbManager = PlistManager.sharedInstance
     var projects: Array<Dictionary<String, String>> = []
     var currProject: Int = -1
+    var projectTypeSources = ["Laravel", "xCode", "Mean", "Android"];
     
     @IBOutlet weak var projectsTable: NSTableView!
     @IBOutlet weak var nameTf: NSTextField!
@@ -30,6 +31,7 @@ class LaraController: NSViewController {
     @IBOutlet weak var refreshSeedBtn: NSButton!
     @IBOutlet weak var atomBtn: NSButton!
     @IBOutlet weak var gitCommitBtn: NSButton!
+    @IBOutlet weak var finderBtn: NSButton!
     
     @IBAction func refreshAndSeedDb(_ sender: NSButton) {
         
@@ -54,8 +56,22 @@ class LaraController: NSViewController {
         let output = commando.runAsCommand()
         
         print(output)
-        
     }
+    
+    @IBAction func finderAction(_ sender: NSButton) {
+        let localPath = lPathTf.stringValue
+        if localPath.isEmpty {
+            return
+        }
+        
+        let commando = "cd \(localPath) && open ."
+        let output = commando.runAsCommand()
+        
+        print(output)
+    }
+    
+    
+    
     @IBAction func gitCommitAction(_ sender: NSButton) {
         let commitMesg = gitMsgTf.stringValue
         let localPath = lPathTf.stringValue
@@ -66,6 +82,10 @@ class LaraController: NSViewController {
         let commando = "cd \(localPath) && git add . && git commit -m \"\(commitMesg)\" && git push"
         let output = commando.runAsCommand()
         print(output)
+        
+        gitMsgTf.stringValue = ""
+        
+        
     }
     
     @IBAction func addProject(_ sender: NSButton) {
@@ -92,7 +112,7 @@ class LaraController: NSViewController {
             "remotePath" : rPathTf.stringValue,
             ]
         if (currProject>=0){
-            projects.insert(newProject, at: currProject)
+            projects[currProject] = newProject
         } else {
             projects.append(newProject)
         }
@@ -129,7 +149,7 @@ class LaraController: NSViewController {
         nameTf.stringValue = ""
         lPathTf.stringValue = ""
         rPathTf.stringValue = ""
-        typePf.stringValue = ""
+        typePf.selectItem(at: 0)
         
         refreshSeedBtn.isEnabled = true
         atomBtn.isEnabled = true
@@ -138,13 +158,17 @@ class LaraController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         projectsTable.delegate = self
         projectsTable.dataSource = self
+        
+        typePf.addItems(withTitles: projectTypeSources)
         
         refreshSeedBtn.isEnabled = false
         atomBtn.isEnabled = false
         saveBtn.isHidden = true
         deleteBtn.isHidden = true
+        
         
     }
     
@@ -185,7 +209,7 @@ extension LaraController: NSTableViewDelegate {
         nameTf.stringValue = projecto["name"]!
         lPathTf.stringValue = projecto["localPath"]!
         rPathTf.stringValue = projecto["remotePath"]!
-        typePf.stringValue = projecto["type"]!
+        typePf.selectItem(withTitle: projecto["type"]!)
         
         refreshSeedBtn.isEnabled = true
         atomBtn.isEnabled = true

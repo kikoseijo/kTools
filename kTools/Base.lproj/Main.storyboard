@@ -1062,7 +1062,7 @@
                                 </customSpacing>
                             </stackView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZA-o0-SjD">
-                                <rect key="frame" x="186" y="191" width="140" height="32"/>
+                                <rect key="frame" x="186" y="192" width="140" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Open With Atom" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bbn-b0-vHB">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1092,6 +1092,17 @@
                                     <action selector="gitCommitAction:" target="gds-Hn-PfE" id="vQm-zH-i1y"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-D5-ZvI">
+                                <rect key="frame" x="338" y="192" width="146" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Open With Finder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eyy-2r-Cap">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="finderAction:" target="gds-Hn-PfE" id="qXP-5S-YeO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="ah3-nT-rCM" firstAttribute="leading" secondItem="fxc-mS-64a" secondAttribute="leading" constant="20" id="GY5-8D-kXt"/>
@@ -1102,6 +1113,7 @@
                     <connections>
                         <outlet property="atomBtn" destination="oZA-o0-SjD" id="Hq7-18-NDY"/>
                         <outlet property="deleteBtn" destination="53Z-zf-SUq" id="6Tm-dS-kuJ"/>
+                        <outlet property="finderBtn" destination="RdE-D5-ZvI" id="yxr-G3-NVs"/>
                         <outlet property="gitCommitBtn" destination="vkj-j6-UjG" id="HLJ-Ai-iIA"/>
                         <outlet property="gitMsgTf" destination="Vko-Sz-4re" id="FCm-Nr-CrN"/>
                         <outlet property="lPathTf" destination="Bbf-dT-Eil" id="0aJ-Lq-LPZ"/>
