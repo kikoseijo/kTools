@@ -24,10 +24,12 @@ class LaraController: NSViewController {
     @IBOutlet weak var newBtn: NSButton!
     @IBOutlet weak var saveBtn: NSButton!
     @IBOutlet weak var deleteBtn: NSButton!
+    @IBOutlet weak var gitMsgTf: NSTextField!
 
     
     @IBOutlet weak var refreshSeedBtn: NSButton!
     @IBOutlet weak var atomBtn: NSButton!
+    @IBOutlet weak var gitCommitBtn: NSButton!
     
     @IBAction func refreshAndSeedDb(_ sender: NSButton) {
         
@@ -54,12 +56,25 @@ class LaraController: NSViewController {
         print(output)
         
     }
+    @IBAction func gitCommitAction(_ sender: NSButton) {
+        let commitMesg = gitMsgTf.stringValue
+        let localPath = lPathTf.stringValue
+        if commitMesg.isEmpty, localPath.isEmpty {
+            return
+        }
+        
+        let commando = "cd \(localPath) && git add . && git commit -m \"\(commitMesg)\" && git push"
+        let output = commando.runAsCommand()
+        print(output)
+    }
     
     @IBAction func addProject(_ sender: NSButton) {
+        newProject(sender)
     }
     
     @IBAction func newProject(_ sender: NSButton) {
         clearForm()
+        currProject = -1
         saveBtn.isHidden = false
         newBtn.isHidden = true
         deleteBtn.isHidden = true
@@ -76,8 +91,12 @@ class LaraController: NSViewController {
             "localPath" : lPathTf.stringValue,
             "remotePath" : rPathTf.stringValue,
             ]
+        if (currProject>=0){
+            projects.insert(newProject, at: currProject)
+        } else {
+            projects.append(newProject)
+        }
         
-        projects.append(newProject)
         dbManager.saveValue(value: projects as AnyObject, forKey: "LaraProjects")
         projectsTable.reloadData()
         
@@ -92,6 +111,18 @@ class LaraController: NSViewController {
     }
     
     @IBAction func deleteProject(_ sender: NSButton) {
+        projects.remove(at: currProject)
+        dbManager.saveValue(value: projects as AnyObject, forKey: "LaraProjects")
+        projectsTable.reloadData()
+        currProject -= 1
+        if currProject<0 {
+            currProject = 0
+        }
+        if projects.count>0 {
+            let index : IndexSet = [currProject]
+            projectsTable.selectRowIndexes(index, byExtendingSelection: false)
+        }
+        
     }
     
     private func clearForm(){
@@ -147,10 +178,8 @@ extension LaraController: NSTableViewDelegate {
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        print(currProject)
-        currProject = row
-        print(currProject)
         
+        currProject = row
         let projecto = projects[row]
         
         nameTf.stringValue = projecto["name"]!
