@@ -30,7 +30,7 @@ The app itself its a tab style application, with the following tabs:
 - Allows you to `Start` or `Stop` Homebrew installed services
 - Has built in NSTextView simulating a console log to output the commands response being executed.
 
-![Homebrew Tab capture][Hombrew-tab]
+![Homebrew Tab capture][Homebrew-tab]
 
 ### Projects
 
