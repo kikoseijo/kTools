@@ -16,10 +16,12 @@ class Brew {
     
     public func isFormulaInstalled(formula:String) -> Bool {
         
+        
+        
         //brew list | grep formula
         let command = brewExec + "list | grep " + formula
-        let out = command.runAsCommand()
-        let lines = out.characters.split{ $0 == "\n"}.map(String.init)
+        let output = command.runAsCommand()
+        let lines = output.characters.split{ $0 == "\n"}.map(String.init)
         print(lines)
         return lines.contains(formula)
         

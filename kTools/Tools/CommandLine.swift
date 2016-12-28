@@ -10,6 +10,21 @@ import Cocoa
 
 class Commander {
     
+    /**
+     If `executable` is not a path and a path for an executable file of that name can be found, return that path.
+     Otherwise just return `executable`.
+     */
+    func pathForExecutable (executable: String) -> String {
+        guard !executable.characters.contains("/") else {
+            return executable
+        }
+        let findCommand = "/usr/bin/which \(executable)"
+        let out = findCommand.runAsCommand()
+        return out.isEmpty ? executable : out
+    }
+    
+
+    
     public func run(comandToRun: String, textView: NSTextView) {
         let output = comandToRun.runAsCommand()
         let fullOutput = "$ " + comandToRun + "\n" + output
@@ -22,7 +37,10 @@ class Commander {
         var error : [String] = []
         
         let task = Process()
-        task.launchPath = cmd
+        
+        let commandToRun = Commander().pathForExecutable(executable: cmd)
+        
+        task.launchPath = commandToRun
         task.arguments = args
         
         let outpipe = Pipe()
@@ -49,6 +67,7 @@ class Commander {
         
         return (output, error, status)
     }
+    
 }
 
 

@@ -52,7 +52,7 @@ class LaraController: NSViewController {
         if localPath.isEmpty {
             return
         }
-        let commando = "/usr/local/bin/atom \(localPath)"
+        let commando = "\(ExecPaths.atom.rawValue) \(localPath)"
         let output = commando.runAsCommand()
         
         print(output)

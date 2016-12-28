@@ -16,6 +16,7 @@ enum App:String {
 enum ExecPaths: String {
     case brew = "/usr/local/bin/brew"
     case nginx = "/usr/local/bin/nginx"
+    case atom = "/usr/local/bin/atom"
     case c = "C"
 }
 

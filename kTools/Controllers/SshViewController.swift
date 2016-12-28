@@ -13,16 +13,17 @@ import Cocoa
 class SshViewController: NSViewController {
 
     private let commander = Commander()
+    private let brewPath = ExecPaths.atom.rawValue
     
     @IBAction func actionKnown_host(_ sender: NSButton)
     {
-        let command = "/usr/local/bin/atom ~/.ssh/known_hosts"
+        let command = "\(brewPath) ~/.ssh/known_hosts"
         commander.run(comandToRun: command, textView: sshTextView)
     }
     
     @IBAction func editNginxConf(_ sender: NSButton)
     {
-        let command = "/usr/local/bin/atom /usr/local/etc/nginx/nginx.conf"
+        let command = "\(brewPath) /usr/local/etc/nginx/nginx.conf"
         commander.run(comandToRun: command, textView: sshTextView)
     }
     
