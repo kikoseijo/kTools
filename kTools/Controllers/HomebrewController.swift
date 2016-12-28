@@ -10,11 +10,11 @@ import Cocoa
 
 //@IBDesignable
 
-class BrewViewController: NSViewController {
+class HomebrewController: NSViewController {
     
     
     private let brew = Brew()
-    private let commander = Commander()
+    private let cmd = Commander()
     
     var brewServices = [String : Bool]()
     var servicesArray = [String]()
@@ -96,7 +96,7 @@ class BrewViewController: NSViewController {
         let action = sender.tag == 1 ? "start" : "stop"
         let service = brewServicesPopUp.selectedItem?.title
         let command = "/usr/local/bin/brew services " + action + " " + service!
-        commander.run(comandToRun: command, textView: outputTextView)
+        cmd.runAndPrint(comandToRun: command, textView: outputTextView)
         brewServices[service!] = !brewServices[service!]!
         updateBrewServiceImageStatus(status: service!)
         
@@ -107,13 +107,13 @@ class BrewViewController: NSViewController {
     @IBAction func reloadServiceAction(_ sender: NSButton) {
         let service = brewServicesPopUp.selectedItem?.title
         let command = "/usr/local/bin/brew services reload " + service!
-        commander.run(comandToRun: command, textView: outputTextView)
+        cmd.runAndPrint(comandToRun: command, textView: outputTextView)
     }
     
   
 }
 
-extension BrewViewController: NSTableViewDataSource {
+extension HomebrewController: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return servicesArray.count 
@@ -121,7 +121,7 @@ extension BrewViewController: NSTableViewDataSource {
     
 }
 
-extension BrewViewController: NSTableViewDelegate {
+extension HomebrewController: NSTableViewDelegate {
     
     fileprivate enum CellIdentifiers {
         static let NameCell = "NameCellID"

@@ -8,13 +8,13 @@
 
 import Cocoa
 
+let ENV = ["PATH": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local",
+             "HOME": ProcessInfo.processInfo.environment["HOME"]!,
+             "LANG": "en_CA.UTF-8"]
+
 class Commander {
     
-    /**
-     If `executable` is not a path and a path for an executable file of that name can be found, return that path.
-     Otherwise just return `executable`.
-     */
-    func pathForExecutable (executable: String) -> String {
+    func whichPath (executable: String) -> String {
         guard !executable.characters.contains("/") else {
             return executable
         }
@@ -23,25 +23,26 @@ class Commander {
         return out.isEmpty ? executable : out
     }
     
-
-    
-    public func run(comandToRun: String, textView: NSTextView) {
+    public func runAndPrint(comandToRun: String, textView: NSTextView) {
         let output = comandToRun.runAsCommand()
         let fullOutput = "$ " + comandToRun + "\n" + output
         textView.append(string: fullOutput);
     }
     
-    public func runCommand(cmd : String, args : String...) -> (output: [String], error: [String], exitCode: Int32) {
+    func launchTerminalWith(command:String) {
+        NSAppleScript(source: "tell application \"Terminal\" to do script \"\(command)\"")!.executeAndReturnError(nil)
+    }
+    
+    func run(cmd : String, args : String...) -> (output: [String], error: [String], exitCode: Int32) {
         
         var output : [String] = []
         var error : [String] = []
         
         let task = Process()
-        
-        let commandToRun = Commander().pathForExecutable(executable: cmd)
-        
-        task.launchPath = commandToRun
+        task.environment = ENV
+        task.launchPath = cmd
         task.arguments = args
+        task.currentDirectoryPath = "/usr/local/bin"
         
         let outpipe = Pipe()
         task.standardOutput = outpipe
@@ -71,20 +72,12 @@ class Commander {
 }
 
 
-
-
-
-
-
-
-
-
-
 extension String {
     func runAsCommand() -> String {
         let pipe = Pipe()
         let task = Process()
         let env = ProcessInfo.processInfo.environment as [String: String]
+        task.environment = ENV
         task.launchPath = env["SHELL"]! //env["PATH"]!
         task.arguments = ["-c", String(format:"%@", self)]
         task.standardOutput = pipe

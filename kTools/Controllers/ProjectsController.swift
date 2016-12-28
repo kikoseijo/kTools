@@ -10,7 +10,9 @@ import Cocoa
 
 //@IBDesignable
 
-class LaraController: NSViewController {
+class ProjectsController: NSViewController {
+    
+    private let cmd = Commander()
     
     let dbManager = PlistManager.sharedInstance
     var projects: Array<Dictionary<String, String>> = []
@@ -26,12 +28,10 @@ class LaraController: NSViewController {
     @IBOutlet weak var saveBtn: NSButton!
     @IBOutlet weak var deleteBtn: NSButton!
     @IBOutlet weak var gitMsgTf: NSTextField!
-
     
-    @IBOutlet weak var refreshSeedBtn: NSButton!
-    @IBOutlet weak var atomBtn: NSButton!
-    @IBOutlet weak var gitCommitBtn: NSButton!
-    @IBOutlet weak var finderBtn: NSButton!
+    @IBOutlet weak var toolsTab: NSTabView!
+    
+    // MARK: Laravel Actions
     
     @IBAction func refreshAndSeedDb(_ sender: NSButton) {
         
@@ -47,15 +47,39 @@ class LaraController: NSViewController {
         
     }
     
-    @IBAction func atomAction(_ sender: NSButton) {
+    @IBAction func artisanServe(_ sender: NSButton) {
         let localPath = lPathTf.stringValue
         if localPath.isEmpty {
             return
         }
-        let commando = "\(ExecPaths.atom.rawValue) \(localPath)"
+        cmd.launchTerminalWith(command: "cd \(localPath) && php artisan serve")
+    }
+    
+    @IBAction func artisanGulp(_ sender: NSButton) {
+        let localPath = lPathTf.stringValue
+        if localPath.isEmpty {
+            return
+        }
+        
+        let commando = "cd \(localPath) && gulp"
         let output = commando.runAsCommand()
         
         print(output)
+        
+    }
+    
+    @IBAction func atomAction(_ sender: NSButton) {
+        
+        let localPath = lPathTf.stringValue
+        if localPath.isEmpty {
+            return
+        }
+        
+        let atomPath = cmd.whichPath(executable: "atom")
+        let command = "\(atomPath) localPath"
+        let res = command.runAsCommand()
+        print(res)
+        
     }
     
     @IBAction func finderAction(_ sender: NSButton) {
@@ -86,10 +110,6 @@ class LaraController: NSViewController {
         gitMsgTf.stringValue = ""
         
         
-    }
-    
-    @IBAction func addProject(_ sender: NSButton) {
-        newProject(sender)
     }
     
     @IBAction func newProject(_ sender: NSButton) {
@@ -151,9 +171,9 @@ class LaraController: NSViewController {
         rPathTf.stringValue = ""
         typePf.selectItem(at: 0)
         
-        refreshSeedBtn.isEnabled = true
-        atomBtn.isEnabled = true
     }
+    
+    // MARK: Life Cycle
     
     
     override func viewDidLoad() {
@@ -164,17 +184,21 @@ class LaraController: NSViewController {
         
         typePf.addItems(withTitles: projectTypeSources)
         
-        refreshSeedBtn.isEnabled = false
-        atomBtn.isEnabled = false
-        saveBtn.isHidden = true
+        saveBtn.isHidden = false
         deleteBtn.isHidden = true
+        newBtn.isHidden = true
         
+        
+        toolsTab.isHidden = true
+        toolsTab.delegate = self
         
     }
     
     override func viewWillAppear() {
+        
         projects = dbManager.getValueForKey(key: "LaraProjects") as! Array<Dictionary<String, String>>
         projectsTable.reloadData()
+        
     }
     
     override var representedObject: Any? {
@@ -184,7 +208,36 @@ class LaraController: NSViewController {
     }
 }
 
-extension LaraController: NSTableViewDataSource {
+extension ProjectsController: NSTabViewDelegate {
+
+    func tabView(_ tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool{
+        
+        if(currProject>=0){
+            let curProjectType = projects[currProject]["type"]
+            let tbId = tabViewItem?.identifier as! String
+            if curProjectType == "xCode" {
+                if tbId  == "xcode" || tbId == "git" || tbId  == "atom"{
+                    return true
+                } else {
+                    return false
+                }
+            } else if curProjectType == "Laravel" {
+                if  tbId  == "lara" || tbId == "git" || tbId == "atom"{
+                    return true
+                } else {
+                    return false
+                }
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+        
+    }
+}
+
+extension ProjectsController: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return projects.count
@@ -192,7 +245,7 @@ extension LaraController: NSTableViewDataSource {
     
 }
 
-extension LaraController: NSTableViewDelegate {
+extension ProjectsController: NSTableViewDelegate {
     
     fileprivate enum CellIdentifiers {
         static let NameCell = "NameCellID"
@@ -211,8 +264,14 @@ extension LaraController: NSTableViewDelegate {
         rPathTf.stringValue = projecto["remotePath"]!
         typePf.selectItem(withTitle: projecto["type"]!)
         
-        refreshSeedBtn.isEnabled = true
-        atomBtn.isEnabled = true
+        toolsTab.isHidden = false
+        if projecto["type"] == "Laravel" {
+            toolsTab.selectTabViewItem(withIdentifier: "lara")
+        } else if projecto["type"] == "xCode"{
+            toolsTab.selectTabViewItem(withIdentifier: "xcode")
+        } else if projecto["type"] == "wp"{
+            toolsTab.selectTabViewItem(withIdentifier: "xcode")
+        }
         
         saveBtn.isHidden = false
         newBtn.isHidden = false

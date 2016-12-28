@@ -10,21 +10,21 @@ import Cocoa
 
 //@IBDesignable
 
-class SshViewController: NSViewController {
+class CommanderController: NSViewController {
 
-    private let commander = Commander()
+    private let cmd = Commander()
     private let brewPath = ExecPaths.atom.rawValue
     
     @IBAction func actionKnown_host(_ sender: NSButton)
     {
         let command = "\(brewPath) ~/.ssh/known_hosts"
-        commander.run(comandToRun: command, textView: sshTextView)
+        cmd.runAndPrint(comandToRun: command, textView: sshTextView)
     }
     
     @IBAction func editNginxConf(_ sender: NSButton)
     {
         let command = "\(brewPath) /usr/local/etc/nginx/nginx.conf"
-        commander.run(comandToRun: command, textView: sshTextView)
+        cmd.runAndPrint(comandToRun: command, textView: sshTextView)
     }
     
 
@@ -56,7 +56,7 @@ class SshViewController: NSViewController {
             command = "sudo " + command
         }
         execCommandSpinner.startAnimation(self)
-        commander.run(comandToRun: command, textView: sshTextView)
+        cmd.runAndPrint(comandToRun: command, textView: sshTextView)
         execCommandSpinner.stopAnimation(self)
     }
     
