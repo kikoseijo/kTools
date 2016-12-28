@@ -34,11 +34,30 @@ The app itself its a tab style application, with the following tabs:
 
 ### Projects
 
-- Interface to interact with projects, will create and use a `.plist` file in `Library/Application Support/kTools` directory and allows you to create projects with created with the following values: `name`, `localPath`, `remotePath` and `type`
-- You can `add`, `update` & `delete` projects using a simple interface.
+The Projects Tab Interface is created to be able to interact with custom projects, its database its a `.plist` file created at `Library/Application Support/kTools` and allows creation of projects with: `name`, `localPath`, `remotePath` and `type`
+- A basic ***CRUD*** has been added and you can `add`, `update` or `delete` projects using a GUI.
+
+#### Finder && Text Editors
+
 - Lets you open `atom` or `finder` in the ***localPath***.
+
+#### Laravel
+
 - Lets you open run `php artisan migrate:refresh` & `php artisan db:seed` on a single command.
+- Can serve the project opening a Terminal Window and will run a `php artisan serve` on project´s folder.
+- Can run `gulp` command on selected project
+
+#### Git
+
 - lets you `git add .` & `git commit -m 'CustomValue'` & `git push` on a single command.
+
+#### xCode
+
+- Opens xCode and will check for the existance of ***.xcworkspace*** and if false will open ***.xcodeproj***
+
+#### Wordpress
+
+- Comming Soon..
 
 ![Projects Tab capture][Projects-tab]
 

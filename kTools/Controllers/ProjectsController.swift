@@ -100,7 +100,23 @@ class ProjectsController: NSViewController {
         print(output)
     }
     
+    // MARK: xCode
     
+    @IBAction func openXcode(_ sender: NSButton) {
+        let localPath = lPathTf.stringValue
+        if localPath.isEmpty {
+            return
+        }
+        
+        let commando = "cd \(localPath) && [ -e ./*.xcworkspace ] && open \(localPath)/*.xcworkspace || open \(localPath)/*.xcodeproj"
+        print(commando)
+        let output = commando.runAsCommand()
+        
+        print(output)
+    }
+    
+    
+    // MARK: Git
     
     @IBAction func gitCommitAction(_ sender: NSButton) {
         let commitMesg = gitMsgTf.stringValue
