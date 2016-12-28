@@ -10,7 +10,7 @@ import Foundation
 
 enum App:String {
     case name = "kTools"
-    case version = "0.0.1"
+    case version = "0.0.2"
 }
 
 enum ExecPaths: String {

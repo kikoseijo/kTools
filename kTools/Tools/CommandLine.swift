@@ -42,7 +42,7 @@ class Commander {
         task.environment = ENV
         task.launchPath = cmd
         task.arguments = args
-        task.currentDirectoryPath = "/usr/local/bin"
+        //task.currentDirectoryPath = "/usr/local/bin"
         
         let outpipe = Pipe()
         task.standardOutput = outpipe

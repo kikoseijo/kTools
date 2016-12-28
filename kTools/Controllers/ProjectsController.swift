@@ -17,7 +17,7 @@ class ProjectsController: NSViewController {
     let dbManager = PlistManager.sharedInstance
     var projects: Array<Dictionary<String, String>> = []
     var currProject: Int = -1
-    var projectTypeSources = ["Laravel", "xCode", "Mean", "Android"];
+    var projectTypeSources = ["Laravel", "xCode", "Mean", "Wordpress", "Android"];
     
     @IBOutlet weak var projectsTable: NSTableView!
     @IBOutlet weak var nameTf: NSTextField!
@@ -68,6 +68,8 @@ class ProjectsController: NSViewController {
         
     }
     
+    // MARK: File system and editor
+    
     @IBAction func atomAction(_ sender: NSButton) {
         
         let localPath = lPathTf.stringValue
@@ -76,9 +78,13 @@ class ProjectsController: NSViewController {
         }
         
         let atomPath = cmd.whichPath(executable: "atom")
-        let command = "\(atomPath) localPath"
-        let res = command.runAsCommand()
-        print(res)
+        if atomPath.characters.count>1 {
+            let command = "atom \(localPath)/"
+            let res = command.runAsCommand()
+            print(res)
+        }
+        
+       
         
     }
     
@@ -223,6 +229,12 @@ extension ProjectsController: NSTabViewDelegate {
                 }
             } else if curProjectType == "Laravel" {
                 if  tbId  == "lara" || tbId == "git" || tbId == "atom"{
+                    return true
+                } else {
+                    return false
+                }
+            } else if curProjectType == "Wordpress" {
+                if  tbId  == "wp" || tbId == "git" || tbId == "atom"{
                     return true
                 } else {
                     return false
