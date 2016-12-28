@@ -34,8 +34,11 @@ The app itself its a tab style application, with the following tabs:
 
 ### Projects
 
-The Projects Tab Interface is created to be able to interact with custom projects, its database its a `.plist` file created at `Library/Application Support/kTools` and allows creation of projects with: `name`, `localPath`, `remotePath` and `type`
-- A basic ***CRUD*** has been added and you can `add`, `update` or `delete` projects using a GUI.
+The Projects Tab Interface is created to be able to interact with custom projects, its database its a `.plist` file created at `Library/Application Support/kTools` and allows creation of projects with: `name`, `localPath`, `remotePath` and `type`.
+
+A basic ***CRUD*** has been added and you can `add`, `update` or `delete` projects using a GUI.
+
+![Projects Tab capture][Projects-tab]
 
 #### Finder && Text Editors
 
@@ -59,10 +62,8 @@ The Projects Tab Interface is created to be able to interact with custom project
 
 - Comming Soon..
 
-![Projects Tab capture][Projects-tab]
 
-
-## Future task
+## Up comming task
 
 - Being able to select your prefered editor.
 
