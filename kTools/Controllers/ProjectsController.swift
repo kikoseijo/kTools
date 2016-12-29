@@ -17,7 +17,7 @@ class ProjectsController: NSViewController {
     let dbManager = PlistManager.sharedInstance
     var projects: Array<Dictionary<String, String>> = []
     var currProject: Int = -1
-    var projectTypeSources = ["Laravel", "xCode", "Mean", "Wordpress", "Android"];
+    var projectTypeSources = ["Laravel", "xCode", "Mean", "Wordpress", "Android", "C++"];
     
     @IBOutlet weak var projectsTable: NSTableView!
     @IBOutlet weak var nameTf: NSTextField!
@@ -27,7 +27,6 @@ class ProjectsController: NSViewController {
     @IBOutlet weak var newBtn: NSButton!
     @IBOutlet weak var saveBtn: NSButton!
     @IBOutlet weak var deleteBtn: NSButton!
-    @IBOutlet weak var gitMsgTf: NSTextField!
     
     @IBOutlet weak var toolsTab: NSTabView!
     
@@ -50,11 +49,11 @@ class ProjectsController: NSViewController {
     }
     
     @IBAction func artisanNewController(_ sender: NSButton) {
-    
-        let res = alertWithPrompt(onWindow: self.view.window!, title: "php artisan make:controller", infoText: "Please insert the name for new controller")
-        if !res.isEmpty {
-            execCommand(commando: "cd \(lPathTf.stringValue) && php artisan make:controller \(res)")
-        }
+        
+        let commando = "cd \(lPathTf.stringValue) && php artisan make:controller %s"
+        let titleText = "php artisan make:controller"
+        let infoText = "Please insert the name for new controller"
+        exeCommandWithPrompt(command: commando,title: titleText, infoText: infoText)
     }
     
     
@@ -82,10 +81,11 @@ class ProjectsController: NSViewController {
     
     @IBAction func gitCommitAction(_ sender: NSButton) {
         
-        let res = alertWithPrompt(onWindow: self.view.window!, title: "Git commit message", infoText: "A message its necesary to commit and push changes")
-        if !res.isEmpty {
-            execCommand(commando: "cd \(lPathTf.stringValue) && git add . && git commit -m \"\(res)\" && git push")
-        }
+        let commando = "cd \(lPathTf.stringValue) && git add . && git commit -m \"%s\" && git push"
+        let titleText = "Git commit message"
+        let infoText = "A message its necesary to commit and push changes"
+        exeCommandWithPrompt(command: commando,title: titleText, infoText: infoText)
+        
     }
     
     // MARK: Projects CRUD
@@ -109,23 +109,30 @@ class ProjectsController: NSViewController {
             "localPath" : lPathTf.stringValue,
             "remotePath" : rPathTf.stringValue,
             ]
+        
+        var is_new:Bool = false
         if (currProject>=0){
             projects[currProject] = newProject
         } else {
             projects.append(newProject)
+            is_new = true
         }
         
         dbManager.saveValue(value: projects as AnyObject, forKey: "LaraProjects")
         projectsTable.reloadData()
         
-        clearForm()
+        if (is_new){
+            newNotif(msg: "Project created succesfully.")
+            currProject = projects.count-1
+            projectsTable.selectRowIndexes([currProject], byExtendingSelection: false)
+            selectProject(projecto: projects[currProject])
+        } else {
+            newNotif(msg: "Project saved succesfully.")
+            projectsTable.selectRowIndexes([currProject], byExtendingSelection: false)
+            selectProject(projecto: projects[currProject])
+        }
         
-        saveBtn.isHidden = true
-        newBtn.isHidden = false
-        deleteBtn.isHidden = true
-        
-        
-        
+
     }
     
     @IBAction func deleteProject(_ sender: NSButton) {
@@ -177,7 +184,48 @@ class ProjectsController: NSViewController {
         
     }
     
-    // Repeated Functions
+    // MARK: Repeated Functions
+    
+    private func exeCommandWithPrompt(command:String, title: String, infoText:String, acceptText: String = "Add", cancelText:String = "Cancel" ) {
+        
+        let prompt = NSTextField(frame: NSMakeRect(0,0,260,20))
+        
+        let alert = NSAlert()
+        alert.messageText = title
+        alert.accessoryView = prompt
+        alert.addButton(withTitle: acceptText)
+        alert.addButton(withTitle: cancelText)
+        alert.informativeText = infoText
+     
+        alert.beginSheetModal(for: self.view.window!, completionHandler: { [unowned self]  (returnCode) -> Void in
+            if returnCode == NSAlertFirstButtonReturn {
+                if !prompt.stringValue.isEmpty{
+                    let commandfinal = command.replacingOccurrences(of: "%s", with: prompt.stringValue)
+                    self.execCommand(commando: commandfinal)
+                }
+                
+            }
+        })
+    }
+    
+    private func runFunction(action:String, param: String){
+        
+    }
+    
+    let notification = NSUserNotification.init()
+    private func newNotif(msg:String, title:String = App.name.rawValue){
+        notification.title = title
+        notification.informativeText = msg
+        // put the path to the created text file in the userInfo dictionary of the notification
+        //notification.userInfo = ["path" : fileName]
+        // use the default sound for a notification
+        notification.soundName = NSUserNotificationDefaultSoundName
+        // if the user chooses to display the notification as an alert, give it an action button called "View"
+        //notification.hasActionButton = true
+        //notification.actionButtonTitle = "View"
+        // Deliver the notification through the User Notification Center
+        NSUserNotificationCenter.default.deliver(notification)
+    }
     
     private func execCommand(commando:String){
         let localPath = lPathTf.stringValue
@@ -185,7 +233,27 @@ class ProjectsController: NSViewController {
             return
         }
         let output = commando.runAsCommand()
-        print(output)
+        newNotif(msg: output, title: nameTf.stringValue)
+    }
+    
+    func selectProject(projecto: Dictionary<String, String>){
+        nameTf.stringValue = projecto["name"]!
+        lPathTf.stringValue = projecto["localPath"]!
+        rPathTf.stringValue = projecto["remotePath"]!
+        typePf.selectItem(withTitle: projecto["type"]!)
+        
+        toolsTab.isHidden = false
+        if projecto["type"] == "Laravel" {
+            toolsTab.selectTabViewItem(withIdentifier: "lara")
+        } else if projecto["type"] == "xCode"{
+            toolsTab.selectTabViewItem(withIdentifier: "xcode")
+        } else if projecto["type"] == "wp"{
+            toolsTab.selectTabViewItem(withIdentifier: "xcode")
+        }
+        
+        saveBtn.isHidden = false
+        newBtn.isHidden = false
+        deleteBtn.isHidden = false
     }
     
     // MARK: Life Cycle
@@ -230,24 +298,15 @@ extension ProjectsController: NSTabViewDelegate {
         if(currProject>=0){
             let curProjectType = projects[currProject]["type"]
             let tbId = tabViewItem?.identifier as! String
-            if curProjectType == "xCode" {
-                if tbId  == "xcode" || tbId == "git" || tbId  == "atom"{
-                    return true
-                } else {
-                    return false
-                }
-            } else if curProjectType == "Laravel" {
-                if  tbId  == "lara" || tbId == "git" || tbId == "atom"{
-                    return true
-                } else {
-                    return false
-                }
-            } else if curProjectType == "Wordpress" {
-                if  tbId  == "wp" || tbId == "git" || tbId == "atom"{
-                    return true
-                } else {
-                    return false
-                }
+            if tbId == "git" || tbId  == "atom" {
+                return true
+            }
+            if curProjectType == "xCode", tbId  == "xcode" {
+                return true
+            } else if curProjectType == "Laravel", tbId  == "lara" {
+                return true
+            } else if curProjectType == "Wordpress", tbId  == "wp" {
+                return true
             } else {
                 return false
             }
@@ -276,28 +335,8 @@ extension ProjectsController: NSTableViewDelegate {
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        
         currProject = row
-        let projecto = projects[row]
-        
-        nameTf.stringValue = projecto["name"]!
-        lPathTf.stringValue = projecto["localPath"]!
-        rPathTf.stringValue = projecto["remotePath"]!
-        typePf.selectItem(withTitle: projecto["type"]!)
-        
-        toolsTab.isHidden = false
-        if projecto["type"] == "Laravel" {
-            toolsTab.selectTabViewItem(withIdentifier: "lara")
-        } else if projecto["type"] == "xCode"{
-            toolsTab.selectTabViewItem(withIdentifier: "xcode")
-        } else if projecto["type"] == "wp"{
-            toolsTab.selectTabViewItem(withIdentifier: "xcode")
-        }
-        
-        saveBtn.isHidden = false
-        newBtn.isHidden = false
-        deleteBtn.isHidden = false
-        
+        selectProject(projecto: projects[row])
         return true
     }
     
