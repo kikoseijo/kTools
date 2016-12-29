@@ -134,6 +134,8 @@ class ProjectsController: NSViewController {
         
     }
     
+    // MARK: Projects CRUD
+    
     @IBAction func newProject(_ sender: NSButton) {
         clearForm()
         currProject = -1
@@ -192,6 +194,32 @@ class ProjectsController: NSViewController {
         lPathTf.stringValue = ""
         rPathTf.stringValue = ""
         typePf.selectItem(at: 0)
+        
+    }
+    
+    @IBAction func browseFile(sender: AnyObject) {
+        
+        let dialog = NSOpenPanel();
+        
+        dialog.title                   = "Choose a local folder";
+        dialog.showsResizeIndicator    = true;
+        dialog.showsHiddenFiles        = false;
+        dialog.canChooseDirectories    = true;
+        dialog.canCreateDirectories    = true;
+        dialog.allowsMultipleSelection = false;
+        //dialog.alow        = ["txt"];
+        
+        if (dialog.runModal() == NSModalResponseOK) {
+            let result = dialog.url // Pathname of the file
+            
+            if (result != nil) {
+                let path = result!.path
+                lPathTf.stringValue = path
+            }
+        } else {
+            // User clicked on "Cancel"
+            return
+        }
         
     }
     
