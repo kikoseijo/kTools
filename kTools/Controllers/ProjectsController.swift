@@ -34,17 +34,7 @@ class ProjectsController: NSViewController {
     // MARK: Laravel Actions
     
     @IBAction func refreshAndSeedDb(_ sender: NSButton) {
-        
-        let localPath = lPathTf.stringValue
-        if localPath.isEmpty {
-            return
-        }
-        
-        let commando = "cd \(localPath) && php artisan migrate:refresh && php artisan db:seed"
-        let output = commando.runAsCommand()
-        
-        print(output)
-        
+        execCommand(commando: "cd \(lPathTf.stringValue) && php artisan migrate:refresh && php artisan db:seed")
     }
     
     @IBAction func artisanServe(_ sender: NSButton) {
@@ -56,82 +46,46 @@ class ProjectsController: NSViewController {
     }
     
     @IBAction func artisanGulp(_ sender: NSButton) {
-        let localPath = lPathTf.stringValue
-        if localPath.isEmpty {
-            return
-        }
-        
-        let commando = "cd \(localPath) && gulp"
-        let output = commando.runAsCommand()
-        
-        print(output)
-        
+        execCommand(commando: "cd \(lPathTf.stringValue) && gulp")
     }
+    
+    @IBAction func artisanNewController(_ sender: NSButton) {
+    
+        let res = alertWithPrompt(onWindow: self.view.window!, title: "php artisan make:controller", infoText: "Please insert the name for new controller")
+        if !res.isEmpty {
+            execCommand(commando: "cd \(lPathTf.stringValue) && php artisan make:controller \(res)")
+        }
+    }
+    
     
     // MARK: File system and editor
     
     @IBAction func atomAction(_ sender: NSButton) {
-        
-        let localPath = lPathTf.stringValue
-        if localPath.isEmpty {
-            return
-        }
-        
         let atomPath = cmd.whichPath(executable: "atom")
         if atomPath.characters.count>1 {
-            let command = "atom \(localPath)/"
-            let res = command.runAsCommand()
-            print(res)
+            execCommand(commando:"atom \(lPathTf.stringValue)")
         }
-        
-       
-        
     }
     
     @IBAction func finderAction(_ sender: NSButton) {
-        let localPath = lPathTf.stringValue
-        if localPath.isEmpty {
-            return
-        }
-        
-        let commando = "cd \(localPath) && open ."
-        let output = commando.runAsCommand()
-        
-        print(output)
+        execCommand(commando:"cd \(lPathTf.stringValue) && open .")
     }
     
     // MARK: xCode
     
     @IBAction func openXcode(_ sender: NSButton) {
-        let localPath = lPathTf.stringValue
-        if localPath.isEmpty {
-            return
-        }
-        
-        let commando = "cd \(localPath) && [ -e ./*.xcworkspace ] && open \(localPath)/*.xcworkspace || open \(localPath)/*.xcodeproj"
-        print(commando)
-        let output = commando.runAsCommand()
-        
-        print(output)
+        execCommand(commando: "cd \(lPathTf.stringValue) && [ -e ./*.xcworkspace ] && open ./*.xcworkspace || open ./*.xcodeproj")
     }
     
     
     // MARK: Git
     
     @IBAction func gitCommitAction(_ sender: NSButton) {
-        let commitMesg = gitMsgTf.stringValue
-        let localPath = lPathTf.stringValue
-        if commitMesg.isEmpty, localPath.isEmpty {
-            return
+        
+        let res = alertWithPrompt(onWindow: self.view.window!, title: "Git commit message", infoText: "A message its necesary to commit and push changes")
+        if !res.isEmpty {
+            execCommand(commando: "cd \(lPathTf.stringValue) && git add . && git commit -m \"\(res)\" && git push")
         }
-        
-        let commando = "cd \(localPath) && git add . && git commit -m \"\(commitMesg)\" && git push"
-        let output = commando.runAsCommand()
-        print(output)
-        
-        gitMsgTf.stringValue = ""
-        
-        
     }
     
     // MARK: Projects CRUD
@@ -221,6 +175,17 @@ class ProjectsController: NSViewController {
             return
         }
         
+    }
+    
+    // Repeated Functions
+    
+    private func execCommand(commando:String){
+        let localPath = lPathTf.stringValue
+        if localPath.isEmpty || commando.isEmpty {
+            return
+        }
+        let output = commando.runAsCommand()
+        print(output)
     }
     
     // MARK: Life Cycle
