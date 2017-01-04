@@ -56,6 +56,9 @@ class ProjectsController: NSViewController {
         exeCommandWithPrompt(command: commando,title: titleText, infoText: infoText)
     }
     
+    @IBAction func artisanPassportInstall(_ sender: NSButton) {
+        execCommand(commando: "cd \(lPathTf.stringValue) && php artisan passport:install")
+    }
     
     // MARK: File system and editor
     
@@ -70,12 +73,32 @@ class ProjectsController: NSViewController {
         execCommand(commando:"cd \(lPathTf.stringValue) && open .")
     }
     
+    @IBAction func openTerminalAction(_ sender: NSButton) {
+        let localPath = lPathTf.stringValue
+        if localPath.isEmpty {
+            return
+        }
+        cmd.launchTerminalWith(command: "cd \(localPath)")
+    }
+    
+    
     // MARK: xCode
     
     @IBAction func openXcode(_ sender: NSButton) {
         execCommand(commando: "cd \(lPathTf.stringValue) && [ -e ./*.xcworkspace ] && open ./*.xcworkspace || open ./*.xcodeproj")
     }
     
+    @IBAction func podsInit(_ sender: NSButton) {
+        execCommand(commando:"cd \(lPathTf.stringValue) && pod init")
+    }
+    
+    @IBAction func podfileEdit(_ sender: NSButton) {
+        execCommand(commando:"atom \(lPathTf.stringValue)/Podfile")
+    }
+    
+    @IBAction func podInstall(_ sender: NSButton) {
+        execCommand(commando:"cd \(lPathTf.stringValue) && pod install")
+    }
     
     // MARK: Git
     
@@ -87,6 +110,11 @@ class ProjectsController: NSViewController {
         exeCommandWithPrompt(command: commando,title: titleText, infoText: infoText)
         
     }
+    
+    @IBAction func gitInit(_ sender: NSButton) {
+        execCommand(commando:"cd \(lPathTf.stringValue) && git init")
+    }
+    
     
     // MARK: Projects CRUD
     
@@ -214,6 +242,9 @@ class ProjectsController: NSViewController {
     
     let notification = NSUserNotification.init()
     private func newNotif(msg:String, title:String = App.name.rawValue){
+        
+        print(msg)
+        
         notification.title = title
         notification.informativeText = msg
         // put the path to the created text file in the userInfo dictionary of the notification

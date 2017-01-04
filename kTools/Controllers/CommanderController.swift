@@ -27,7 +27,11 @@ class CommanderController: NSViewController {
         cmd.runAndPrint(comandToRun: command, textView: sshTextView)
     }
     
-
+    @IBAction func copyPubKey(_ sender: NSButton)
+    {
+        let command = "cat ~/.ssh/id_rsa.pub | pbcopy"
+        cmd.runAndPrint(comandToRun: command, textView: sshTextView)
+    }
     
     @IBAction func testFunction(_ sender: NSButton) {
         let fileManager = FileManager.default
