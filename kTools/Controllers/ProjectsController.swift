@@ -85,7 +85,7 @@ class ProjectsController: NSViewController {
     // MARK: xCode
     
     @IBAction func openXcode(_ sender: NSButton) {
-        execCommand(commando: "cd \(lPathTf.stringValue) && [ -e ./*.xcworkspace ] && open ./*.xcworkspace || open ./*.xcodeproj")
+        execCommand(commando: "cd \(lPathTf.stringValue) && [ -e ./*.xcworkspace ] && open ./*.xcworkspace || open ./*.xcodeproj", output: "Openning xCode App")
     }
     
     @IBAction func podsInit(_ sender: NSButton) {
@@ -258,13 +258,14 @@ class ProjectsController: NSViewController {
         NSUserNotificationCenter.default.deliver(notification)
     }
     
-    private func execCommand(commando:String){
+    private func execCommand(commando:String, output:String = ""){
         let localPath = lPathTf.stringValue
         if localPath.isEmpty || commando.isEmpty {
             return
         }
-        let output = commando.runAsCommand()
-        newNotif(msg: output, title: nameTf.stringValue)
+        let resOutput =  commando.runAsCommand()
+        let finalOutput =  output.characters.count>0 ? output : resOutput
+        newNotif(msg: finalOutput, title: nameTf.stringValue)
     }
     
     func selectProject(projecto: Dictionary<String, String>){
