@@ -15,29 +15,29 @@ class ProjectsController: NSViewController {
     private let cmd = Commander()
     
     let dbManager = PlistManager.sharedInstance
-    var projects: Array<Dictionary<String, String>> = []
-    var currProject: Int = -1
-    var projectTypeSources = ["Laravel", "xCode", "Mean", "Wordpress", "Android", "C++"];
+    var projects: [Project] = []
+    var curIndex: Int = -1
+    var curProject : Project = Project()
+    var projectArrayController:NSArrayController = NSArrayController()
+    
+    var projectTypeSources = ["Laravel", "xCode", "Mean", "Wordpress", "Android", "C++"]
     
     @IBOutlet weak var projectsTable: NSTableView!
-    @IBOutlet weak var nameTf: NSTextField!
-    @IBOutlet weak var lPathTf: NSTextField!
-    @IBOutlet weak var rPathTf: NSTextField!
-    @IBOutlet weak var typePf: NSPopUpButton!
+    @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var newBtn: NSButton!
-    @IBOutlet weak var saveBtn: NSButton!
     @IBOutlet weak var deleteBtn: NSButton!
+    @IBOutlet weak var editButton: NSButton!
     
     @IBOutlet weak var toolsTab: NSTabView!
     
     // MARK: Laravel Actions
     
     @IBAction func refreshAndSeedDb(_ sender: NSButton) {
-        execCommand(commando: "cd \(lPathTf.stringValue) && php artisan migrate:refresh && php artisan db:seed")
+        execCommand(commando: "cd \(curProject.lPath) && php artisan migrate:refresh && php artisan db:seed")
     }
     
     @IBAction func artisanServe(_ sender: NSButton) {
-        let localPath = lPathTf.stringValue
+        let localPath = curProject.lPath
         if localPath.isEmpty {
             return
         }
@@ -45,19 +45,19 @@ class ProjectsController: NSViewController {
     }
     
     @IBAction func artisanGulp(_ sender: NSButton) {
-        execCommand(commando: "cd \(lPathTf.stringValue) && gulp")
+        execCommand(commando: "cd \(curProject.lPath) && gulp")
     }
     
     @IBAction func artisanNewController(_ sender: NSButton) {
         
-        let commando = "cd \(lPathTf.stringValue) && php artisan make:controller %s"
+        let commando = "cd \(curProject.lPath) && php artisan make:controller %s"
         let titleText = "php artisan make:controller"
         let infoText = "Please insert the name for new controller"
         exeCommandWithPrompt(command: commando,title: titleText, infoText: infoText)
     }
     
     @IBAction func artisanPassportInstall(_ sender: NSButton) {
-        execCommand(commando: "cd \(lPathTf.stringValue) && php artisan passport:install")
+        execCommand(commando: "cd \(curProject.lPath) && php artisan passport:install")
     }
     
     // MARK: File system and editor
@@ -65,16 +65,16 @@ class ProjectsController: NSViewController {
     @IBAction func atomAction(_ sender: NSButton) {
         let atomPath = cmd.whichPath(executable: "atom")
         if atomPath.characters.count>1 {
-            execCommand(commando:"atom \(lPathTf.stringValue)")
+            execCommand(commando:"atom \(curProject.lPath)")
         }
     }
     
     @IBAction func finderAction(_ sender: NSButton) {
-        execCommand(commando:"cd \(lPathTf.stringValue) && open .")
+        execCommand(commando:"cd \(curProject.lPath) && open .")
     }
     
     @IBAction func openTerminalAction(_ sender: NSButton) {
-        let localPath = lPathTf.stringValue
+        let localPath = curProject.lPath
         if localPath.isEmpty {
             return
         }
@@ -85,26 +85,26 @@ class ProjectsController: NSViewController {
     // MARK: xCode
     
     @IBAction func openXcode(_ sender: NSButton) {
-        execCommand(commando: "cd \(lPathTf.stringValue) && [ -e ./*.xcworkspace ] && open ./*.xcworkspace || open ./*.xcodeproj", output: "Openning xCode App")
+        execCommand(commando: "cd \(curProject.lPath) && [ -e ./*.xcworkspace ] && open ./*.xcworkspace || open ./*.xcodeproj", output: "Openning xCode App")
     }
     
     @IBAction func podsInit(_ sender: NSButton) {
-        execCommand(commando:"cd \(lPathTf.stringValue) && pod init")
+        execCommand(commando:"cd \(curProject.lPath) && pod init")
     }
     
     @IBAction func podfileEdit(_ sender: NSButton) {
-        execCommand(commando:"atom \(lPathTf.stringValue)/Podfile")
+        execCommand(commando:"atom \(curProject.lPath)/Podfile")
     }
     
     @IBAction func podInstall(_ sender: NSButton) {
-        execCommand(commando:"cd \(lPathTf.stringValue) && pod install")
+        execCommand(commando:"cd \(curProject.lPath) && pod install")
     }
     
     // MARK: Git
     
     @IBAction func gitCommitAction(_ sender: NSButton) {
         
-        let commando = "cd \(lPathTf.stringValue) && git add . && git commit -m \"%s\" && git push"
+        let commando = "cd \(curProject.lPath) && git add . && git commit -m \"%s\" && git push"
         let titleText = "Git commit message"
         let infoText = "A message its necesary to commit and push changes"
         exeCommandWithPrompt(command: commando,title: titleText, infoText: infoText)
@@ -112,105 +112,58 @@ class ProjectsController: NSViewController {
     }
     
     @IBAction func gitInit(_ sender: NSButton) {
-        execCommand(commando:"cd \(lPathTf.stringValue) && git init")
+        execCommand(commando:"cd \(curProject.lPath) && git init")
     }
     
     
     // MARK: Projects CRUD
     
-    @IBAction func newProject(_ sender: NSButton) {
-        clearForm()
-        currProject = -1
-        saveBtn.isHidden = false
-        newBtn.isHidden = true
-        deleteBtn.isHidden = true
-        
-    }
-    
-    @IBAction func saveProject(_ sender: NSButton) {
-        
-        let tipo = typePf.selectedItem?.title
-        
-        let newProject: [String:String] = [
-            "name" : nameTf.stringValue,
-            "type" : tipo!,
-            "localPath" : lPathTf.stringValue,
-            "remotePath" : rPathTf.stringValue,
-            ]
-        
-        var is_new:Bool = false
-        if (currProject>=0){
-            projects[currProject] = newProject
-        } else {
-            projects.append(newProject)
-            is_new = true
-        }
-        
-        dbManager.saveValue(value: projects as AnyObject, forKey: "LaraProjects")
-        projectsTable.reloadData()
-        
-        if (is_new){
-            newNotif(msg: "Project created succesfully.")
-            currProject = projects.count-1
-            projectsTable.selectRowIndexes([currProject], byExtendingSelection: false)
-            selectProject(projecto: projects[currProject])
-        } else {
-            newNotif(msg: "Project saved succesfully.")
-            projectsTable.selectRowIndexes([currProject], byExtendingSelection: false)
-            selectProject(projecto: projects[currProject])
-        }
-        
-
-    }
-    
     @IBAction func deleteProject(_ sender: NSButton) {
-        projects.remove(at: currProject)
+        
+        let a = NSAlert()
+
+        a.messageText = "Delete the project?"
+        a.informativeText = "Are you sure you would like to delete the project permanently?\n\nAttention: This cant be undone!"
+        a.addButton(withTitle: "Delete")
+        a.addButton(withTitle: "Cancel")
+        a.alertStyle = .warning
+        
+        a.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
+            if modalResponse == NSAlertFirstButtonReturn {
+                print("Project deleted succesfully")
+                //deleteCurrentSelectedProject()
+            } else {
+                print("Delete canceled")
+            }
+        })
+        
+        
+        
+    }
+    
+    private func deleteCurrentSelectedProject(){
+        projects.remove(at: curIndex)
         dbManager.saveValue(value: projects as AnyObject, forKey: "LaraProjects")
         projectsTable.reloadData()
-        currProject -= 1
-        if currProject<0 {
-            currProject = 0
-        }
+        newNotif(msg: "Project deleted succesfully", title: curProject.name)
         if projects.count>0 {
-            let index : IndexSet = [currProject]
+            let index : IndexSet = [curIndex]
             projectsTable.selectRowIndexes(index, byExtendingSelection: false)
         }
-        
     }
     
-    private func clearForm(){
-        nameTf.stringValue = ""
-        lPathTf.stringValue = ""
-        rPathTf.stringValue = ""
-        typePf.selectItem(at: 0)
-        
+    @IBAction func newProject(_ sender: NSButton) {
+        let projectEditVC = self.storyboard!.instantiateController(withIdentifier: "editProjectSheet") as! ProjectsEditController
+        self.presentViewControllerAsSheet(projectEditVC)
     }
     
-    @IBAction func browseFile(sender: AnyObject) {
-        
-        let dialog = NSOpenPanel();
-        
-        dialog.title                   = "Choose a local folder";
-        dialog.showsResizeIndicator    = true;
-        dialog.showsHiddenFiles        = false;
-        dialog.canChooseDirectories    = true;
-        dialog.canCreateDirectories    = true;
-        dialog.allowsMultipleSelection = false;
-        //dialog.alow        = ["txt"];
-        
-        if (dialog.runModal() == NSModalResponseOK) {
-            let result = dialog.url // Pathname of the file
-            
-            if (result != nil) {
-                let path = result!.path
-                lPathTf.stringValue = path
-            }
-        } else {
-            // User clicked on "Cancel"
-            return
-        }
-        
+    @IBAction func editProject(_ sender: NSButton) {
+        let projectEditVC = self.storyboard!.instantiateController(withIdentifier: "editProjectSheet") as! ProjectsEditController
+        projectEditVC.project = curProject
+        projectEditVC.projectIndex = curIndex
+        self.presentViewControllerAsSheet(projectEditVC)
     }
+    
     
     // MARK: Repeated Functions
     
@@ -259,33 +212,26 @@ class ProjectsController: NSViewController {
     }
     
     private func execCommand(commando:String, output:String = ""){
-        let localPath = lPathTf.stringValue
+        let localPath = curProject.lPath
         if localPath.isEmpty || commando.isEmpty {
             return
         }
         let resOutput =  commando.runAsCommand()
         let finalOutput =  output.characters.count>0 ? output : resOutput
-        newNotif(msg: finalOutput, title: nameTf.stringValue)
+        newNotif(msg: finalOutput, title: curProject.name)
     }
     
-    func selectProject(projecto: Dictionary<String, String>){
-        nameTf.stringValue = projecto["name"]!
-        lPathTf.stringValue = projecto["localPath"]!
-        rPathTf.stringValue = projecto["remotePath"]!
-        typePf.selectItem(withTitle: projecto["type"]!)
-        
+    func selectProjectTab(){
         toolsTab.isHidden = false
-        if projecto["type"] == "Laravel" {
+        if curProject.type == "Laravel" {
             toolsTab.selectTabViewItem(withIdentifier: "lara")
-        } else if projecto["type"] == "xCode"{
+        } else if curProject.type == "xCode"{
             toolsTab.selectTabViewItem(withIdentifier: "xcode")
-        } else if projecto["type"] == "wp"{
+        } else if curProject.type == "wp"{
             toolsTab.selectTabViewItem(withIdentifier: "xcode")
         }
-        
-        saveBtn.isHidden = false
-        newBtn.isHidden = false
-        deleteBtn.isHidden = false
+        deleteBtn.isEnabled = true
+        editButton.isEnabled=true
     }
     
     // MARK: Life Cycle
@@ -296,13 +242,10 @@ class ProjectsController: NSViewController {
         
         projectsTable.delegate = self
         projectsTable.dataSource = self
+        searchField.delegate = self
         
-        typePf.addItems(withTitles: projectTypeSources)
-        
-        saveBtn.isHidden = false
-        deleteBtn.isHidden = true
-        newBtn.isHidden = true
-        
+        deleteBtn.isEnabled = false
+        editButton.isEnabled = false
         
         toolsTab.isHidden = true
         toolsTab.delegate = self
@@ -311,7 +254,11 @@ class ProjectsController: NSViewController {
     
     override func viewWillAppear() {
         
-        projects = dbManager.getValueForKey(key: "LaraProjects") as! Array<Dictionary<String, String>>
+        let projectsArray = dbManager.getValueForKey(key: "LaraProjects") as! Array<Dictionary<String, String>>
+        for record in projectsArray {
+            projects.append(Project.createProjectFrom(dicc: record))
+        }
+        projectArrayController.content = projects
         projectsTable.reloadData()
         
     }
@@ -323,21 +270,34 @@ class ProjectsController: NSViewController {
     }
 }
 
+extension ProjectsController: NSSearchFieldDelegate{
+    override func controlTextDidChange(_ obj: Notification) {
+        var searchString = ""
+        searchString = ((obj.object as? NSSearchField)?.stringValue)!
+        let predicate = NSPredicate(format: "name CONTAINS[cd] %@ or type CONTAINS[cd] %@", searchString,searchString)
+        if searchString != "" {
+            projectArrayController.filterPredicate = predicate
+        } else {
+            projectArrayController.filterPredicate = nil
+        }
+        projectsTable.reloadData()
+    }
+}
+
 extension ProjectsController: NSTabViewDelegate {
 
     func tabView(_ tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool{
         
-        if(currProject>=0){
-            let curProjectType = projects[currProject]["type"]
+        if(curProject.name != ""){
             let tbId = tabViewItem?.identifier as! String
             if tbId == "git" || tbId  == "atom" {
                 return true
             }
-            if curProjectType == "xCode", tbId  == "xcode" {
+            if curProject.type == "xCode", tbId  == "xcode" {
                 return true
-            } else if curProjectType == "Laravel", tbId  == "lara" {
+            } else if curProject.type == "Laravel", tbId  == "lara" {
                 return true
-            } else if curProjectType == "Wordpress", tbId  == "wp" {
+            } else if curProject.type == "Wordpress", tbId  == "wp" {
                 return true
             } else {
                 return false
@@ -352,7 +312,7 @@ extension ProjectsController: NSTabViewDelegate {
 extension ProjectsController: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return projects.count
+        return (projectArrayController.arrangedObjects as! [Project]).count
     }
     
 }
@@ -361,16 +321,26 @@ extension ProjectsController: NSTableViewDelegate {
     
     fileprivate enum CellIdentifiers {
         static let NameCell = "NameCellID"
-        static let LPathCell = "LPathCellID"
-        static let RPathCell = "RPathCellID"
         static let TypeCell = "TypeCellID"
     }
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        currProject = row
-        selectProject(projecto: projects[row])
+        curIndex = row
+        curProject = projects[row]
+        selectProjectTab()
         return true
     }
+    
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        if projectsTable.selectedRow<0 {
+            let index : IndexSet = [curIndex]
+            projectsTable.selectRowIndexes(index, byExtendingSelection: false)
+        }
+        print(notification)
+    }
+    
+    
     
     
     
@@ -385,19 +355,15 @@ extension ProjectsController: NSTableViewDelegate {
         dateFormatter.timeStyle = .long
         
         // 1
-        let project = projects[row]
+        let theArray = projectArrayController.arrangedObjects as! [Project]
+        let project = theArray[row]
+        //let project = projectArrayController.arrangedObjects[row] as Project
         // 2
         if tableColumn == tableView.tableColumns[0] {
-            text = project["name"]!
+            text = project.name
             cellIdentifier = CellIdentifiers.NameCell
         } else if tableColumn == tableView.tableColumns[1] {
-            text = project["localPath"]!
-            cellIdentifier = CellIdentifiers.LPathCell
-        } else if tableColumn == tableView.tableColumns[2] {
-            text = project["remotePath"]!
-            cellIdentifier = CellIdentifiers.RPathCell
-        } else if tableColumn == tableView.tableColumns[3] {
-            text = project["type"]!
+            text = project.type
             cellIdentifier = CellIdentifiers.TypeCell
         }
         

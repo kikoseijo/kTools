@@ -23,6 +23,7 @@
 		928B99B31E0312D200992F02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928B99B11E0312D200992F02 /* Main.storyboard */; };
 		92A418991E1D1DA800FCC5CC /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A418981E1D1DA800FCC5CC /* Project.swift */; };
 		92CAB24B1E14405900923AAF /* ProjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92CAB24A1E14405900923AAF /* ProjectsController.swift */; };
+		92F1F6D61E228C2E009ADDD1 /* ProjectsEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F1F6D51E228C2E009ADDD1 /* ProjectsEditController.swift */; };
 		ADDE21581E093734007CCBF5 /* icon80x80.png in Resources */ = {isa = PBXBuildFile; fileRef = ADDE21561E093734007CCBF5 /* icon80x80.png */; };
 		ADDE21591E093734007CCBF5 /* reload-icon-2.png in Resources */ = {isa = PBXBuildFile; fileRef = ADDE21571E093734007CCBF5 /* reload-icon-2.png */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		928B99B41E0312D200992F02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92A418981E1D1DA800FCC5CC /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = Models/Project.swift; sourceTree = "<group>"; };
 		92CAB24A1E14405900923AAF /* ProjectsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsController.swift; sourceTree = "<group>"; };
+		92F1F6D51E228C2E009ADDD1 /* ProjectsEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsEditController.swift; sourceTree = "<group>"; };
 		92F8B6CE1E128F2200734D9E /* Laravel-dbRefresh.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "Laravel-dbRefresh.sh"; path = "Bash/Laravel-dbRefresh.sh"; sourceTree = "<group>"; };
 		ADDE21561E093734007CCBF5 /* icon80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80x80.png; sourceTree = "<group>"; };
 		ADDE21571E093734007CCBF5 /* reload-icon-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload-icon-2.png"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				92CAB24A1E14405900923AAF /* ProjectsController.swift */,
 				927C1E171E126DDF00E2A506 /* HomebrewController.swift */,
 				927C1E181E126DDF00E2A506 /* CommanderController.swift */,
+				92F1F6D51E228C2E009ADDD1 /* ProjectsEditController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				927C1E241E126DE000E2A506 /* CommanderController.swift in Sources */,
 				927C1E281E126DE000E2A506 /* CommandLine.swift in Sources */,
 				927C1E2C1E126DE000E2A506 /* TextGui.swift in Sources */,
+				92F1F6D61E228C2E009ADDD1 /* ProjectsEditController.swift in Sources */,
 				927C1E231E126DE000E2A506 /* HomebrewController.swift in Sources */,
 				928B99AC1E0312D200992F02 /* AppDelegate.swift in Sources */,
 				927C1E291E126DE000E2A506 /* ImagesTools.swift in Sources */,
