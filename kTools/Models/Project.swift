@@ -9,7 +9,7 @@
 import Foundation
 
 
-class Project:NSObject {
+class Project : NSObject {
     var name: String = ""
     var type: String = ""
     var lPath: String = ""
@@ -18,7 +18,6 @@ class Project:NSObject {
 }
 
 extension Project {
-    
     
     class func createProjectFrom(dicc: [String: Any])->Project {
         let project = Project()

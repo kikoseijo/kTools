@@ -15,7 +15,7 @@ class ProjectsEditController: NSViewController {
     
     private var projectTypeSources = ["Laravel", "xCode", "Mean", "Wordpress", "Android", "C++"]
     let dbManager = PlistManager.sharedInstance
-    var projects: Array<Dictionary<String, String>> = []
+    var projects: [Dictionary<String,String>] = []
     
     @IBOutlet weak var nameTf: NSTextField!
     @IBOutlet weak var lPathTf: NSTextField!
@@ -41,7 +41,7 @@ class ProjectsEditController: NSViewController {
     
     override func viewWillAppear() {
         
-       projects = dbManager.getValueForKey(key: "LaraProjects") as! Array<Dictionary<String, String>>
+       projects = dbManager.getValueForKey(key: "LaraProjects") as! [Dictionary<String,String>]
         
     }
     
@@ -49,10 +49,7 @@ class ProjectsEditController: NSViewController {
         
         let tipo = typePf.selectedItem?.title
         
-        project.name = nameTf.stringValue
-        project.lPath = lPathTf.stringValue
-        project.rPath = rPathTf.stringValue
-        project.type = tipo!
+        
         
         let newProject: [String:String] = [
             "name" : nameTf.stringValue,
@@ -61,14 +58,13 @@ class ProjectsEditController: NSViewController {
             "remotePath" : rPathTf.stringValue,
             ]
         
-        var is_new:Bool = false
-        if (project.name != ""){
+        if (projectIndex >= 0){
             projects[projectIndex] = newProject
         } else {
             projects.append(newProject)
-            is_new = true
         }
         
+        self.dismiss(self)
         dbManager.saveValue(value: projects as AnyObject, forKey: "LaraProjects")
         
         
