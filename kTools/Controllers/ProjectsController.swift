@@ -17,16 +17,37 @@ class ProjectsController: NSViewController {
     let dbManager = PlistManager.sharedInstance
     var projects: [Project] = []
     var curIndex: Int = -1
-    var curProject : Project = Project()
+    var curProject : Project = Project() {
+        didSet{
+            lPathLb.stringValue = curProject.lPath
+            rPathLb.stringValue = curProject.rPath
+            projectNameLb.stringValue = curProject.name
+            if curProject.lUrl != "" {
+                lUrlBtn.isHidden = false
+                lUrlBtn.title = curProject.lUrl
+            } else {
+                lUrlBtn.isHidden = true
+            }
+            if curProject.rUrl != "" {
+                rUrlBtn.isHidden = false
+                rUrlBtn.title = curProject.rUrl
+            } else {
+                rUrlBtn.isHidden = true
+            }
+        }
+    }
     var projectArrayController:NSArrayController = NSArrayController()
-    
-    var projectTypeSources = ["Laravel", "xCode", "Mean", "Wordpress", "Android", "C++"]
     
     @IBOutlet weak var projectsTable: NSTableView!
     @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var newBtn: NSButton!
     @IBOutlet weak var deleteBtn: NSButton!
     @IBOutlet weak var editButton: NSButton!
+    @IBOutlet weak var lUrlBtn: NSButton!
+    @IBOutlet weak var rUrlBtn: NSButton!
+    @IBOutlet weak var projectNameLb: NSTextField!
+    @IBOutlet weak var lPathLb: NSTextField!
+    @IBOutlet weak var rPathLb: NSTextField!
     
     @IBOutlet weak var toolsTab: NSTabView!
     
@@ -131,7 +152,7 @@ class ProjectsController: NSViewController {
         a.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
             if modalResponse == NSAlertFirstButtonReturn {
                 print("Project deleted succesfully")
-                //deleteCurrentSelectedProject()
+                self.deleteCurrentSelectedProject()
             } else {
                 print("Delete canceled")
             }
@@ -142,14 +163,20 @@ class ProjectsController: NSViewController {
     }
     
     private func deleteCurrentSelectedProject(){
-        projects.remove(at: curIndex)
-        dbManager.saveValue(value: projects as AnyObject, forKey: "LaraProjects")
-        projectsTable.reloadData()
-        newNotif(msg: "Project deleted succesfully", title: curProject.name)
-        if projects.count>0 {
-            let index : IndexSet = [curIndex]
-            projectsTable.selectRowIndexes(index, byExtendingSelection: false)
+        
+        if curIndex < projects.count {
+            
+            projects.remove(at: curIndex)
+            dbManager.saveValue(value: projects as AnyObject, forKey: "LaraProjects")
+            projectsTable.reloadData()
+            newNotif(msg: "Project deleted succesfully", title: curProject.name)
+            if projects.count>0 {
+                let index : IndexSet = [curIndex]
+                projectsTable.selectRowIndexes(index, byExtendingSelection: false)
+            }
         }
+        
+        
     }
     
     @IBAction func newProject(_ sender: NSButton) {
@@ -234,6 +261,18 @@ class ProjectsController: NSViewController {
         editButton.isEnabled=true
     }
     
+    @IBAction func openLocalUrl(_ sender: NSButton) {
+        if curProject.lUrl != "" {
+            print(curProject.lUrl)
+        }
+    }
+    
+    @IBAction func openRemoteUrl(_ sender: NSButton) {
+        if curProject.rUrl != "" {
+            print(curProject.rUrl)
+        }
+    }
+    
     // MARK: Life Cycle
     
     
@@ -246,6 +285,11 @@ class ProjectsController: NSViewController {
         
         deleteBtn.isEnabled = false
         editButton.isEnabled = false
+        lUrlBtn.isHidden = true
+        rUrlBtn.isHidden = true
+        projectNameLb.stringValue = "Active project"
+        lPathLb.stringValue = "Select project from the table of add a new one."
+        rPathLb.stringValue = ""
         
         toolsTab.isHidden = true
         toolsTab.delegate = self
@@ -255,9 +299,11 @@ class ProjectsController: NSViewController {
     override func viewWillAppear() {
         
         let projectsArray = dbManager.getValueForKey(key: "LaraProjects") as! Array<Dictionary<String, String>>
+        projects.removeAll()
         for record in projectsArray {
             projects.append(Project.createProjectFrom(dicc: record))
         }
+        projectArrayController.content = nil
         projectArrayController.content = projects
         projectsTable.reloadData()
         
@@ -337,7 +383,6 @@ extension ProjectsController: NSTableViewDelegate {
             let index : IndexSet = [curIndex]
             projectsTable.selectRowIndexes(index, byExtendingSelection: false)
         }
-        print(notification)
     }
     
     

@@ -13,13 +13,16 @@ class ProjectsEditController: NSViewController {
     public var project:Project = Project()
     public var projectIndex: Int = -1
     
-    private var projectTypeSources = ["Laravel", "xCode", "Mean", "Wordpress", "Android", "C++"]
+    private var projectTypeSources = ["Laravel", "xCode", "Mean", "Wordpress", "Android", "C++", "PHP"]
     let dbManager = PlistManager.sharedInstance
     var projects: [Dictionary<String,String>] = []
     
     @IBOutlet weak var nameTf: NSTextField!
     @IBOutlet weak var lPathTf: NSTextField!
     @IBOutlet weak var rPathTf: NSTextField!
+    @IBOutlet weak var lUrlTf: NSTextField!
+    @IBOutlet weak var rUrlTf: NSTextField!
+    
     @IBOutlet weak var typePf: NSPopUpButton!
     @IBOutlet weak var saveBtn: NSButton!
     
@@ -36,6 +39,8 @@ class ProjectsEditController: NSViewController {
             lPathTf.stringValue = project.lPath
             rPathTf.stringValue = project.rPath
             typePf.selectItem(withTitle: project.type)
+            lUrlTf.stringValue = project.lUrl
+            rUrlTf.stringValue = project.rUrl
         }
     }
     
@@ -56,6 +61,9 @@ class ProjectsEditController: NSViewController {
             "type" : tipo!,
             "localPath" : lPathTf.stringValue,
             "remotePath" : rPathTf.stringValue,
+            "rUrl" : rUrlTf.stringValue,
+            "lUrl" : lUrlTf.stringValue,
+            "gitCommand" : ""
             ]
         
         if (projectIndex >= 0){
