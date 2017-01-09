@@ -1397,6 +1397,17 @@
                                                     <action selector="copyPubKey:" target="DRT-oW-UdM" id="Fsg-6K-i83"/>
                                                 </connections>
                                             </button>
+                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhH-uN-Ar1">
+                                                <rect key="frame" x="265" y="29" width="189" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                <buttonCell key="cell" type="push" title="Open Program DB folder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IMf-ho-2T6">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="openProgramDataFolder:" target="DRT-oW-UdM" id="p1p-w7-AnV"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="UdU-46-hXO" firstAttribute="leading" secondItem="LQg-A0-HFs" secondAttribute="leading" constant="22" id="mgQ-Ib-VBG"/>

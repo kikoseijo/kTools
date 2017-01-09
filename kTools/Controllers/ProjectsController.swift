@@ -164,12 +164,16 @@ class ProjectsController: NSViewController {
     
     private func deleteCurrentSelectedProject(){
         
-        if curIndex < projects.count {
+        let deleteIndex = projects.index(of: curProject)
+        if deleteIndex! < projects.count, deleteIndex! >= 0 {
             
-            projects.remove(at: curIndex)
-            dbManager.saveValue(value: projects as AnyObject, forKey: "LaraProjects")
+            projects.remove(at: deleteIndex!)
+            projectArrayController.content = nil
+            projectArrayController.content = projects
+            
+            //dbManager.saveValue(value: projects as AnyObject, forKey: "LaraProjects")
             projectsTable.reloadData()
-            newNotif(msg: "Project deleted succesfully", title: curProject.name)
+            newNotif(msg: "Project deleted succesfully but not saved", title: curProject.name)
             if projects.count>0 {
                 let index : IndexSet = [curIndex]
                 projectsTable.selectRowIndexes(index, byExtendingSelection: false)
@@ -372,7 +376,8 @@ extension ProjectsController: NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         curIndex = row
-        curProject = projects[row]
+        let theArray = projectArrayController.arrangedObjects as! [Project]
+        curProject = theArray[curIndex]
         selectProjectTab()
         return true
     }

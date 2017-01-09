@@ -34,4 +34,10 @@ extension Project {
         
         return project
     }
+    
+    class func toDictionary() -> NSDictionary {
+        let propertiesDictionary : NSMutableDictionary = NSMutableDictionary()
+        return propertiesDictionary
+    }
+    
 }

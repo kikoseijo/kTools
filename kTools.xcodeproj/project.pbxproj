@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68DA3C59B9E222CE1A953ABC /* Pods_kTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF2A2473D155BCD6CFFA734 /* Pods_kTools.framework */; };
 		9224C0511E06F58F00BE8DDD /* btn-power.png in Resources */ = {isa = PBXBuildFile; fileRef = 9224C0501E06F58F00BE8DDD /* btn-power.png */; };
 		927C1E231E126DE000E2A506 /* HomebrewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C1E171E126DDF00E2A506 /* HomebrewController.swift */; };
 		927C1E241E126DE000E2A506 /* CommanderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C1E181E126DDF00E2A506 /* CommanderController.swift */; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5AF2A2473D155BCD6CFFA734 /* Pods_kTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		805040BEBEA2811D88BC2D12 /* Pods-kTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kTools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kTools/Pods-kTools.debug.xcconfig"; sourceTree = "<group>"; };
 		9224C0501E06F58F00BE8DDD /* btn-power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-power.png"; sourceTree = "<group>"; };
 		927C1E171E126DDF00E2A506 /* HomebrewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomebrewController.swift; sourceTree = "<group>"; };
 		927C1E181E126DDF00E2A506 /* CommanderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommanderController.swift; sourceTree = "<group>"; };
@@ -51,6 +54,7 @@
 		92F8B6CE1E128F2200734D9E /* Laravel-dbRefresh.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; name = "Laravel-dbRefresh.sh"; path = "Bash/Laravel-dbRefresh.sh"; sourceTree = "<group>"; };
 		ADDE21561E093734007CCBF5 /* icon80x80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80x80.png; sourceTree = "<group>"; };
 		ADDE21571E093734007CCBF5 /* reload-icon-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reload-icon-2.png"; sourceTree = "<group>"; };
+		EAC9ADA07068CFF9FFA8327E /* Pods-kTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kTools.release.xcconfig"; path = "Pods/Target Support Files/Pods-kTools/Pods-kTools.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,12 +62,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68DA3C59B9E222CE1A953ABC /* Pods_kTools.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C8BCC922C08EB52DCF15DFF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5AF2A2473D155BCD6CFFA734 /* Pods_kTools.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9224C04B1E06F2BA00BE8DDD /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +125,8 @@
 			children = (
 				928B99AA1E0312D200992F02 /* kTools */,
 				928B99A91E0312D200992F02 /* Products */,
+				9739771FE9EC963DA329E6A0 /* Pods */,
+				0C8BCC922C08EB52DCF15DFF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +171,15 @@
 			name = Bash;
 			sourceTree = "<group>";
 		};
+		9739771FE9EC963DA329E6A0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				805040BEBEA2811D88BC2D12 /* Pods-kTools.debug.xcconfig */,
+				EAC9ADA07068CFF9FFA8327E /* Pods-kTools.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,9 +187,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 928B99B71E0312D200992F02 /* Build configuration list for PBXNativeTarget "kTools" */;
 			buildPhases = (
+				8A77EF429B8EC3C4EDA09783 /* [CP] Check Pods Manifest.lock */,
 				928B99A41E0312D200992F02 /* Sources */,
 				928B99A51E0312D200992F02 /* Frameworks */,
 				928B99A61E0312D200992F02 /* Resources */,
+				1A95D03A0E22FE5FD4DC165B /* [CP] Embed Pods Frameworks */,
+				BB53CB87C040988A5403DAF7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -226,6 +253,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A95D03A0E22FE5FD4DC165B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kTools/Pods-kTools-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A77EF429B8EC3C4EDA09783 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BB53CB87C040988A5403DAF7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kTools/Pods-kTools-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		928B99A41E0312D200992F02 /* Sources */ = {
@@ -356,6 +431,7 @@
 		};
 		928B99B81E0312D200992F02 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 805040BEBEA2811D88BC2D12 /* Pods-kTools.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -370,6 +446,7 @@
 		};
 		928B99B91E0312D200992F02 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EAC9ADA07068CFF9FFA8327E /* Pods-kTools.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
