@@ -35,9 +35,18 @@ extension Project {
         return project
     }
     
-    class func toDictionary() -> NSDictionary {
-        let propertiesDictionary : NSMutableDictionary = NSMutableDictionary()
-        return propertiesDictionary
+    class func toDictionary() -> Dictionary<String, Any> {
+        
+        let gelato = [
+            "Coconut":0.25,
+            "Pistachio":0.26,
+            "Stracciatella":0.02,
+            "Chocolate":0.03,
+            "Peanut Butter":0.01,
+            "Bubble Gum":0.01
+        ]
+        
+        return gelato
     }
     
 }
