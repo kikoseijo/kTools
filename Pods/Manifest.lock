@@ -1,0 +1,20 @@
+PODS:
+  - Alamofire (4.2.0)
+  - AlamofireJsonToObjects (2.4.0):
+    - Alamofire
+    - EVReflection
+  - EVReflection (3.6.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.0)
+  - AlamofireJsonToObjects
+  - EVReflection
+
+SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  AlamofireJsonToObjects: 6fbb76d3abe12bcdc1f1af51a52ebbc8dfe3746c
+  EVReflection: d4ee902f8781d2659084d0f99df00dfe48387294
+
+PODFILE CHECKSUM: c9f71e9c46224fee938af31992e4f151ff31a78e
+
+COCOAPODS: 1.1.1

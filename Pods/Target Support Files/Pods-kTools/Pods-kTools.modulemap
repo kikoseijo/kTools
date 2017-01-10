@@ -1,0 +1,6 @@
+framework module Pods_kTools {
+  umbrella header "Pods-kTools-umbrella.h"
+
+  export *
+  module * { export * }
+}
