@@ -164,16 +164,21 @@ class ProjectsController: NSViewController {
     
     private func deleteCurrentSelectedProject(){
         
+        let toDeleteProject = curProject.name
         let deleteIndex = projects.index(of: curProject)
         if deleteIndex! < projects.count, deleteIndex! >= 0 {
             
             projects.remove(at: deleteIndex!)
             projectArrayController.content = nil
             projectArrayController.content = projects
-            
-            //dbManager.saveValue(value: projects as AnyObject, forKey: "LaraProjects")
+            let newArrayProjects:NSMutableArray = []
+            for project in projects {
+                let aProject = project.toDictionary()
+                newArrayProjects.add(aProject)
+            }
+            dbManager.saveValue(value: newArrayProjects as AnyObject, forKey: "LaraProjects")
             projectsTable.reloadData()
-            newNotif(msg: "Project deleted succesfully but not saved", title: curProject.name)
+            newNotif(msg: "Project deleted succesfully", title: toDeleteProject)
             if projects.count>0 {
                 let index : IndexSet = [curIndex]
                 projectsTable.selectRowIndexes(index, byExtendingSelection: false)

@@ -17,6 +17,21 @@ class Project : NSObject {
     var lUrl: String = ""
     var rUrl: String = ""
     var gitCommand: String = ""
+    
+    func toDictionary() -> Dictionary<String, Any> {
+        
+        let projecto = [
+            "name":self.name,
+            "type":self.type,
+            "localPath":self.lPath,
+            "remotePath":self.rPath,
+            "rUrl":self.rUrl,
+            "lUrl":self.lUrl,
+            "gitCommand":self.gitCommand
+        ] as [String : Any]
+        
+        return projecto
+    }
 }
 
 extension Project {
@@ -33,20 +48,6 @@ extension Project {
         project.gitCommand = dicc["gitCommand"] as! String? ?? ""
         
         return project
-    }
-    
-    class func toDictionary() -> Dictionary<String, Any> {
-        
-        let gelato = [
-            "Coconut":0.25,
-            "Pistachio":0.26,
-            "Stracciatella":0.02,
-            "Chocolate":0.03,
-            "Peanut Butter":0.01,
-            "Bubble Gum":0.01
-        ]
-        
-        return gelato
     }
     
 }
