@@ -45,6 +45,26 @@ class CommanderController: NSViewController {
         flushDNS()
     }
     
+    @IBAction func openProgramDataFolder(_ sender: NSButton) {
+        
+        
+        let fileManager = FileManager.default
+        let dir = NSSearchPathForDirectoriesInDomains(.applicationSupportDirectory, .userDomainMask, true)[0]
+        let appFolder = (dir as NSString).appendingPathComponent("\(App.name.rawValue)")
+        var isDir: ObjCBool = false
+        if false == fileManager.fileExists(atPath: appFolder, isDirectory: &isDir) {
+            do {
+                try fileManager.createDirectory(atPath: appFolder, withIntermediateDirectories: true, attributes: nil)
+            } catch let error as NSError {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+        
+        let command = "open \"\(appFolder)\""
+        cmd.runAndPrint(comandToRun: command, textView: sshTextView)
+        
+        //print(appFolder)
+    }
     
     //MARK:  Run Command
     
