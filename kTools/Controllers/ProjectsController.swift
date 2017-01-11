@@ -197,7 +197,7 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
     @IBAction func editProject(_ sender: NSButton) {
         let projectEditVC = self.storyboard!.instantiateController(withIdentifier: "editProjectSheet") as! ProjectsEditController
         projectEditVC.project = curProject
-        projectEditVC.projectIndex = curIndex
+        projectEditVC.projectIndex = projects.index(of: curProject)!
         projectEditVC.delegate = self
         self.presentViewControllerAsSheet(projectEditVC)
     }
