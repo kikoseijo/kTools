@@ -10,7 +10,7 @@ import Cocoa
 
 //@IBDesignable
 
-class ProjectsController: NSViewController {
+class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
     
     private let cmd = Commander()
     
@@ -190,6 +190,7 @@ class ProjectsController: NSViewController {
     
     @IBAction func newProject(_ sender: NSButton) {
         let projectEditVC = self.storyboard!.instantiateController(withIdentifier: "editProjectSheet") as! ProjectsEditController
+        projectEditVC.delegate = self
         self.presentViewControllerAsSheet(projectEditVC)
     }
     
@@ -197,7 +198,15 @@ class ProjectsController: NSViewController {
         let projectEditVC = self.storyboard!.instantiateController(withIdentifier: "editProjectSheet") as! ProjectsEditController
         projectEditVC.project = curProject
         projectEditVC.projectIndex = curIndex
+        projectEditVC.delegate = self
         self.presentViewControllerAsSheet(projectEditVC)
+    }
+    
+    func closedView(controller: ProjectsEditController, beenChanged: Bool) {
+        if beenChanged {
+            print("Delegated called, beenChanged: \(beenChanged)")
+            reloadDbData()
+        }
     }
     
     
@@ -270,6 +279,17 @@ class ProjectsController: NSViewController {
         editButton.isEnabled=true
     }
     
+    private func reloadDbData(){
+        let projectsArray = dbManager.getValueForKey(key: "LaraProjects") as! Array<Dictionary<String, String>>
+        projects.removeAll()
+        for record in projectsArray {
+            projects.append(Project.createProjectFrom(dicc: record))
+        }
+        projectArrayController.content = nil
+        projectArrayController.content = projects
+        projectsTable.reloadData()
+    }
+    
     @IBAction func openLocalUrl(_ sender: NSButton) {
         if curProject.lUrl != "" {
             print(curProject.lUrl)
@@ -303,18 +323,19 @@ class ProjectsController: NSViewController {
         toolsTab.isHidden = true
         toolsTab.delegate = self
         
+        // 1
+        let descriptorName = NSSortDescriptor(key: "name", ascending: true)
+        let descriptorType = NSSortDescriptor(key: "type", ascending: true)
+        
+        // 2
+        projectsTable.tableColumns[0].sortDescriptorPrototype = descriptorName
+        projectsTable.tableColumns[1].sortDescriptorPrototype = descriptorType
+        
     }
     
     override func viewWillAppear() {
         
-        let projectsArray = dbManager.getValueForKey(key: "LaraProjects") as! Array<Dictionary<String, String>>
-        projects.removeAll()
-        for record in projectsArray {
-            projects.append(Project.createProjectFrom(dicc: record))
-        }
-        projectArrayController.content = nil
-        projectArrayController.content = projects
-        projectsTable.reloadData()
+        reloadDbData()
         
     }
     
@@ -324,7 +345,7 @@ class ProjectsController: NSViewController {
         }
     }
 }
-
+// MARK: NSSearchFieldDelegate
 extension ProjectsController: NSSearchFieldDelegate{
     override func controlTextDidChange(_ obj: Notification) {
         var searchString = ""
@@ -338,7 +359,7 @@ extension ProjectsController: NSSearchFieldDelegate{
         projectsTable.reloadData()
     }
 }
-
+// MARK: NSTabViewDelegate
 extension ProjectsController: NSTabViewDelegate {
 
     func tabView(_ tabView: NSTabView, shouldSelect tabViewItem: NSTabViewItem?) -> Bool{
@@ -363,15 +384,28 @@ extension ProjectsController: NSTabViewDelegate {
         
     }
 }
-
+// MARK: NSTableViewDataSource
 extension ProjectsController: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return (projectArrayController.arrangedObjects as! [Project]).count
     }
     
+    func tableView(_ tableView: NSTableView, sortDescriptorsDidChange oldDescriptors: [NSSortDescriptor]) {
+        // 1
+        guard let sortDescriptor = tableView.sortDescriptors.first else {
+            return
+        }
+        
+        let sortedProjects = (projects as NSArray).sortedArray(using: [sortDescriptor])
+        projectArrayController.content = nil
+        projectArrayController.content = sortedProjects
+        projectArrayController.rearrangeObjects()
+        projectsTable.reloadData()
+        
+    }
 }
-
+// MARK: NSTableViewDelegate
 extension ProjectsController: NSTableViewDelegate {
     
     fileprivate enum CellIdentifiers {
@@ -387,17 +421,12 @@ extension ProjectsController: NSTableViewDelegate {
         return true
     }
     
-    
     func tableViewSelectionDidChange(_ notification: Notification) {
         if projectsTable.selectedRow<0 {
             let index : IndexSet = [curIndex]
             projectsTable.selectRowIndexes(index, byExtendingSelection: false)
         }
     }
-    
-    
-    
-    
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         

@@ -8,8 +8,13 @@
 
 import Cocoa
 
+protocol ProjectsEditControllerDelegate: class {
+    func closedView(controller: ProjectsEditController, beenChanged: Bool)
+}
+
 class ProjectsEditController: NSViewController {
     
+    weak var delegate: ProjectsEditControllerDelegate?
     public var project:Project = Project()
     public var projectIndex: Int = -1
     
@@ -72,8 +77,12 @@ class ProjectsEditController: NSViewController {
             projects.append(newProject)
         }
         
-        self.dismiss(self)
+        
         dbManager.saveValue(value: projects as AnyObject, forKey: "LaraProjects")
+        delegate?.closedView(controller: self, beenChanged:true)
+        
+        self.dismiss(self)
+        
         
         
         
