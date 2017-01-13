@@ -19,6 +19,13 @@ class ProjectsEditController: NSViewController {
     public var projectIndex: Int = -1
     
     private var projectTypeSources = ["Laravel", "xCode", "Mean", "Wordpress", "Android", "C++", "PHP"]
+    private var repoStatus : String = "" {
+        didSet {
+            repoTypeGitBtn.state = repoStatus == "git" ? 1 : 0
+            repoTypeNoneBtn.state = repoStatus == "none" ? 1 : 0
+            repoTypeHgBtn.state = repoStatus == "hg" ? 1 : 0
+        }
+    }
     let dbManager = PlistManager.sharedInstance
     var projects: [Dictionary<String,String>] = []
     
@@ -30,6 +37,9 @@ class ProjectsEditController: NSViewController {
     
     @IBOutlet weak var typePf: NSPopUpButton!
     @IBOutlet weak var saveBtn: NSButton!
+    @IBOutlet weak var repoTypeNoneBtn: NSButton!
+    @IBOutlet weak var repoTypeGitBtn: NSButton!
+    @IBOutlet weak var repoTypeHgBtn: NSButton!
     
     // MARK: Life Cycle
     
@@ -46,6 +56,9 @@ class ProjectsEditController: NSViewController {
             typePf.selectItem(withTitle: project.type)
             lUrlTf.stringValue = project.lUrl
             rUrlTf.stringValue = project.rUrl
+            repoStatus = project.gitCommand != "" ? project.gitCommand : "none"
+        } else {
+            repoStatus = "none"
         }
     }
     
@@ -68,7 +81,7 @@ class ProjectsEditController: NSViewController {
             "remotePath" : rPathTf.stringValue,
             "rUrl" : rUrlTf.stringValue,
             "lUrl" : lUrlTf.stringValue,
-            "gitCommand" : ""
+            "gitCommand" : repoStatus
             ]
         
         if (projectIndex >= 0){
@@ -83,10 +96,6 @@ class ProjectsEditController: NSViewController {
         
         self.dismiss(self)
         
-        
-        
-        
-        
     }
     
     
@@ -97,6 +106,12 @@ class ProjectsEditController: NSViewController {
         rPathTf.stringValue = ""
         typePf.selectItem(at: 0)
     }
+    
+    
+    @IBAction func repoTypeAction(_ sender: NSButton) {
+        repoStatus = sender.identifier != "" ? sender.identifier! : "none"
+    }
+    
     
     @IBAction func browseFile(sender: AnyObject) {
         

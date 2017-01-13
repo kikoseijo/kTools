@@ -1789,12 +1789,12 @@
         <scene sceneID="ZPi-rR-DNi">
             <objects>
                 <viewController storyboardIdentifier="editProjectSheet" id="59J-ub-dFi" customClass="ProjectsEditController" customModule="kTools" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="ssx-hO-10Z">
+                    <view key="view" misplaced="YES" id="ssx-hO-10Z">
                         <rect key="frame" x="0.0" y="0.0" width="676" height="295"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o7i-dp-TyJ">
-                                <rect key="frame" x="20" y="258" width="134" height="17"/>
+                                <rect key="frame" x="20" y="307" width="134" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Edit / Create Project" id="Ods-Sz-hwK">
                                     <font key="font" metaFont="systemBold"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1825,19 +1825,19 @@ Gw
                                 </connections>
                             </button>
                             <box boxType="secondary" borderType="line" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="VKC-XI-cqx">
-                                <rect key="frame" x="19" y="57" width="642" height="195"/>
+                                <rect key="frame" x="19" y="57" width="642" height="244"/>
                                 <view key="contentView" id="sPC-JT-5ap">
-                                    <rect key="frame" x="1" y="1" width="640" height="193"/>
+                                    <rect key="frame" x="1" y="1" width="640" height="242"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="biI-A1-h15">
-                                            <rect key="frame" x="14" y="23" width="612" height="157"/>
+                                            <rect key="frame" x="14" y="23" width="612" height="206"/>
                                             <subviews>
                                                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k9G-PY-hEG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="157"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="206"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="ysz-bI-YMQ">
-                                                            <rect key="frame" x="-2" y="140" width="88" height="17"/>
+                                                            <rect key="frame" x="-2" y="189" width="88" height="17"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Project name:" id="pcG-68-lQU">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1845,7 +1845,7 @@ Gw
                                                             </textFieldCell>
                                                         </textField>
                                                         <textField verticalHuggingPriority="750" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="QHD-wB-zge">
-                                                            <rect key="frame" x="0.0" y="110" width="300" height="22"/>
+                                                            <rect key="frame" x="0.0" y="159" width="300" height="22"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="2yl-a8-h2d">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1853,7 +1853,7 @@ Gw
                                                             </textFieldCell>
                                                         </textField>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="LiJ-JT-Sfi">
-                                                            <rect key="frame" x="-2" y="85" width="114" height="17"/>
+                                                            <rect key="frame" x="-2" y="134" width="114" height="17"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Project local path:" id="u3w-wf-uFX">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1861,7 +1861,7 @@ Gw
                                                             </textFieldCell>
                                                         </textField>
                                                         <stackView distribution="fill" orientation="horizontal" alignment="bottom" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1bT-7f-ZLJ">
-                                                            <rect key="frame" x="0.0" y="55" width="300" height="22"/>
+                                                            <rect key="frame" x="0.0" y="104" width="300" height="22"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Bbf-dT-Eil">
                                                                     <rect key="frame" x="0.0" y="0.0" width="239" height="22"/>
@@ -1892,7 +1892,7 @@ Gw
                                                             </customSpacing>
                                                         </stackView>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MA0-XO-WBC">
-                                                            <rect key="frame" x="-2" y="30" width="62" height="17"/>
+                                                            <rect key="frame" x="-2" y="79" width="62" height="17"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Local Url:" id="zWz-co-QKD">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1900,18 +1900,73 @@ Gw
                                                             </textFieldCell>
                                                         </textField>
                                                         <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CPU-b9-1f9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="22"/>
+                                                            <rect key="frame" x="0.0" y="49" width="300" height="22"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="bIP-ZF-4Gb">
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                         </textField>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-dT-FP8">
+                                                            <rect key="frame" x="-2" y="24" width="73" height="17"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Repository:" id="09Y-Gw-KqQ">
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                        </textField>
+                                                        <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hzl-SQ-RP7">
+                                                            <rect key="frame" x="0.0" y="0.0" width="256" height="16"/>
+                                                            <subviews>
+                                                                <button identifier="none" translatesAutoresizingMaskIntoConstraints="NO" id="Rwo-xf-1Yv">
+                                                                    <rect key="frame" x="-1" y="-1" width="74" height="18"/>
+                                                                    <buttonCell key="cell" type="radio" title="No Repo" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="SUJ-VZ-n72">
+                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="repoTypeAction:" target="59J-ub-dFi" id="YE7-2q-Gpv"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button identifier="git" translatesAutoresizingMaskIntoConstraints="NO" id="yUT-bp-iVW">
+                                                                    <rect key="frame" x="78" y="-1" width="68" height="18"/>
+                                                                    <buttonCell key="cell" type="radio" title="Git (git)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="oOM-Ce-9UM">
+                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="repoTypeAction:" target="59J-ub-dFi" id="0aZ-0P-I7p"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <button identifier="hg" translatesAutoresizingMaskIntoConstraints="NO" id="IsK-8A-Gr4">
+                                                                    <rect key="frame" x="151" y="-1" width="107" height="18"/>
+                                                                    <buttonCell key="cell" type="radio" title="Mercurial (hg)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="z4B-EY-dad">
+                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                        <font key="font" metaFont="system"/>
+                                                                    </buttonCell>
+                                                                    <connections>
+                                                                        <action selector="repoTypeAction:" target="59J-ub-dFi" id="iA5-DM-H8V"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <visibilityPriorities>
+                                                                <integer value="1000"/>
+                                                                <integer value="1000"/>
+                                                                <integer value="1000"/>
+                                                            </visibilityPriorities>
+                                                            <customSpacing>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                            </customSpacing>
+                                                        </stackView>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="300" id="iEZ-86-1pD"/>
                                                     </constraints>
                                                     <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
                                                         <integer value="1000"/>
                                                         <integer value="1000"/>
                                                         <integer value="1000"/>
@@ -1926,10 +1981,12 @@ Gw
                                                         <real value="3.4028234663852886e+38"/>
                                                         <real value="3.4028234663852886e+38"/>
                                                         <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
                                                     </customSpacing>
                                                 </stackView>
                                                 <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xp6-0D-hGO">
-                                                    <rect key="frame" x="312" y="1" width="300" height="156"/>
+                                                    <rect key="frame" x="312" y="50" width="300" height="156"/>
                                                     <subviews>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jF8-mT-g4v">
                                                             <rect key="frame" x="-2" y="139" width="82" height="17"/>
@@ -2045,13 +2102,16 @@ Gw
                         <outlet property="nameTf" destination="QHD-wB-zge" id="7bh-Qk-BMl"/>
                         <outlet property="rPathTf" destination="Kec-Pb-c1y" id="mhR-QG-yYz"/>
                         <outlet property="rUrlTf" destination="Gxn-ap-XK1" id="U4N-y8-1r7"/>
+                        <outlet property="repoTypeGitBtn" destination="yUT-bp-iVW" id="IcR-QM-Mex"/>
+                        <outlet property="repoTypeHgBtn" destination="IsK-8A-Gr4" id="1IZ-Qi-gwe"/>
+                        <outlet property="repoTypeNoneBtn" destination="Rwo-xf-1Yv" id="7OS-EA-DKx"/>
                         <outlet property="saveBtn" destination="Dyc-QZ-Kfd" id="OcR-gF-0fh"/>
                         <outlet property="typePf" destination="8Ly-Ip-mmw" id="xsU-af-b9t"/>
                     </connections>
                 </viewController>
                 <customObject id="Gbx-Sh-RZl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-805" y="1670"/>
+            <point key="canvasLocation" x="-805" y="1669.5"/>
         </scene>
     </scenes>
     <resources>
