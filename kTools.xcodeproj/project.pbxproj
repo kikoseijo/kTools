@@ -433,6 +433,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 805040BEBEA2811D88BC2D12 /* Pods-kTools.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5F7825APZ5;
@@ -448,6 +449,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EAC9ADA07068CFF9FFA8327E /* Pods-kTools.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 5F7825APZ5;

@@ -1198,9 +1198,8 @@
                                                 <real value="3.4028234663852886e+38"/>
                                             </customSpacing>
                                         </stackView>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uo1-ik-hLy">
-                                            <rect key="frame" x="477" y="42" width="108" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Uo1-ik-hLy">
+                                            <rect key="frame" x="491" y="42" width="94" height="32"/>
                                             <buttonCell key="cell" type="push" title="Local Url" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jz1-iz-luY">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1209,9 +1208,8 @@
                                                 <action selector="openLocalUrl:" target="gds-Hn-PfE" id="uVp-Q1-lIp"/>
                                             </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2tD-lb-Lf4">
+                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2tD-lb-Lf4">
                                             <rect key="frame" x="477" y="9" width="108" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="push" title="Remote Url" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yJx-DH-XLr">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1223,8 +1221,12 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="sgZ-yd-Iwq" firstAttribute="leading" secondItem="SZF-m3-eoO" secondAttribute="leading" constant="20" symbolic="YES" id="5up-sk-f21"/>
+                                        <constraint firstAttribute="trailing" secondItem="Uo1-ik-hLy" secondAttribute="trailing" constant="35" id="74s-PO-cSl"/>
                                         <constraint firstAttribute="bottom" secondItem="sgZ-yd-Iwq" secondAttribute="bottom" constant="20" symbolic="YES" id="HxL-1u-JPB"/>
+                                        <constraint firstAttribute="bottom" secondItem="2tD-lb-Lf4" secondAttribute="bottom" constant="16" id="TRz-H8-x93"/>
                                         <constraint firstItem="sgZ-yd-Iwq" firstAttribute="top" secondItem="SZF-m3-eoO" secondAttribute="top" constant="20" symbolic="YES" id="XxC-il-eNM"/>
+                                        <constraint firstItem="Uo1-ik-hLy" firstAttribute="top" secondItem="SZF-m3-eoO" secondAttribute="top" constant="12" id="c5N-VR-rtI"/>
+                                        <constraint firstAttribute="trailing" secondItem="2tD-lb-Lf4" secondAttribute="trailing" constant="35" id="q96-Wr-XUU"/>
                                     </constraints>
                                 </view>
                             </box>
@@ -1789,8 +1791,8 @@
         <scene sceneID="ZPi-rR-DNi">
             <objects>
                 <viewController storyboardIdentifier="editProjectSheet" id="59J-ub-dFi" customClass="ProjectsEditController" customModule="kTools" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" misplaced="YES" id="ssx-hO-10Z">
-                        <rect key="frame" x="0.0" y="0.0" width="676" height="295"/>
+                    <view key="view" id="ssx-hO-10Z">
+                        <rect key="frame" x="0.0" y="0.0" width="676" height="344"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o7i-dp-TyJ">

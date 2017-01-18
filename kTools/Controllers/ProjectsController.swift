@@ -54,7 +54,7 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
     // MARK: Laravel Actions
     
     @IBAction func refreshAndSeedDb(_ sender: NSButton) {
-        execCommand(commando: "cd \(curProject.lPath) && php artisan migrate:refresh && php artisan db:seed")
+        execCommand(commando: "cd \"\(curProject.lPath)\" && php artisan migrate:refresh && php artisan db:seed")
     }
     
     @IBAction func artisanServe(_ sender: NSButton) {
@@ -62,7 +62,7 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
         if localPath.isEmpty {
             return
         }
-        cmd.launchTerminalWith(command: "cd \(localPath) && php artisan serve")
+        cmd.launchTerminalWith(command: "cd \"\(curProject.lPath)\" && php artisan serve")
     }
     
     @IBAction func artisanGulp(_ sender: NSButton) {
@@ -71,7 +71,7 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
     
     @IBAction func artisanNewController(_ sender: NSButton) {
         
-        let commando = "cd \(curProject.lPath) && php artisan make:controller %s"
+        let commando = "cd \"\(curProject.lPath)\" && php artisan make:controller %s"
         let titleText = "php artisan make:controller"
         let infoText = "Please insert the name for new controller"
         exeCommandWithPrompt(command: commando,title: titleText, infoText: infoText)
@@ -86,12 +86,12 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
     @IBAction func atomAction(_ sender: NSButton) {
         let atomPath = cmd.whichPath(executable: "atom")
         if atomPath.characters.count>1 {
-            execCommand(commando:"atom \(curProject.lPath)")
+            execCommand(commando:"atom \"\(curProject.lPath)\"")
         }
     }
     
     @IBAction func finderAction(_ sender: NSButton) {
-        execCommand(commando:"cd \(curProject.lPath) && open .")
+        execCommand(commando:"cd \"\(curProject.lPath)\" && open .")
     }
     
     @IBAction func openTerminalAction(_ sender: NSButton) {
@@ -106,26 +106,26 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
     // MARK: xCode
     
     @IBAction func openXcode(_ sender: NSButton) {
-        execCommand(commando: "cd \(curProject.lPath) && [ -e ./*.xcworkspace ] && open ./*.xcworkspace || open ./*.xcodeproj", output: "Openning xCode App")
+        execCommand(commando: "cd \"\(curProject.lPath)\" && [ -e ./*.xcworkspace ] && open ./*.xcworkspace || open ./*.xcodeproj", output: "Openning xCode App")
     }
     
     @IBAction func podsInit(_ sender: NSButton) {
-        execCommand(commando:"cd \(curProject.lPath) && pod init")
+        execCommand(commando:"cd \"\(curProject.lPath)\" && pod init")
     }
     
     @IBAction func podfileEdit(_ sender: NSButton) {
-        execCommand(commando:"atom \(curProject.lPath)/Podfile")
+        execCommand(commando:"atom \"\(curProject.lPath)/Podfile\"")
     }
     
     @IBAction func podInstall(_ sender: NSButton) {
-        execCommand(commando:"cd \(curProject.lPath) && pod install")
+        execCommand(commando:"cd \"\(curProject.lPath)\" && pod install")
     }
     
     // MARK: Git
     
     @IBAction func gitCommitAction(_ sender: NSButton) {
         
-        let commando = "cd \(curProject.lPath) && git add . && git commit -m \"%s\" && git push"
+        let commando = "cd \"\(curProject.lPath)\" && git add . && git commit -m \"%s\" && git push"
         let titleText = "Git commit message"
         let infoText = "A message its necesary to commit and push changes"
         exeCommandWithPrompt(command: commando,title: titleText, infoText: infoText)
@@ -133,7 +133,7 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
     }
     
     @IBAction func gitInit(_ sender: NSButton) {
-        execCommand(commando:"cd \(curProject.lPath) && git init")
+        execCommand(commando:"cd \"\(curProject.lPath)\" && git init")
     }
     
     
@@ -292,13 +292,13 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
     
     @IBAction func openLocalUrl(_ sender: NSButton) {
         if curProject.lUrl != "" {
-            print(curProject.lUrl)
+            openUrlOnBrowser(curProject.lUrl)
         }
     }
     
     @IBAction func openRemoteUrl(_ sender: NSButton) {
         if curProject.rUrl != "" {
-            print(curProject.rUrl)
+            openUrlOnBrowser(curProject.rUrl)
         }
     }
     
