@@ -125,10 +125,14 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
     
     @IBAction func gitCommitAction(_ sender: NSButton) {
         
-        let commando = "cd \"\(curProject.lPath)\" && git add . && git commit -m \"%s\" && git push"
-        let titleText = "Git commit message"
-        let infoText = "A message its necesary to commit and push changes"
-        exeCommandWithPrompt(command: commando,title: titleText, infoText: infoText)
+        if curProject.gitCommand == "git" || curProject.gitCommand == "hg" {
+            let commando = "cd \"\(curProject.lPath)\" && \(curProject.gitCommand) add . && \(curProject.gitCommand) commit -m \"%s\" && \(curProject.gitCommand) push"
+            let titleText = "Git commit message"
+            let infoText = "A message its necesary to commit and push changes"
+            exeCommandWithPrompt(command: commando,title: titleText, infoText: infoText)
+        }
+        
+        
         
     }
     
