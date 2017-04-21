@@ -252,7 +252,7 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
         // put the path to the created text file in the userInfo dictionary of the notification
         //notification.userInfo = ["path" : fileName]
         // use the default sound for a notification
-        notification.soundName = NSUserNotificationDefaultSoundName
+        //notification.soundName = NSUserNotificationDefaultSoundName
         // if the user chooses to display the notification as an alert, give it an action button called "View"
         //notification.hasActionButton = true
         //notification.actionButtonTitle = "View"
@@ -375,7 +375,7 @@ extension ProjectsController: NSTabViewDelegate {
             }
             if curProject.type == "xCode", tbId  == "xcode" {
                 return true
-            } else if curProject.type == "Laravel", tbId  == "lara" {
+            } else if curProject.type == "Laravel", tbId  == "atom" {
                 return true
             } else if curProject.type == "Wordpress", tbId  == "wp" {
                 return true

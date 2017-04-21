@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
@@ -969,11 +969,11 @@
                                     </tabViewItem>
                                     <tabViewItem label="Files &amp; Editors" identifier="atom" id="Jgw-Qv-l3d">
                                         <view key="view" id="K74-Oh-mJK">
-                                            <rect key="frame" x="10" y="33" width="582" height="183"/>
+                                            <rect key="frame" x="10" y="33" width="606" height="179"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oZA-o0-SjD">
-                                                    <rect key="frame" x="4" y="148" width="180" height="32"/>
+                                                    <rect key="frame" x="4" y="144" width="180" height="32"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="168" id="nXV-SY-F9g"/>
                                                     </constraints>
@@ -986,7 +986,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-D5-ZvI">
-                                                    <rect key="frame" x="4" y="115" width="180" height="32"/>
+                                                    <rect key="frame" x="4" y="111" width="180" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Finder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eyy-2r-Cap">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
@@ -996,7 +996,7 @@
                                                     </connections>
                                                 </button>
                                                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ocR-CC-cfg">
-                                                    <rect key="frame" x="4" y="82" width="180" height="32"/>
+                                                    <rect key="frame" x="4" y="78" width="180" height="32"/>
                                                     <buttonCell key="cell" type="push" title="Terminal" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v6O-Hn-0b2">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" metaFont="system"/>
