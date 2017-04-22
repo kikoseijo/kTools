@@ -273,7 +273,7 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
     func selectProjectTab(){
         toolsTab.isHidden = false
         if curProject.type == "Laravel" {
-            toolsTab.selectTabViewItem(withIdentifier: "lara")
+            toolsTab.selectTabViewItem(withIdentifier: "atom")
         } else if curProject.type == "xCode"{
             toolsTab.selectTabViewItem(withIdentifier: "xcode")
         } else if curProject.type == "wp"{
@@ -375,7 +375,7 @@ extension ProjectsController: NSTabViewDelegate {
             }
             if curProject.type == "xCode", tbId  == "xcode" {
                 return true
-            } else if curProject.type == "Laravel", tbId  == "atom" {
+            } else if curProject.type == "Laravel", tbId  == "lara" {
                 return true
             } else if curProject.type == "Wordpress", tbId  == "wp" {
                 return true
