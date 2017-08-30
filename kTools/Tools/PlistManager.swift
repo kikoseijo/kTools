@@ -199,7 +199,7 @@ class PlistManager {
         print(error)
       }
       print("[PlistManager] An Action has been performed. You can check if it went ok by taking a look at the current content of the plist file: ")
-      print("[PlistManager] \(plist.getValuesInPlistFile())")
+      print("[PlistManager] \(String(describing: plist.getValuesInPlistFile()))")
     } else {
       print("[PlistManager] Unable to get Plist")
     }

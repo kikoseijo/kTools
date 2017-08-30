@@ -8,8 +8,6 @@ Its on a very ***BETA stage***, anyone interested its wellcome to contribute in 
 
 This will be everyday taks that needs to be done on a regular basis with every new project, and the intention its to build over the time.
 
-
-
 ## Current task done so far
 
 The app itself its a tab style application, with the following tabs:
@@ -57,11 +55,6 @@ A basic ***CRUD*** has been added and you can `add`, `update` or `delete` projec
 #### xCode
 
 - Opens xCode and will check for the existance of ***.xcworkspace*** and if false will open ***.xcodeproj***
-
-#### Wordpress
-
-- Comming Soon..
-
 
 ## Up comming task
 
