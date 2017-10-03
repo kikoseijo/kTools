@@ -154,7 +154,7 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
         a.alertStyle = .warning
         
         a.beginSheetModal(for: self.view.window!, completionHandler: { (modalResponse) -> Void in
-            if modalResponse == NSAlertFirstButtonReturn {
+            if modalResponse == NSApplication.ModalResponse.alertFirstButtonReturn {
                 print("Project deleted succesfully")
                 self.deleteCurrentSelectedProject()
             } else {
@@ -193,13 +193,13 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
     }
     
     @IBAction func newProject(_ sender: NSButton) {
-        let projectEditVC = self.storyboard!.instantiateController(withIdentifier: "editProjectSheet") as! ProjectsEditController
+        let projectEditVC = self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "editProjectSheet")) as! ProjectsEditController
         projectEditVC.delegate = self
         self.presentViewControllerAsSheet(projectEditVC)
     }
     
     @IBAction func editProject(_ sender: NSButton) {
-        let projectEditVC = self.storyboard!.instantiateController(withIdentifier: "editProjectSheet") as! ProjectsEditController
+        let projectEditVC = self.storyboard!.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier(rawValue: "editProjectSheet")) as! ProjectsEditController
         projectEditVC.project = curProject
         projectEditVC.projectIndex = projects.index(of: curProject)!
         projectEditVC.delegate = self
@@ -228,7 +228,7 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
         alert.informativeText = infoText
      
         alert.beginSheetModal(for: self.view.window!, completionHandler: { [unowned self]  (returnCode) -> Void in
-            if returnCode == NSAlertFirstButtonReturn {
+            if returnCode == NSApplication.ModalResponse.alertFirstButtonReturn {
                 if !prompt.stringValue.isEmpty{
                     let commandfinal = command.replacingOccurrences(of: "%s", with: prompt.stringValue)
                     self.execCommand(commando: commandfinal)
@@ -456,7 +456,7 @@ extension ProjectsController: NSTableViewDelegate {
         }
         
         // 3
-        if let cell = projectsTable.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
+        if let cell = projectsTable.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
             cell.textField?.stringValue = text
             //cell.imageView?.image = image ?? nil
             return cell

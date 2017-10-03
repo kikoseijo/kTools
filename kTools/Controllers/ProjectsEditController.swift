@@ -21,9 +21,9 @@ class ProjectsEditController: NSViewController {
     private var projectTypeSources = ["Laravel", "xCode", "Mean", "Wordpress", "Android", "C++", "PHP"]
     private var repoStatus : String = "" {
         didSet {
-            repoTypeGitBtn.state = repoStatus == "git" ? 1 : 0
-            repoTypeNoneBtn.state = repoStatus == "none" ? 1 : 0
-            repoTypeHgBtn.state = repoStatus == "hg" ? 1 : 0
+            repoTypeGitBtn.state = NSControl.StateValue(rawValue: repoStatus == "git" ? 1 : 0)
+            repoTypeNoneBtn.state = NSControl.StateValue(rawValue: repoStatus == "none" ? 1 : 0)
+            repoTypeHgBtn.state = NSControl.StateValue(rawValue: repoStatus == "hg" ? 1 : 0)
         }
     }
     let dbManager = PlistManager.sharedInstance
@@ -109,7 +109,7 @@ class ProjectsEditController: NSViewController {
     
     
     @IBAction func repoTypeAction(_ sender: NSButton) {
-        repoStatus = sender.identifier != "" ? sender.identifier! : "none"
+        repoStatus = sender.identifier?.rawValue != "" ? (sender.identifier?.rawValue)! : "none"
     }
     
     
@@ -125,7 +125,7 @@ class ProjectsEditController: NSViewController {
         dialog.allowsMultipleSelection = false;
         //dialog.alow        = ["txt"];
         
-        if (dialog.runModal() == NSModalResponseOK) {
+        if (dialog.runModal() == NSApplication.ModalResponse.OK) {
             let result = dialog.url // Pathname of the file
             
             if (result != nil) {

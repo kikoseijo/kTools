@@ -54,7 +54,7 @@ class HomebrewController: NSViewController {
     
     private func updateBrewServiceImageStatus(status:String){
         let color = brewServices[status]! ? NSColor.green : NSColor.red
-        brewStatusImg.image = tintedImage(NSImage(named: "btn-power.png")!, tint: color)
+        brewStatusImg.image = tintedImage(NSImage(named: NSImage.Name(rawValue: "btn-power.png"))!, tint: color)
         servicesTableView.reloadData()
     }
     
@@ -150,7 +150,7 @@ extension HomebrewController: NSTableViewDelegate {
         }
         
         // 3
-        if let cell = servicesTableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
+        if let cell = servicesTableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView {
             cell.textField?.stringValue = text
             //cell.imageView?.image = image ?? nil
             return cell

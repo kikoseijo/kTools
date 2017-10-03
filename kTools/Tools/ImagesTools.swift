@@ -15,7 +15,7 @@ func tintedImage(_ image: NSImage, tint: NSColor) -> NSImage {
     tint.set()
     
     let imageRect = NSRect(origin: NSZeroPoint, size: image.size)
-    NSRectFillUsingOperation(imageRect, .sourceAtop)
+    imageRect.fill(using: .sourceAtop)
     
     tinted.unlockFocus()
     return tinted

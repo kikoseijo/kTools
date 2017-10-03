@@ -76,7 +76,7 @@ class CommanderController: NSViewController {
     
     private func runManualcommand(){
         var command = execCommandTF.stringValue
-        if runAsSudo.state == 1 {
+        if runAsSudo.state.rawValue == 1 {
             command = "sudo " + command
         }
         execCommandSpinner.startAnimation(self)

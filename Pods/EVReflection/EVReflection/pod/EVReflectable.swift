@@ -500,6 +500,6 @@ extension EVReflectable {
      - parameter message: The message for the status.
      */
     public func addStatusMessage(_ type: DeserializationStatus, message: String) {
-        (self as? EVObject)?.evReflectionStatuses.append(type, message)
+        (self as? EVObject)?.evReflectionStatuses.append((type, message))
     }
 }

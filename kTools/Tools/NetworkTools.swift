@@ -16,7 +16,7 @@ func flushDNS() {
 
 func openUrlOnBrowser(_ urlString:String){
     let cleanURL = addHttpIfNotFound(urlString)
-    if let url = URL(string: cleanURL), NSWorkspace.shared().open(url) {
+    if let url = URL(string: cleanURL), NSWorkspace.shared.open(url) {
         
     } else {
         print("Trying to open invalid urlString: \(urlString)")

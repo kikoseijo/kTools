@@ -13,7 +13,7 @@ extension NSTextView {
     func append(string: String) {
         
         let color = NSColor.white
-        let attrs = [NSForegroundColorAttributeName : color]
+        let attrs = [NSAttributedStringKey.foregroundColor : color]
         let newLineString = string
         self.textStorage?.append(NSAttributedString(string: newLineString, attributes: attrs))
         self.scrollToEndOfDocument(nil)

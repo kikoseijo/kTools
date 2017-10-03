@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16D32" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13196"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
@@ -672,6 +672,9 @@
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="850" height="440"/>
                         <value key="maxSize" type="size" width="850" height="440"/>
+                        <connections>
+                            <outlet property="delegate" destination="B8D-0N-5wS" id="jhg-zp-y8f"/>
+                        </connections>
                     </window>
                     <connections>
                         <segue destination="MXb-zA-dme" kind="relationship" relationship="window.shadowedContentViewController" id="rzs-1I-bTL"/>
@@ -698,8 +701,12 @@
                         <tabViewItems>
                             <tabViewItem identifier="" id="pPT-rg-j9N"/>
                         </tabViewItems>
+                        <connections>
+                            <outlet property="delegate" destination="MXb-zA-dme" id="lUY-hW-b7i"/>
+                        </connections>
                     </tabView>
                     <connections>
+                        <outlet property="tabView" destination="x2e-i0-nZf" id="fp4-f6-GDt"/>
                         <segue destination="DRT-oW-UdM" kind="relationship" relationship="tabItems" id="f1d-Tb-84k"/>
                         <segue destination="7Hq-Uf-9Oj" kind="relationship" relationship="tabItems" id="n9V-Cg-1n2"/>
                         <segue destination="gds-Hn-PfE" kind="relationship" relationship="tabItems" id="709-1a-I5v"/>
@@ -1456,7 +1463,7 @@
                                                     <rect key="frame" x="1" y="1" width="842" height="196"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="l1c-RD-hek">
+                                                        <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="l1c-RD-hek">
                                                             <rect key="frame" x="0.0" y="0.0" width="842" height="196"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1760,7 +1767,7 @@
                                                     <rect key="frame" x="1" y="1" width="842" height="125"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <textView editable="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="PTY-yP-EPD">
+                                                        <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="PTY-yP-EPD">
                                                             <rect key="frame" x="0.0" y="0.0" width="676" height="125"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
