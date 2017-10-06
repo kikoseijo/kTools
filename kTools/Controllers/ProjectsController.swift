@@ -49,7 +49,6 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
     @IBOutlet weak var lPathLb: NSTextField!
     @IBOutlet weak var rPathLb: NSTextField!
     
-    @IBOutlet weak var toolsTab: NSTabView!
     
     // MARK: Laravel Actions
     
@@ -271,14 +270,14 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
     }
     
     func selectProjectTab(){
-        toolsTab.isHidden = false
-        if curProject.type == "Laravel" {
-            toolsTab.selectTabViewItem(withIdentifier: "atom")
-        } else if curProject.type == "xCode"{
-            toolsTab.selectTabViewItem(withIdentifier: "xcode")
-        } else if curProject.type == "wp"{
-            toolsTab.selectTabViewItem(withIdentifier: "xcode")
-        }
+//        toolsTab.isHidden = false
+//        if curProject.type == "Laravel" {
+//            toolsTab.selectTabViewItem(withIdentifier: "atom")
+//        } else if curProject.type == "xCode"{
+//            toolsTab.selectTabViewItem(withIdentifier: "xcode")
+//        } else if curProject.type == "wp"{
+//            toolsTab.selectTabViewItem(withIdentifier: "xcode")
+//        }
         deleteBtn.isEnabled = true
         editButton.isEnabled=true
     }
@@ -323,9 +322,7 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
         projectNameLb.stringValue = "Active project"
         lPathLb.stringValue = "Select project from the table of add a new one."
         rPathLb.stringValue = ""
-        
-        toolsTab.isHidden = true
-        toolsTab.delegate = self
+
         
         // 1
         let descriptorName = NSSortDescriptor(key: "name", ascending: true)
