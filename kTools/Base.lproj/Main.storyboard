@@ -729,7 +729,7 @@
                                 <subviews>
                                     <searchField wantsLayer="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0kB-Vh-ee4">
                                         <rect key="frame" x="0.0" y="370" width="400" height="21"/>
-                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="border" title="Filter projects" drawsBackground="YES" usesSingleLineMode="YES" sendsSearchStringImmediately="YES" recentsAutosaveName="projectSearchR" id="MsQ-xV-Evy">
+                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="border" placeholderString="Filter projects" drawsBackground="YES" usesSingleLineMode="YES" sendsSearchStringImmediately="YES" recentsAutosaveName="projectSearchR" id="MsQ-xV-Evy">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1150,6 +1150,7 @@
                     </connections>
                 </viewController>
                 <customObject id="HGF-7Y-UId" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="zdt-Xj-3GJ"/>
             </objects>
             <point key="canvasLocation" x="-1404" y="1054.5"/>
         </scene>

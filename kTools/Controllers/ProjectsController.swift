@@ -68,13 +68,6 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
         execCommand(commando: "cd \(curProject.lPath) && gulp")
     }
     
-    @IBAction func artisanNewController(_ sender: NSButton) {
-        
-        let commando = "cd \"\(curProject.lPath)\" && php artisan make:controller %s"
-        let titleText = "php artisan make:controller"
-        let infoText = "Please insert the name for new controller"
-        exeCommandWithPrompt(command: commando,title: titleText, infoText: infoText)
-    }
     
     @IBAction func artisanPassportInstall(_ sender: NSButton) {
         execCommand(commando: "cd \(curProject.lPath) && php artisan passport:install")
