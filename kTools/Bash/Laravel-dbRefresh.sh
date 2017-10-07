@@ -1,6 +1,7 @@
 #!/bin/sh
 
 #  Laravel-dbRefresh.sh
+#  OBosolete. This are test,.
 #  kTools
 #
 #  Created by sMac on 27/12/2016.
