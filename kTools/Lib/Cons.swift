@@ -17,6 +17,8 @@ enum ExecPaths: String {
     case brew = "/usr/local/bin/brew"
     case nginx = "/usr/local/bin/nginx"
     case atom = "/usr/local/bin/atom"
+    case code = "/usr/local/bin/code"
+    case stree = "/Applications/SourceTree.app/Contents/Resources/stree"
     case c = "C"
 }
 

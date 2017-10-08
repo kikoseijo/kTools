@@ -18,7 +18,7 @@ class ProjectsEditController: NSViewController {
     public var project:Project = Project()
     public var projectIndex: Int = -1
     
-    private var projectTypeSources = ["Laravel", "xCode", "Mean", "Wordpress", "Android", "C++", "PHP"]
+    private var projectTypeSources = ["Laravel", "xCode", "NativeScript", "Cordova", "Atom", "OctoberCMS", "Mean", "Wordpress", "Android", "C++", "PHP"]
     private var repoStatus : String = "" {
         didSet {
             repoTypeGitBtn.state = NSControl.StateValue(rawValue: repoStatus == "git" ? 1 : 0)
