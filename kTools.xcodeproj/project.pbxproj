@@ -25,6 +25,7 @@
 		927C1E2A1E126DE000E2A506 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C1E201E126DE000E2A506 /* NetworkTools.swift */; };
 		927C1E2B1E126DE000E2A506 /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C1E211E126DE000E2A506 /* PlistManager.swift */; };
 		927C1E2C1E126DE000E2A506 /* TextGui.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C1E221E126DE000E2A506 /* TextGui.swift */; };
+		9289E1B91F94C65900C0DBFA /* Terminal in Resources */ = {isa = PBXBuildFile; fileRef = 9289E1B81F94C65900C0DBFA /* Terminal */; };
 		928B99AC1E0312D200992F02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928B99AB1E0312D200992F02 /* AppDelegate.swift */; };
 		928B99B01E0312D200992F02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 928B99AF1E0312D200992F02 /* Assets.xcassets */; };
 		928B99B31E0312D200992F02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 928B99B11E0312D200992F02 /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 		927C1E201E126DE000E2A506 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		927C1E211E126DE000E2A506 /* PlistManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
 		927C1E221E126DE000E2A506 /* TextGui.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextGui.swift; sourceTree = "<group>"; };
+		9289E1B81F94C65900C0DBFA /* Terminal */ = {isa = PBXFileReference; lastKnownFileType = text; name = Terminal; path = Bash/Terminal; sourceTree = "<group>"; };
 		928B99A81E0312D200992F02 /* kTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		928B99AB1E0312D200992F02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		928B99AF1E0312D200992F02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				92F8B6CE1E128F2200734D9E /* Laravel-dbRefresh.sh */,
+				9289E1B81F94C65900C0DBFA /* Terminal */,
 			);
 			name = Bash;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9289E1B91F94C65900C0DBFA /* Terminal in Resources */,
 				928B99B01E0312D200992F02 /* Assets.xcassets in Resources */,
 				920D67321F72EB9D00854635 /* terminal.png in Resources */,
 				ADDE21581E093734007CCBF5 /* icon80x80.png in Resources */,
