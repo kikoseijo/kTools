@@ -40,6 +40,7 @@ extension Project {
         let project = Project()
 
         project.name = dicc["name"] as! String? ?? ""
+        NSLog(project.name)
         project.lPath = dicc["localPath"] as! String? ?? ""
         project.type = dicc["type"] as! String? ?? ""
         project.rPath = dicc["remotePath"] as! String? ?? ""

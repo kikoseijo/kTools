@@ -262,6 +262,16 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
         newNotif(msg: finalOutput, title: curProject.name)
     }
     
+    @objc func projectSearchAction(searchString: NSString){
+        let predicate = NSPredicate(format: "name CONTAINS[cd] %@ or type CONTAINS[cd] %@", searchString, searchString)
+        if searchString != "" {
+            projectArrayController.filterPredicate = predicate
+        } else {
+            projectArrayController.filterPredicate = nil
+        }
+        projectsTable.reloadData()
+    }
+    
     func selectProjectTab(){
 //        toolsTab.isHidden = false
 //        if curProject.type == "Laravel" {
@@ -307,6 +317,7 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
         projectsTable.delegate = self
         projectsTable.dataSource = self
         searchField.delegate = self
+        searchField.action = #selector(projectSearchAction(searchString:))
         
         deleteBtn.isEnabled = false
         editButton.isEnabled = false
@@ -328,7 +339,13 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
     }
     
     override func viewWillAppear() {
+        NSLog("viewWillAppear()")
         
+    }
+    
+    override func viewDidAppear() {
+
+        NSLog("viewDidAppear()")
         reloadDbData()
         
     }
@@ -342,15 +359,10 @@ class ProjectsController: NSViewController, ProjectsEditControllerDelegate {
 // MARK: NSSearchFieldDelegate
 extension ProjectsController: NSSearchFieldDelegate{
     override func controlTextDidChange(_ obj: Notification) {
+        NSLog("im searching.")
         var searchString = ""
         searchString = ((obj.object as? NSSearchField)?.stringValue)!
-        let predicate = NSPredicate(format: "name CONTAINS[cd] %@ or type CONTAINS[cd] %@", searchString,searchString)
-        if searchString != "" {
-            projectArrayController.filterPredicate = predicate
-        } else {
-            projectArrayController.filterPredicate = nil
-        }
-        projectsTable.reloadData()
+        projectSearchAction(searchString: searchString as NSString)
     }
 }
 // MARK: NSTabViewDelegate

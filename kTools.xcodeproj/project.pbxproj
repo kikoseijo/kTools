@@ -8,12 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		68DA3C59B9E222CE1A953ABC /* Pods_kTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AF2A2473D155BCD6CFFA734 /* Pods_kTools.framework */; };
-		920D67301F72EB9D00854635 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 920D672A1F72EB9D00854635 /* folder.png */; };
-		920D67311F72EB9D00854635 /* folder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 920D672B1F72EB9D00854635 /* folder@2x.png */; };
-		920D67321F72EB9D00854635 /* terminal.png in Resources */ = {isa = PBXBuildFile; fileRef = 920D672C1F72EB9D00854635 /* terminal.png */; };
-		920D67331F72EB9D00854635 /* terminal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 920D672D1F72EB9D00854635 /* terminal@2x.png */; };
-		920D67341F72EB9D00854635 /* text-edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 920D672E1F72EB9D00854635 /* text-edit.png */; };
-		920D67351F72EB9D00854635 /* text-edit@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 920D672F1F72EB9D00854635 /* text-edit@2x.png */; };
 		9224C0511E06F58F00BE8DDD /* btn-power.png in Resources */ = {isa = PBXBuildFile; fileRef = 9224C0501E06F58F00BE8DDD /* btn-power.png */; };
 		927C1E231E126DE000E2A506 /* HomebrewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C1E171E126DDF00E2A506 /* HomebrewController.swift */; };
 		927C1E241E126DE000E2A506 /* CommanderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927C1E181E126DDF00E2A506 /* CommanderController.swift */; };
@@ -39,12 +33,14 @@
 /* Begin PBXFileReference section */
 		5AF2A2473D155BCD6CFFA734 /* Pods_kTools.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kTools.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		805040BEBEA2811D88BC2D12 /* Pods-kTools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kTools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kTools/Pods-kTools.debug.xcconfig"; sourceTree = "<group>"; };
-		920D672A1F72EB9D00854635 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
-		920D672B1F72EB9D00854635 /* folder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "folder@2x.png"; sourceTree = "<group>"; };
-		920D672C1F72EB9D00854635 /* terminal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = terminal.png; sourceTree = "<group>"; };
-		920D672D1F72EB9D00854635 /* terminal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "terminal@2x.png"; sourceTree = "<group>"; };
-		920D672E1F72EB9D00854635 /* text-edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-edit.png"; sourceTree = "<group>"; };
-		920D672F1F72EB9D00854635 /* text-edit@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-edit@2x.png"; sourceTree = "<group>"; };
+		9215521A1F9510C40025238E /* editor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editor.png; sourceTree = "<group>"; };
+		9215521B1F9510C40025238E /* finder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = finder.png; sourceTree = "<group>"; };
+		9215521C1F9510C40025238E /* xcode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xcode.png; sourceTree = "<group>"; };
+		9215521D1F9510C40025238E /* xcode@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xcode@2x.png"; sourceTree = "<group>"; };
+		9215521E1F9510C40025238E /* terminal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = terminal.png; sourceTree = "<group>"; };
+		9215521F1F9510C40025238E /* finder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "finder@2x.png"; sourceTree = "<group>"; };
+		921552201F9510C50025238E /* editor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "editor@2x.png"; sourceTree = "<group>"; };
+		921552211F9510C50025238E /* terminal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "terminal@2x.png"; sourceTree = "<group>"; };
 		9224C0501E06F58F00BE8DDD /* btn-power.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn-power.png"; sourceTree = "<group>"; };
 		927C1E171E126DDF00E2A506 /* HomebrewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomebrewController.swift; sourceTree = "<group>"; };
 		927C1E181E126DDF00E2A506 /* CommanderController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommanderController.swift; sourceTree = "<group>"; };
@@ -94,12 +90,14 @@
 		920D67291F72EB9D00854635 /* icons */ = {
 			isa = PBXGroup;
 			children = (
-				920D672A1F72EB9D00854635 /* folder.png */,
-				920D672B1F72EB9D00854635 /* folder@2x.png */,
-				920D672C1F72EB9D00854635 /* terminal.png */,
-				920D672D1F72EB9D00854635 /* terminal@2x.png */,
-				920D672E1F72EB9D00854635 /* text-edit.png */,
-				920D672F1F72EB9D00854635 /* text-edit@2x.png */,
+				9215521A1F9510C40025238E /* editor.png */,
+				921552201F9510C50025238E /* editor@2x.png */,
+				9215521B1F9510C40025238E /* finder.png */,
+				9215521F1F9510C40025238E /* finder@2x.png */,
+				9215521E1F9510C40025238E /* terminal.png */,
+				921552211F9510C50025238E /* terminal@2x.png */,
+				9215521C1F9510C40025238E /* xcode.png */,
+				9215521D1F9510C40025238E /* xcode@2x.png */,
 			);
 			path = icons;
 			sourceTree = "<group>";
@@ -275,17 +273,11 @@
 			files = (
 				9289E1B91F94C65900C0DBFA /* Terminal in Resources */,
 				928B99B01E0312D200992F02 /* Assets.xcassets in Resources */,
-				920D67321F72EB9D00854635 /* terminal.png in Resources */,
 				ADDE21581E093734007CCBF5 /* icon80x80.png in Resources */,
 				927C1E261E126DE000E2A506 /* ProjectsDB.plist in Resources */,
 				9224C0511E06F58F00BE8DDD /* btn-power.png in Resources */,
-				920D67351F72EB9D00854635 /* text-edit@2x.png in Resources */,
-				920D67341F72EB9D00854635 /* text-edit.png in Resources */,
 				928B99B31E0312D200992F02 /* Main.storyboard in Resources */,
-				920D67331F72EB9D00854635 /* terminal@2x.png in Resources */,
 				ADDE21591E093734007CCBF5 /* reload-icon-2.png in Resources */,
-				920D67311F72EB9D00854635 /* folder@2x.png in Resources */,
-				920D67301F72EB9D00854635 /* folder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
