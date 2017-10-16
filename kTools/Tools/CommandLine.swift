@@ -30,10 +30,24 @@ class Commander {
     }
     
     func launchTerminalWith(command:String) {
-        var outputAttributes: NSDictionary? = nil
-        NSAppleScript(source: "if application \"Terminal\" is running then\ntell application \"Terminal\" do script \"echo HELLO\"\nactivate\nend tell\nelse\ntell application \"Terminale\"\ndo script \"echo Heelllo\" in window 1\nactivate\nend tell\nend if")!.executeAndReturnError(&outputAttributes)
-        NSAppleScript(source: "tell application \"Terminal\" do script \"\(command)\"\nactivate")!.executeAndReturnError(&outputAttributes)
-        NSLog((outputAttributes?.description)!)
+        
+        let bringToFront = "tell application \"Terminal\"\n   if not (exists window 1) then reopen"
+        let runActivate = "tell application \"Terminal\"\n   activate\nend tell"
+        let runCommand = "\n  set currentTab to do script \"\(command)\"\n   activate\nend tell"
+        let activateWindow = "tell application \"Finder\" to set visible of process \"Terminal\" to true\nend tell"
+        let commandDelay = "\n delay 2.5\n"
+        let command = bringToFront + runCommand
+        
+        
+        var errorAttributes: NSDictionary? = nil
+        NSAppleScript(source: command)!.executeAndReturnError(&errorAttributes)
+        if (errorAttributes != nil) {
+            NSLog((errorAttributes?.description)!)
+        }
+        
+//        NSAppleScript(source: "if application \"Terminal\" is running then\ntell application \"Terminal\" do script \"echo HELLO\"\nactivate\nend tell\nelse\ntell application \"Terminale\"\ndo script \"echo Heelllo\" in window 1\nactivate\nend tell\nend if")!.executeAndReturnError(&outputAttributes)
+//        NSAppleScript(source: "tell application \"Terminal\" do script \"\(command)\"\nactivate")!.executeAndReturnError(&outputAttributes)
+//        NSLog((outputAttributes?.description)!)
     }
     
     func run(cmd : String, args : String...) -> (output: [String], error: [String], exitCode: Int32) {
