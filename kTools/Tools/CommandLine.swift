@@ -30,7 +30,9 @@ class Commander {
     }
     
     func launchTerminalWith(command:String) {
-        NSAppleScript(source: "tell application \"Terminal\" to do script \"\(command)\"")!.executeAndReturnError(nil)
+        let error: NSDictionary;
+        NSAppleScript(source: "tell application \"Terminal\"\n if not (exists window 1) then reopen\n activate\n do script \"\(command)\"")!.executeAndReturnError(error)
+        NSLog((error.description))
     }
     
     func run(cmd : String, args : String...) -> (output: [String], error: [String], exitCode: Int32) {
