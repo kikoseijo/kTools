@@ -937,17 +937,8 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dOF-Y6-v7L">
-                                <rect key="frame" x="477" y="392" width="308" height="19"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Project Name" id="WUN-ud-Xnp">
-                                    <font key="font" size="15" name=".AppleSystemUIFont"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YDJ-RP-SBi">
-                                <rect key="frame" x="477" y="367" width="332" height="17"/>
+                                <rect key="frame" x="433" y="367" width="332" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="Local Path" id="nMx-A2-uhz">
                                     <font key="font" metaFont="system"/>
@@ -956,7 +947,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UIX-R4-tMq">
-                                <rect key="frame" x="477" y="342" width="332" height="17"/>
+                                <rect key="frame" x="433" y="342" width="332" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="Remote Path" id="Vb6-ZG-Il9">
                                     <font key="font" metaFont="system"/>
@@ -1086,49 +1077,66 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ocR-CC-cfg">
-                                <rect key="frame" x="598" y="272" width="74" height="55"/>
+                                <rect key="frame" x="646" y="251" width="82" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" title="Terminal" bezelStyle="shadowlessSquare" image="terminal" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v6O-Hn-0b2">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Command" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="v6O-Hn-0b2">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent">c</string>
+                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="openTerminalAction:" target="gds-Hn-PfE" id="oWF-3t-XAw"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZA-o0-SjD">
-                                <rect key="frame" x="528" y="273" width="60" height="54"/>
+                                <rect key="frame" x="538" y="251" width="86" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" title="TextEdit" bezelStyle="shadowlessSquare" image="editor" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Bbn-b0-vHB">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="TextEditor" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="Bbn-b0-vHB">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent">t</string>
+                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="atomAction:" target="gds-Hn-PfE" id="0vR-gf-Egy"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-D5-ZvI">
-                                <rect key="frame" x="445" y="274" width="73" height="53"/>
+                                <rect key="frame" x="435" y="251" width="78" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" title="Finder" bezelStyle="shadowlessSquare" image="finder" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eyy-2r-Cap">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Finder" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="eyy-2r-Cap">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent">f</string>
+                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="finderAction:" target="gds-Hn-PfE" id="qXP-5S-YeO"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5QQ-XW-YFc">
-                                <rect key="frame" x="682" y="272" width="75" height="55"/>
+                                <rect key="frame" x="744" y="251" width="79" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" title="xCode" bezelStyle="shadowlessSquare" image="xcode" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0l4-EX-GMZ">
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Xcode" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="0l4-EX-GMZ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent">x</string>
+                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="openXcode:" target="gds-Hn-PfE" id="lPT-Ga-482"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dOF-Y6-v7L">
+                                <rect key="frame" x="433" y="392" width="429" height="19"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Project Name" id="WUN-ud-Xnp">
+                                    <font key="font" metaFont="titleBar"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="r7a-QR-RDS" secondAttribute="bottom" constant="20" symbolic="YES" id="U4t-xi-adN"/>
@@ -1152,7 +1160,7 @@
                 <customObject id="HGF-7Y-UId" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="zdt-Xj-3GJ"/>
             </objects>
-            <point key="canvasLocation" x="-1404" y="1054.5"/>
+            <point key="canvasLocation" x="-1464" y="946"/>
         </scene>
         <!--Commander-->
         <scene sceneID="qku-6R-yTz">
@@ -1462,6 +1470,7 @@
                                                                 </button>
                                                             </subviews>
                                                         </view>
+                                                        <font key="titleFont" metaFont="message" size="11"/>
                                                     </box>
                                                     <box title="List Services" translatesAutoresizingMaskIntoConstraints="NO" id="6Bi-tX-DdA">
                                                         <rect key="frame" x="412" y="-4" width="401" height="232"/>
@@ -1581,6 +1590,7 @@
                                                                 <constraint firstItem="T82-oL-vRs" firstAttribute="centerY" secondItem="Hkl-UD-dzN" secondAttribute="centerY" id="ZG4-5H-iVf"/>
                                                             </constraints>
                                                         </view>
+                                                        <font key="titleFont" metaFont="message" size="11"/>
                                                     </box>
                                                 </subviews>
                                                 <constraints>
@@ -1963,6 +1973,7 @@ Gw
                                     <constraint firstItem="biI-A1-h15" firstAttribute="top" secondItem="VKC-XI-cqx" secondAttribute="top" constant="12" id="fbE-6R-Vwh"/>
                                     <constraint firstItem="biI-A1-h15" firstAttribute="leading" secondItem="VKC-XI-cqx" secondAttribute="leading" constant="12" id="imR-CI-znu"/>
                                 </constraints>
+                                <font key="titleFont" metaFont="message" size="11"/>
                             </box>
                         </subviews>
                         <constraints>
@@ -1999,14 +2010,14 @@ Gw
         </scene>
     </scenes>
     <resources>
+        <image name="Command" width="100" height="100"/>
+        <image name="Finder" width="100" height="100"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSQuickLookTemplate" width="19" height="12"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
+        <image name="TextEditor" width="100" height="100"/>
+        <image name="Xcode" width="100" height="100"/>
         <image name="btn-power" width="94.766067504882812" height="101.24421691894531"/>
-        <image name="editor" width="100" height="100"/>
-        <image name="finder" width="100" height="100"/>
         <image name="reload-icon-2.png" width="128" height="128"/>
-        <image name="terminal" width="100" height="100"/>
-        <image name="xcode" width="100" height="100"/>
     </resources>
 </document>
