@@ -666,12 +666,13 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="kTools - By Sunnyface.com" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" appearanceType="aqua" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES"/>
+                    <window key="window" title="kTools - By Sunnyface.com" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" visibleAtLaunch="NO" appearanceType="aqua" animationBehavior="default" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES" fullSizeContentView="YES"/>
                         <rect key="contentRect" x="0.0" y="0.0" width="850" height="440"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <value key="minSize" type="size" width="850" height="440"/>
                         <value key="maxSize" type="size" width="850" height="440"/>
+                        <contentBorderThickness minY="22"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="jhg-zp-y8f"/>
                         </connections>
@@ -682,22 +683,22 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-98" y="242"/>
+            <point key="canvasLocation" x="-616" y="220"/>
         </scene>
         <!--KTools - by Sunnyface.com-->
         <scene sceneID="qep-uL-XwW">
             <objects>
-                <tabViewController title="KTools - by Sunnyface.com" selectedTabViewItemIndex="2" id="MXb-zA-dme" sceneMemberID="viewController">
+                <tabViewController title="KTools - by Sunnyface.com" selectedTabViewItemIndex="2" tabStyle="toolbar" id="MXb-zA-dme" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem identifier="" id="bY6-MR-F2S"/>
                         <tabViewItem identifier="" id="1Af-Uy-dNB"/>
                         <tabViewItem id="LPV-6X-UFe"/>
                     </tabViewItems>
                     <viewControllerTransitionOptions key="transitionOptions" crossfade="YES" slideLeft="YES" allowUserInteraction="YES"/>
-                    <tabView key="tabView" misplaced="YES" type="noTabsNoBorder" id="x2e-i0-nZf">
-                        <rect key="frame" x="0.0" y="0.0" width="850" height="440"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <font key="font" metaFont="system"/>
+                    <tabView key="tabView" misplaced="YES" allowsTruncatedLabels="NO" id="x2e-i0-nZf">
+                        <rect key="frame" x="1700" y="-880" width="850" height="365"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <font key="font" size="14" name="Montserrat-Medium"/>
                         <tabViewItems>
                             <tabViewItem identifier="" id="pPT-rg-j9N"/>
                         </tabViewItems>
@@ -714,20 +715,21 @@
                 </tabViewController>
                 <customObject id="cTQ-OB-PDR" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-512" y="780"/>
+            <point key="canvasLocation" x="-542" y="771"/>
         </scene>
         <!--Projects-->
         <scene sceneID="qIh-Ut-L03">
             <objects>
-                <viewController title="Projects" id="gds-Hn-PfE" customClass="ProjectsController" customModule="kTools" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" wantsLayer="YES" appearanceType="aqua" id="fxc-mS-64a">
-                        <rect key="frame" x="0.0" y="0.0" width="880" height="431"/>
+                <viewController title="Projects" showSeguePresentationStyle="single" id="gds-Hn-PfE" customClass="ProjectsController" customModule="kTools" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" autoresizesSubviews="NO" wantsLayer="YES" appearanceType="aqua" id="fxc-mS-64a">
+                        <rect key="frame" x="0.0" y="0.0" width="850" height="402"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r7a-QR-RDS">
-                                <rect key="frame" x="20" y="20" width="400" height="391"/>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r7a-QR-RDS">
+                                <rect key="frame" x="20" y="-9" width="400" height="391"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
-                                    <searchField wantsLayer="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0kB-Vh-ee4">
+                                    <searchField wantsLayer="YES" verticalHuggingPriority="750" ambiguous="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0kB-Vh-ee4">
                                         <rect key="frame" x="0.0" y="370" width="400" height="21"/>
                                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="border" title="Search projects" placeholderString="Filter projects" drawsBackground="YES" usesSingleLineMode="YES" sendsSearchStringImmediately="YES" recentsAutosaveName="projectSearch" id="MsQ-xV-Evy">
                                             <font key="font" metaFont="system"/>
@@ -735,12 +737,12 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </searchFieldCell>
                                     </searchField>
-                                    <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rCX-vg-2i6" userLabel="Projects List">
+                                    <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rCX-vg-2i6" userLabel="Projects List">
                                         <rect key="frame" x="0.0" y="0.0" width="400" height="362"/>
                                         <subviews>
-                                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ah3-nT-rCM">
+                                            <scrollView ambiguous="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ah3-nT-rCM">
                                                 <rect key="frame" x="0.0" y="26" width="400" height="336"/>
-                                                <clipView key="contentView" id="DQo-Yn-LaT">
+                                                <clipView key="contentView" ambiguous="YES" id="DQo-Yn-LaT">
                                                     <rect key="frame" x="1" y="0.0" width="398" height="335"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
@@ -845,10 +847,10 @@
                                                 </tableHeaderView>
                                             </scrollView>
                                             <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9lG-cg-Of4">
-                                                <rect key="frame" x="0.0" y="0.0" width="400" height="26"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="84" height="26"/>
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ocb-zq-Nh2">
-                                                        <rect key="frame" x="0.0" y="-1" width="100" height="28"/>
+                                                        <rect key="frame" x="0.0" y="-1" width="21" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="qCg-KM-7ZO"/>
                                                         </constraints>
@@ -861,7 +863,7 @@
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="euj-f6-cWu">
-                                                        <rect key="frame" x="100" y="-1" width="100" height="28"/>
+                                                        <rect key="frame" x="21" y="-1" width="21" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="3eJ-qD-9YS"/>
                                                         </constraints>
@@ -874,7 +876,7 @@
                                                         </connections>
                                                     </button>
                                                     <button horizontalHuggingPriority="249" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Ul-MW-vap">
-                                                        <rect key="frame" x="200" y="-1" width="100" height="28"/>
+                                                        <rect key="frame" x="42" y="-1" width="21" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="FsP-w2-jN3"/>
                                                         </constraints>
@@ -887,7 +889,7 @@
                                                         </connections>
                                                     </button>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Veb-1P-if4">
-                                                        <rect key="frame" x="300" y="-1" width="100" height="28"/>
+                                                        <rect key="frame" x="63" y="-1" width="21" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="26" id="vuT-Wx-7GD"/>
                                                         </constraints>
@@ -911,9 +913,6 @@
                                                 </customSpacing>
                                             </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="9lG-cg-Of4" firstAttribute="width" secondItem="rCX-vg-2i6" secondAttribute="width" id="b44-4y-oBb"/>
-                                        </constraints>
                                         <visibilityPriorities>
                                             <integer value="1000"/>
                                             <integer value="1000"/>
@@ -924,10 +923,6 @@
                                         </customSpacing>
                                     </stackView>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="rCX-vg-2i6" firstAttribute="width" secondItem="r7a-QR-RDS" secondAttribute="width" id="Da8-ge-sUJ"/>
-                                    <constraint firstAttribute="width" constant="400" id="tSr-a4-uYZ"/>
-                                </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
@@ -937,26 +932,8 @@
                                     <real value="3.4028234663852886e+38"/>
                                 </customSpacing>
                             </stackView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YDJ-RP-SBi">
-                                <rect key="frame" x="433" y="367" width="332" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="Local Path" id="nMx-A2-uhz">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UIX-R4-tMq">
-                                <rect key="frame" x="433" y="342" width="332" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="Remote Path" id="Vb6-ZG-Il9">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uo1-ik-hLy">
-                                <rect key="frame" x="719" y="356" width="94" height="32"/>
+                                <rect key="frame" x="742" y="358" width="94" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Local Url" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jz1-iz-luY">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -967,7 +944,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2tD-lb-Lf4">
-                                <rect key="frame" x="747" y="331" width="66" height="32"/>
+                                <rect key="frame" x="770" y="332" width="66" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Remote Url" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="yJx-DH-XLr">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -977,8 +954,87 @@
                                     <action selector="openRemoteUrl:" target="gds-Hn-PfE" id="HjA-t5-6C2"/>
                                 </connections>
                             </button>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" fixedFrame="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zal-Lu-usL">
+                                <rect key="frame" x="758" y="14" width="72" height="318"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-D5-ZvI">
+                                        <rect key="frame" x="0.0" y="246" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="72" id="Ofw-76-7FX"/>
+                                            <constraint firstAttribute="width" constant="72" id="yKS-A6-fZz"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Finder" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="eyy-2r-Cap">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent">f</string>
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="finderAction:" target="gds-Hn-PfE" id="qXP-5S-YeO"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oZA-o0-SjD">
+                                        <rect key="frame" x="0.0" y="164" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="72" id="TrT-Y4-naT"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="TextEditor" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Bbn-b0-vHB">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent">t</string>
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="atomAction:" target="gds-Hn-PfE" id="0vR-gf-Egy"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5QQ-XW-YFc">
+                                        <rect key="frame" x="0.0" y="82" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="72" id="0UK-Xm-Rvj"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Xcode" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="0l4-EX-GMZ">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent">x</string>
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="openXcode:" target="gds-Hn-PfE" id="lPT-Ga-482"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ocR-CC-cfg">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="72" id="pyX-Tm-KZ4"/>
+                                        </constraints>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Command" imagePosition="overlaps" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="v6O-Hn-0b2">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                            <string key="keyEquivalent">c</string>
+                                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="openTerminalAction:" target="gds-Hn-PfE" id="oWF-3t-XAw"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WXh-VE-q48">
-                                <rect key="frame" x="422" y="104" width="190" height="32"/>
+                                <rect key="frame" x="471" y="132" width="190" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="GIT add, commit, &amp; push" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mHf-Sc-QPZ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -989,7 +1045,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zeq-Pb-klC">
-                                <rect key="frame" x="422" y="211" width="171" height="32"/>
+                                <rect key="frame" x="471" y="239" width="171" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Refresh migrate &amp; seed" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6Cd-Om-02k">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1000,7 +1056,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tle-gg-GdG">
-                                <rect key="frame" x="501" y="71" width="120" height="32"/>
+                                <rect key="frame" x="550" y="99" width="120" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="passport:install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jn1-bf-nPd">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1011,7 +1067,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hme-0D-o87">
-                                <rect key="frame" x="422" y="38" width="119" height="32"/>
+                                <rect key="frame" x="471" y="66" width="119" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Gulp" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="MDC-hR-VNL">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1022,7 +1078,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G08-JV-Has">
-                                <rect key="frame" x="422" y="185" width="90" height="32"/>
+                                <rect key="frame" x="471" y="213" width="90" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Serve" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="roZ-LN-Fvd">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1033,7 +1089,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htr-kh-nca">
-                                <rect key="frame" x="422" y="131" width="168" height="32"/>
+                                <rect key="frame" x="471" y="159" width="168" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Init Pods" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PLM-f2-u2K">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1044,7 +1100,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vkj-j6-UjG">
-                                <rect key="frame" x="508" y="185" width="114" height="32"/>
+                                <rect key="frame" x="557" y="213" width="114" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Git init" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Xe7-7E-Cv4">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1055,7 +1111,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bEl-6H-RG6">
-                                <rect key="frame" x="422" y="158" width="168" height="32"/>
+                                <rect key="frame" x="471" y="186" width="168" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Edit Podfile" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="u21-ff-Qim">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1066,7 +1122,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ooO-d6-BHs">
-                                <rect key="frame" x="621" y="71" width="119" height="32"/>
+                                <rect key="frame" x="478" y="23" width="119" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Install Pods" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oZI-6D-UPq">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1076,60 +1132,26 @@
                                     <action selector="podInstall:" target="gds-Hn-PfE" id="O1X-q4-kz5"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ocR-CC-cfg">
-                                <rect key="frame" x="646" y="251" width="82" height="76"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YDJ-RP-SBi">
+                                <rect key="frame" x="423" y="338" width="332" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Command" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="v6O-Hn-0b2">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="Local Path" id="nMx-A2-uhz">
                                     <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent">c</string>
-                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="openTerminalAction:" target="gds-Hn-PfE" id="oWF-3t-XAw"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZA-o0-SjD">
-                                <rect key="frame" x="538" y="251" width="86" height="76"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UIX-R4-tMq">
+                                <rect key="frame" x="423" y="313" width="332" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="TextEditor" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="Bbn-b0-vHB">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" title="Remote Path" id="Vb6-ZG-Il9">
                                     <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent">t</string>
-                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="atomAction:" target="gds-Hn-PfE" id="0vR-gf-Egy"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RdE-D5-ZvI">
-                                <rect key="frame" x="435" y="251" width="78" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Finder" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="eyy-2r-Cap">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent">f</string>
-                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="finderAction:" target="gds-Hn-PfE" id="qXP-5S-YeO"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5QQ-XW-YFc">
-                                <rect key="frame" x="744" y="251" width="79" height="76"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="Xcode" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="0l4-EX-GMZ">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent">x</string>
-                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="openXcode:" target="gds-Hn-PfE" id="lPT-Ga-482"/>
-                                </connections>
-                            </button>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dOF-Y6-v7L">
-                                <rect key="frame" x="433" y="392" width="429" height="19"/>
+                                <rect key="frame" x="423" y="363" width="429" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Project Name" id="WUN-ud-Xnp">
                                     <font key="font" metaFont="titleBar"/>
@@ -1138,11 +1160,6 @@
                                 </textFieldCell>
                             </textField>
                         </subviews>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="r7a-QR-RDS" secondAttribute="bottom" constant="20" symbolic="YES" id="U4t-xi-adN"/>
-                            <constraint firstItem="r7a-QR-RDS" firstAttribute="top" secondItem="fxc-mS-64a" secondAttribute="top" constant="20" symbolic="YES" id="fqh-8M-zDs"/>
-                            <constraint firstItem="r7a-QR-RDS" firstAttribute="leading" secondItem="fxc-mS-64a" secondAttribute="leading" constant="20" symbolic="YES" id="xs4-Tl-ovw"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="deleteBtn" destination="euj-f6-cWu" id="t6l-Tk-J6p"/>
@@ -1160,25 +1177,25 @@
                 <customObject id="HGF-7Y-UId" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="zdt-Xj-3GJ"/>
             </objects>
-            <point key="canvasLocation" x="-1464" y="946"/>
+            <point key="canvasLocation" x="-1582" y="897"/>
         </scene>
         <!--Commander-->
         <scene sceneID="qku-6R-yTz">
             <objects>
                 <viewController title="Commander" id="DRT-oW-UdM" customClass="CommanderController" customModule="kTools" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Pv0-0O-pew">
-                        <rect key="frame" x="0.0" y="0.0" width="850" height="410"/>
+                        <rect key="frame" x="0.0" y="0.0" width="850" height="365"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <splitView arrangesAllSubviews="NO" dividerStyle="paneSplitter" translatesAutoresizingMaskIntoConstraints="NO" id="cWC-pK-jLI">
-                                <rect key="frame" x="0.0" y="0.0" width="850" height="410"/>
+                                <rect key="frame" x="0.0" y="0.0" width="850" height="365"/>
                                 <subviews>
                                     <customView id="LQg-A0-HFs">
-                                        <rect key="frame" x="0.0" y="0.0" width="850" height="196"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="850" height="174"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mlz-GP-AU6">
-                                                <rect key="frame" x="284" y="73" width="151" height="32"/>
+                                                <rect key="frame" x="284" y="51" width="151" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="push" title="known_host" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CVM-GL-xWa">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1189,7 +1206,7 @@
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1vJ-84-pS5">
-                                                <rect key="frame" x="454" y="73" width="151" height="32"/>
+                                                <rect key="frame" x="454" y="51" width="151" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="push" title="path" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6HF-28-shT">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1200,7 +1217,7 @@
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hI-bl-f5t">
-                                                <rect key="frame" x="628" y="73" width="133" height="32"/>
+                                                <rect key="frame" x="628" y="51" width="133" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="push" title="Edit Nginx.conf" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b2l-I3-jHe">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1211,7 +1228,7 @@
                                                 </connections>
                                             </button>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ti2-bJ-PJo">
-                                                <rect key="frame" x="20" y="132" width="810" height="32"/>
+                                                <rect key="frame" x="20" y="110" width="810" height="32"/>
                                                 <subviews>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="QvC-7q-kfz">
                                                         <rect key="frame" x="-2" y="7" width="52" height="18"/>
@@ -1262,7 +1279,7 @@
                                                 </customSpacing>
                                             </stackView>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UdU-46-hXO">
-                                                <rect key="frame" x="20" y="172" width="118" height="17"/>
+                                                <rect key="frame" x="20" y="150" width="118" height="17"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Execute Command" id="FpS-3L-nbr">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1270,7 +1287,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eY5-vp-txC">
-                                                <rect key="frame" x="116" y="73" width="146" height="32"/>
+                                                <rect key="frame" x="116" y="51" width="146" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="push" title="Flush DNS Cache" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="wxh-8T-iBl">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1281,7 +1298,7 @@
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VQ4-cU-KPY">
-                                                <rect key="frame" x="14" y="29" width="223" height="32"/>
+                                                <rect key="frame" x="14" y="7" width="223" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="push" title="cat ~/.ssh/id_rsa.pub | pbcopy" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DBI-P6-bq4">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1292,7 +1309,7 @@
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hhH-uN-Ar1">
-                                                <rect key="frame" x="265" y="29" width="189" height="32"/>
+                                                <rect key="frame" x="265" y="7" width="189" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <buttonCell key="cell" type="push" title="Open Program DB folder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IMf-ho-2T6">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1305,24 +1322,25 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="UdU-46-hXO" firstAttribute="leading" secondItem="LQg-A0-HFs" secondAttribute="leading" constant="22" id="mgQ-Ib-VBG"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UdU-46-hXO" secondAttribute="trailing" constant="20" symbolic="YES" id="mk9-NV-vS1"/>
                                             <constraint firstItem="Ti2-bJ-PJo" firstAttribute="top" secondItem="UdU-46-hXO" secondAttribute="bottom" constant="8" id="vjT-GN-gFl"/>
                                         </constraints>
                                     </customView>
                                     <customView id="hqP-cC-L0u">
-                                        <rect key="frame" x="0.0" y="206" width="850" height="204"/>
+                                        <rect key="frame" x="0.0" y="184" width="850" height="181"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HrK-Fo-6ST">
-                                                <rect key="frame" x="3" y="3" width="844" height="198"/>
+                                                <rect key="frame" x="3" y="3" width="844" height="175"/>
                                                 <clipView key="contentView" id="u7D-8S-t9h">
-                                                    <rect key="frame" x="1" y="1" width="842" height="196"/>
+                                                    <rect key="frame" x="1" y="1" width="842" height="173"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="l1c-RD-hek">
-                                                            <rect key="frame" x="0.0" y="0.0" width="842" height="196"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="842" height="173"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <size key="minSize" width="842" height="196"/>
+                                                            <size key="minSize" width="842" height="173"/>
                                                             <size key="maxSize" width="844" height="10000000"/>
                                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         </textView>
@@ -1334,7 +1352,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="oPc-Rx-b5z">
-                                                    <rect key="frame" x="827" y="1" width="16" height="196"/>
+                                                    <rect key="frame" x="827" y="1" width="16" height="173"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
@@ -1382,11 +1400,11 @@
             <objects>
                 <viewController title="Homebrew" id="7Hq-Uf-9Oj" customClass="HomebrewController" customModule="kTools" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="LXG-IX-CwF">
-                        <rect key="frame" x="0.0" y="0.0" width="850" height="410"/>
+                        <rect key="frame" x="0.0" y="0.0" width="850" height="365"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <splitView arrangesAllSubviews="NO" autosaveName="breSplit" translatesAutoresizingMaskIntoConstraints="NO" id="Ijx-7r-yQ9">
-                                <rect key="frame" x="0.0" y="0.0" width="850" height="410"/>
+                                <rect key="frame" x="0.0" y="0.0" width="850" height="365"/>
                                 <subviews>
                                     <customView id="neR-qf-uuo">
                                         <rect key="frame" x="0.0" y="0.0" width="850" height="268"/>
@@ -1470,7 +1488,6 @@
                                                                 </button>
                                                             </subviews>
                                                         </view>
-                                                        <font key="titleFont" metaFont="message" size="11"/>
                                                     </box>
                                                     <box title="List Services" translatesAutoresizingMaskIntoConstraints="NO" id="6Bi-tX-DdA">
                                                         <rect key="frame" x="412" y="-4" width="401" height="232"/>
@@ -1590,7 +1607,6 @@
                                                                 <constraint firstItem="T82-oL-vRs" firstAttribute="centerY" secondItem="Hkl-UD-dzN" secondAttribute="centerY" id="ZG4-5H-iVf"/>
                                                             </constraints>
                                                         </view>
-                                                        <font key="titleFont" metaFont="message" size="11"/>
                                                     </box>
                                                 </subviews>
                                                 <constraints>
@@ -1615,21 +1631,21 @@
                                         </constraints>
                                     </customView>
                                     <customView id="NIc-mE-NeW">
-                                        <rect key="frame" x="0.0" y="277" width="850" height="133"/>
+                                        <rect key="frame" x="0.0" y="277" width="850" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
                                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhw-ZZ-EAX">
-                                                <rect key="frame" x="3" y="3" width="844" height="127"/>
+                                                <rect key="frame" x="3" y="3" width="844" height="82"/>
                                                 <clipView key="contentView" id="1uj-6v-vxB">
-                                                    <rect key="frame" x="1" y="1" width="842" height="125"/>
+                                                    <rect key="frame" x="1" y="1" width="842" height="80"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="PTY-yP-EPD">
-                                                            <rect key="frame" x="0.0" y="0.0" width="676" height="125"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="676" height="80"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <size key="minSize" width="676" height="125"/>
+                                                            <size key="minSize" width="842" height="80"/>
                                                             <size key="maxSize" width="844" height="10000000"/>
                                                             <color key="insertionPointColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </textView>
@@ -1641,7 +1657,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="jGy-tC-MXY">
-                                                    <rect key="frame" x="827" y="1" width="16" height="125"/>
+                                                    <rect key="frame" x="827" y="1" width="16" height="80"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                             </scrollView>
@@ -1684,32 +1700,301 @@
             <objects>
                 <viewController storyboardIdentifier="editProjectSheet" id="59J-ub-dFi" customClass="ProjectsEditController" customModule="kTools" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ssx-hO-10Z">
-                        <rect key="frame" x="0.0" y="0.0" width="676" height="344"/>
+                        <rect key="frame" x="0.0" y="0.0" width="658" height="390"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7i-dp-TyJ">
-                                <rect key="frame" x="20" y="307" width="134" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Edit / Create Project" id="Ods-Sz-hwK">
-                                    <font key="font" metaFont="systemBold"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sYE-bk-h4J">
+                                <rect key="frame" x="14" y="72" width="630" height="304"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7i-dp-TyJ">
+                                        <rect key="frame" x="-2" y="287" width="134" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Edit / Create Project" id="Ods-Sz-hwK">
+                                            <font key="font" metaFont="systemBold"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <box boxType="secondary" borderType="line" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="VKC-XI-cqx">
+                                        <rect key="frame" x="-3" y="-4" width="636" height="285"/>
+                                        <view key="contentView" id="sPC-JT-5ap">
+                                            <rect key="frame" x="1" y="1" width="634" height="283"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="biI-A1-h15">
+                                                    <rect key="frame" x="2" y="3" width="630" height="279"/>
+                                                    <subviews>
+                                                        <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k9G-PY-hEG">
+                                                            <rect key="frame" x="0.0" y="32" width="318" height="247"/>
+                                                            <subviews>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="748" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ysz-bI-YMQ">
+                                                                    <rect key="frame" x="-2" y="224" width="101" height="23"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Project name:" id="pcG-68-lQU">
+                                                                        <font key="font" size="14" name="Montserrat-Medium"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField verticalHuggingPriority="750" verticalCompressionResistancePriority="749" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QHD-wB-zge">
+                                                                    <rect key="frame" x="0.0" y="188" width="300" height="28"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="2yl-a8-h2d">
+                                                                        <font key="font" size="14" name="Montserrat-Medium"/>
+                                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LiJ-JT-Sfi">
+                                                                    <rect key="frame" x="-2" y="157" width="131" height="23"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Project local path:" id="u3w-wf-uFX">
+                                                                        <font key="font" size="14" name="Montserrat-Medium"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <stackView distribution="fill" orientation="horizontal" alignment="bottom" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1bT-7f-ZLJ">
+                                                                    <rect key="frame" x="0.0" y="127" width="318" height="22"/>
+                                                                    <subviews>
+                                                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bbf-dT-Eil">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="239" height="22"/>
+                                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="n5M-2n-AOg">
+                                                                                <font key="font" metaFont="system"/>
+                                                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                            </textFieldCell>
+                                                                        </textField>
+                                                                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w6M-Q7-fEE">
+                                                                            <rect key="frame" x="241" y="-7" width="83" height="32"/>
+                                                                            <buttonCell key="cell" type="push" title="Search" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0Xy-lc-HyZ">
+                                                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                                                <font key="font" metaFont="system"/>
+                                                                            </buttonCell>
+                                                                            <connections>
+                                                                                <action selector="browseFileWithSender:" target="59J-ub-dFi" id="B2W-gm-0zy"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                    <visibilityPriorities>
+                                                                        <integer value="1000"/>
+                                                                        <integer value="1000"/>
+                                                                    </visibilityPriorities>
+                                                                    <customSpacing>
+                                                                        <real value="3.4028234663852886e+38"/>
+                                                                        <real value="3.4028234663852886e+38"/>
+                                                                    </customSpacing>
+                                                                </stackView>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MA0-XO-WBC">
+                                                                    <rect key="frame" x="-2" y="96" width="68" height="23"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Local Url:" id="zWz-co-QKD">
+                                                                        <font key="font" size="14" name="Montserrat-Medium"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CPU-b9-1f9">
+                                                                    <rect key="frame" x="0.0" y="60" width="300" height="28"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="bIP-ZF-4Gb">
+                                                                        <font key="font" size="14" name="Montserrat-Medium"/>
+                                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-dT-FP8">
+                                                                    <rect key="frame" x="-2" y="29" width="83" height="23"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Repository:" id="09Y-Gw-KqQ">
+                                                                        <font key="font" size="14" name="Montserrat-Medium"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hzl-SQ-RP7">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284" height="21"/>
+                                                                    <subviews>
+                                                                        <button identifier="none" translatesAutoresizingMaskIntoConstraints="NO" id="Rwo-xf-1Yv">
+                                                                            <rect key="frame" x="-1" y="-1" width="83" height="23"/>
+                                                                            <buttonCell key="cell" type="radio" title="No Repo" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="SUJ-VZ-n72">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" size="14" name="Montserrat-Medium"/>
+                                                                            </buttonCell>
+                                                                            <connections>
+                                                                                <action selector="repoTypeAction:" target="59J-ub-dFi" id="YE7-2q-Gpv"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button identifier="git" translatesAutoresizingMaskIntoConstraints="NO" id="yUT-bp-iVW">
+                                                                            <rect key="frame" x="87" y="-1" width="74" height="23"/>
+                                                                            <buttonCell key="cell" type="radio" title="Git (git)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="oOM-Ce-9UM">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" size="14" name="Montserrat-Medium"/>
+                                                                            </buttonCell>
+                                                                            <connections>
+                                                                                <action selector="repoTypeAction:" target="59J-ub-dFi" id="0aZ-0P-I7p"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button identifier="hg" translatesAutoresizingMaskIntoConstraints="NO" id="IsK-8A-Gr4">
+                                                                            <rect key="frame" x="166" y="-1" width="120" height="23"/>
+                                                                            <buttonCell key="cell" type="radio" title="Mercurial (hg)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="z4B-EY-dad">
+                                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                                <font key="font" size="14" name="Montserrat-Medium"/>
+                                                                            </buttonCell>
+                                                                            <connections>
+                                                                                <action selector="repoTypeAction:" target="59J-ub-dFi" id="iA5-DM-H8V"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                    <visibilityPriorities>
+                                                                        <integer value="1000"/>
+                                                                        <integer value="1000"/>
+                                                                        <integer value="1000"/>
+                                                                    </visibilityPriorities>
+                                                                    <customSpacing>
+                                                                        <real value="3.4028234663852886e+38"/>
+                                                                        <real value="3.4028234663852886e+38"/>
+                                                                        <real value="3.4028234663852886e+38"/>
+                                                                    </customSpacing>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <visibilityPriorities>
+                                                                <integer value="1000"/>
+                                                                <integer value="1000"/>
+                                                                <integer value="1000"/>
+                                                                <integer value="1000"/>
+                                                                <integer value="1000"/>
+                                                                <integer value="1000"/>
+                                                                <integer value="1000"/>
+                                                                <integer value="1000"/>
+                                                            </visibilityPriorities>
+                                                            <customSpacing>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                            </customSpacing>
+                                                        </stackView>
+                                                        <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xp6-0D-hGO">
+                                                            <rect key="frame" x="330" y="93" width="300" height="186"/>
+                                                            <subviews>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jF8-mT-g4v">
+                                                                    <rect key="frame" x="-2" y="163" width="92" height="23"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Project type:" id="1Lh-a9-dZQ">
+                                                                        <font key="font" size="14" name="Montserrat-Medium"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Ly-Ip-mmw">
+                                                                    <rect key="frame" x="-2" y="131" width="168" height="26"/>
+                                                                    <popUpButtonCell key="cell" type="push" title="Select type of Project" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="538-Rw-fiE" id="zZI-fG-Jgd">
+                                                                        <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                                        <font key="font" metaFont="menu"/>
+                                                                        <menu key="menu" id="VIO-Bh-eTb">
+                                                                            <items>
+                                                                                <menuItem title="Select type of Project" state="on" id="538-Rw-fiE"/>
+                                                                            </items>
+                                                                        </menu>
+                                                                    </popUpButtonCell>
+                                                                </popUpButton>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EZi-n6-e9V">
+                                                                    <rect key="frame" x="-2" y="103" width="149" height="23"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Project remote path:" id="RZC-Mi-90g">
+                                                                        <font key="font" size="14" name="Montserrat-Medium"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kec-Pb-c1y">
+                                                                    <rect key="frame" x="0.0" y="67" width="300" height="28"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="XJ6-ae-drO">
+                                                                        <font key="font" size="14" name="Montserrat-Medium"/>
+                                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ozd-lt-Tw5">
+                                                                    <rect key="frame" x="-2" y="36" width="87" height="23"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Remote Url:" id="3ue-O1-muI">
+                                                                        <font key="font" size="14" name="Montserrat-Medium"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gxn-ap-XK1">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="28"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Ktr-ch-AF1">
+                                                                        <font key="font" size="14" name="Montserrat-Medium"/>
+                                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="300" id="5bQ-oJ-Qpt"/>
+                                                            </constraints>
+                                                            <visibilityPriorities>
+                                                                <integer value="1000"/>
+                                                                <integer value="1000"/>
+                                                                <integer value="1000"/>
+                                                                <integer value="1000"/>
+                                                                <integer value="1000"/>
+                                                                <integer value="1000"/>
+                                                            </visibilityPriorities>
+                                                            <customSpacing>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                                <real value="3.4028234663852886e+38"/>
+                                                            </customSpacing>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <visibilityPriorities>
+                                                        <integer value="1000"/>
+                                                        <integer value="1000"/>
+                                                    </visibilityPriorities>
+                                                    <customSpacing>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                        <real value="3.4028234663852886e+38"/>
+                                                    </customSpacing>
+                                                </stackView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="biI-A1-h15" secondAttribute="bottom" id="Ab4-kA-lFr"/>
+                                            <constraint firstAttribute="trailing" secondItem="biI-A1-h15" secondAttribute="trailing" id="YpU-7C-mHe"/>
+                                            <constraint firstItem="biI-A1-h15" firstAttribute="top" secondItem="VKC-XI-cqx" secondAttribute="top" id="fbE-6R-Vwh"/>
+                                            <constraint firstItem="biI-A1-h15" firstAttribute="leading" secondItem="VKC-XI-cqx" secondAttribute="leading" id="imR-CI-znu"/>
+                                        </constraints>
+                                    </box>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="VKC-XI-cqx" firstAttribute="width" secondItem="sYE-bk-h4J" secondAttribute="width" id="HpN-Zh-DuZ"/>
+                                </constraints>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Dyc-QZ-Kfd">
-                                <rect key="frame" x="592" y="13" width="72" height="32"/>
-                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="taE-9b-fWD">
+                                <rect key="frame" x="600" y="19" width="44" height="30"/>
+                                <buttonCell key="cell" type="smallSquare" title="Save" bezelStyle="smallSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="taE-9b-fWD">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system" size="14"/>
+                                    <font key="font" size="16" name="Montserrat-Medium"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="saveProject:" target="59J-ub-dFi" id="ZSG-1S-ZJU"/>
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="53Z-zf-SUq">
-                                <rect key="frame" x="14" y="13" width="85" height="32"/>
-                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="R8w-L5-mIp">
+                                <rect key="frame" x="14" y="19" width="61" height="30"/>
+                                <buttonCell key="cell" type="smallSquare" title="Cancel" bezelStyle="smallSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="R8w-L5-mIp">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system" size="14"/>
+                                    <font key="font" size="16" name="Montserrat-Medium"/>
                                     <string key="keyEquivalent" base64-UTF8="YES">
 Gw
 </string>
@@ -1718,277 +2003,18 @@ Gw
                                     <action selector="dismissController:" target="59J-ub-dFi" id="2xb-AS-W0p"/>
                                 </connections>
                             </button>
-                            <box boxType="secondary" borderType="line" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="VKC-XI-cqx">
-                                <rect key="frame" x="19" y="57" width="642" height="244"/>
-                                <view key="contentView" id="sPC-JT-5ap">
-                                    <rect key="frame" x="1" y="1" width="640" height="242"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <stackView distribution="fill" orientation="horizontal" alignment="top" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="biI-A1-h15">
-                                            <rect key="frame" x="14" y="23" width="612" height="206"/>
-                                            <subviews>
-                                                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k9G-PY-hEG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="206"/>
-                                                    <subviews>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="748" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ysz-bI-YMQ">
-                                                            <rect key="frame" x="-2" y="189" width="88" height="17"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Project name:" id="pcG-68-lQU">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                        <textField verticalHuggingPriority="750" verticalCompressionResistancePriority="749" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QHD-wB-zge">
-                                                            <rect key="frame" x="0.0" y="159" width="300" height="22"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="2yl-a8-h2d">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LiJ-JT-Sfi">
-                                                            <rect key="frame" x="-2" y="134" width="114" height="17"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Project local path:" id="u3w-wf-uFX">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                        <stackView distribution="fill" orientation="horizontal" alignment="bottom" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1bT-7f-ZLJ">
-                                                            <rect key="frame" x="0.0" y="104" width="300" height="22"/>
-                                                            <subviews>
-                                                                <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bbf-dT-Eil">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="239" height="22"/>
-                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="n5M-2n-AOg">
-                                                                        <font key="font" metaFont="system"/>
-                                                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                    </textFieldCell>
-                                                                </textField>
-                                                                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="w6M-Q7-fEE">
-                                                                    <rect key="frame" x="241" y="-7" width="65" height="32"/>
-                                                                    <buttonCell key="cell" type="push" title="Add" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0Xy-lc-HyZ">
-                                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                                        <font key="font" metaFont="system"/>
-                                                                    </buttonCell>
-                                                                    <connections>
-                                                                        <action selector="browseFileWithSender:" target="59J-ub-dFi" id="B2W-gm-0zy"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                            <visibilityPriorities>
-                                                                <integer value="1000"/>
-                                                                <integer value="1000"/>
-                                                            </visibilityPriorities>
-                                                            <customSpacing>
-                                                                <real value="3.4028234663852886e+38"/>
-                                                                <real value="3.4028234663852886e+38"/>
-                                                            </customSpacing>
-                                                        </stackView>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MA0-XO-WBC">
-                                                            <rect key="frame" x="-2" y="79" width="62" height="17"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Local Url:" id="zWz-co-QKD">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CPU-b9-1f9">
-                                                            <rect key="frame" x="0.0" y="49" width="300" height="22"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="bIP-ZF-4Gb">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m6K-dT-FP8">
-                                                            <rect key="frame" x="-2" y="24" width="73" height="17"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Repository:" id="09Y-Gw-KqQ">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                        <stackView distribution="fill" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hzl-SQ-RP7">
-                                                            <rect key="frame" x="0.0" y="0.0" width="256" height="16"/>
-                                                            <subviews>
-                                                                <button identifier="none" translatesAutoresizingMaskIntoConstraints="NO" id="Rwo-xf-1Yv">
-                                                                    <rect key="frame" x="-1" y="-1" width="74" height="18"/>
-                                                                    <buttonCell key="cell" type="radio" title="No Repo" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="SUJ-VZ-n72">
-                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                        <font key="font" metaFont="system"/>
-                                                                    </buttonCell>
-                                                                    <connections>
-                                                                        <action selector="repoTypeAction:" target="59J-ub-dFi" id="YE7-2q-Gpv"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button identifier="git" translatesAutoresizingMaskIntoConstraints="NO" id="yUT-bp-iVW">
-                                                                    <rect key="frame" x="78" y="-1" width="68" height="18"/>
-                                                                    <buttonCell key="cell" type="radio" title="Git (git)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="oOM-Ce-9UM">
-                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                        <font key="font" metaFont="system"/>
-                                                                    </buttonCell>
-                                                                    <connections>
-                                                                        <action selector="repoTypeAction:" target="59J-ub-dFi" id="0aZ-0P-I7p"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button identifier="hg" translatesAutoresizingMaskIntoConstraints="NO" id="IsK-8A-Gr4">
-                                                                    <rect key="frame" x="151" y="-1" width="107" height="18"/>
-                                                                    <buttonCell key="cell" type="radio" title="Mercurial (hg)" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="z4B-EY-dad">
-                                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                        <font key="font" metaFont="system"/>
-                                                                    </buttonCell>
-                                                                    <connections>
-                                                                        <action selector="repoTypeAction:" target="59J-ub-dFi" id="iA5-DM-H8V"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                            <visibilityPriorities>
-                                                                <integer value="1000"/>
-                                                                <integer value="1000"/>
-                                                                <integer value="1000"/>
-                                                            </visibilityPriorities>
-                                                            <customSpacing>
-                                                                <real value="3.4028234663852886e+38"/>
-                                                                <real value="3.4028234663852886e+38"/>
-                                                                <real value="3.4028234663852886e+38"/>
-                                                            </customSpacing>
-                                                        </stackView>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="iEZ-86-1pD"/>
-                                                    </constraints>
-                                                    <visibilityPriorities>
-                                                        <integer value="1000"/>
-                                                        <integer value="1000"/>
-                                                        <integer value="1000"/>
-                                                        <integer value="1000"/>
-                                                        <integer value="1000"/>
-                                                        <integer value="1000"/>
-                                                        <integer value="1000"/>
-                                                        <integer value="1000"/>
-                                                    </visibilityPriorities>
-                                                    <customSpacing>
-                                                        <real value="3.4028234663852886e+38"/>
-                                                        <real value="3.4028234663852886e+38"/>
-                                                        <real value="3.4028234663852886e+38"/>
-                                                        <real value="3.4028234663852886e+38"/>
-                                                        <real value="3.4028234663852886e+38"/>
-                                                        <real value="3.4028234663852886e+38"/>
-                                                        <real value="3.4028234663852886e+38"/>
-                                                        <real value="3.4028234663852886e+38"/>
-                                                    </customSpacing>
-                                                </stackView>
-                                                <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xp6-0D-hGO">
-                                                    <rect key="frame" x="312" y="50" width="300" height="156"/>
-                                                    <subviews>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jF8-mT-g4v">
-                                                            <rect key="frame" x="-2" y="139" width="82" height="17"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Project type:" id="1Lh-a9-dZQ">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                        <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Ly-Ip-mmw">
-                                                            <rect key="frame" x="-2" y="107" width="168" height="26"/>
-                                                            <popUpButtonCell key="cell" type="push" title="Select type of Project" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="538-Rw-fiE" id="zZI-fG-Jgd">
-                                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                                <font key="font" metaFont="menu"/>
-                                                                <menu key="menu" id="VIO-Bh-eTb">
-                                                                    <items>
-                                                                        <menuItem title="Select type of Project" state="on" id="538-Rw-fiE"/>
-                                                                    </items>
-                                                                </menu>
-                                                            </popUpButtonCell>
-                                                        </popUpButton>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EZi-n6-e9V">
-                                                            <rect key="frame" x="-2" y="85" width="128" height="17"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Project remote path:" id="RZC-Mi-90g">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kec-Pb-c1y">
-                                                            <rect key="frame" x="0.0" y="55" width="300" height="22"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="XJ6-ae-drO">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ozd-lt-Tw5">
-                                                            <rect key="frame" x="-2" y="30" width="76" height="17"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Remote Url:" id="3ue-O1-muI">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                        <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gxn-ap-XK1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="300" height="22"/>
-                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Ktr-ch-AF1">
-                                                                <font key="font" metaFont="system"/>
-                                                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            </textFieldCell>
-                                                        </textField>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="300" id="5bQ-oJ-Qpt"/>
-                                                    </constraints>
-                                                    <visibilityPriorities>
-                                                        <integer value="1000"/>
-                                                        <integer value="1000"/>
-                                                        <integer value="1000"/>
-                                                        <integer value="1000"/>
-                                                        <integer value="1000"/>
-                                                        <integer value="1000"/>
-                                                    </visibilityPriorities>
-                                                    <customSpacing>
-                                                        <real value="3.4028234663852886e+38"/>
-                                                        <real value="3.4028234663852886e+38"/>
-                                                        <real value="3.4028234663852886e+38"/>
-                                                        <real value="3.4028234663852886e+38"/>
-                                                        <real value="3.4028234663852886e+38"/>
-                                                        <real value="3.4028234663852886e+38"/>
-                                                    </customSpacing>
-                                                </stackView>
-                                            </subviews>
-                                            <visibilityPriorities>
-                                                <integer value="1000"/>
-                                                <integer value="1000"/>
-                                            </visibilityPriorities>
-                                            <customSpacing>
-                                                <real value="3.4028234663852886e+38"/>
-                                                <real value="3.4028234663852886e+38"/>
-                                            </customSpacing>
-                                        </stackView>
-                                    </subviews>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="biI-A1-h15" secondAttribute="bottom" constant="20" id="Ab4-kA-lFr"/>
-                                    <constraint firstAttribute="trailing" secondItem="biI-A1-h15" secondAttribute="trailing" constant="12" id="YpU-7C-mHe"/>
-                                    <constraint firstItem="biI-A1-h15" firstAttribute="top" secondItem="VKC-XI-cqx" secondAttribute="top" constant="12" id="fbE-6R-Vwh"/>
-                                    <constraint firstItem="biI-A1-h15" firstAttribute="leading" secondItem="VKC-XI-cqx" secondAttribute="leading" constant="12" id="imR-CI-znu"/>
-                                </constraints>
-                                <font key="titleFont" metaFont="message" size="11"/>
-                            </box>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="VKC-XI-cqx" firstAttribute="leading" secondItem="ssx-hO-10Z" secondAttribute="leading" constant="22" id="3ev-Tn-UFB"/>
-                            <constraint firstItem="VKC-XI-cqx" firstAttribute="trailing" secondItem="Dyc-QZ-Kfd" secondAttribute="trailing" id="JQJ-jc-LPm"/>
+                            <constraint firstItem="sYE-bk-h4J" firstAttribute="leading" secondItem="ssx-hO-10Z" secondAttribute="leading" constant="14" id="1ld-Ve-9Kq"/>
+                            <constraint firstAttribute="trailing" secondItem="Dyc-QZ-Kfd" secondAttribute="trailing" constant="14" id="AMB-u6-bVt"/>
+                            <constraint firstAttribute="bottom" secondItem="sYE-bk-h4J" secondAttribute="bottom" constant="72" id="LXr-M3-gJP"/>
                             <constraint firstAttribute="bottom" secondItem="Dyc-QZ-Kfd" secondAttribute="bottom" constant="20" id="MxU-zC-INe"/>
-                            <constraint firstItem="VKC-XI-cqx" firstAttribute="leading" secondItem="o7i-dp-TyJ" secondAttribute="leading" id="QoP-Th-LoH"/>
-                            <constraint firstItem="Dyc-QZ-Kfd" firstAttribute="top" secondItem="VKC-XI-cqx" secondAttribute="bottom" constant="20" symbolic="YES" id="bl7-Av-5WV"/>
-                            <constraint firstAttribute="trailing" secondItem="VKC-XI-cqx" secondAttribute="trailing" constant="18" id="guS-DX-Vcf"/>
-                            <constraint firstItem="53Z-zf-SUq" firstAttribute="top" secondItem="VKC-XI-cqx" secondAttribute="bottom" constant="20" symbolic="YES" id="jFq-zv-9nR"/>
-                            <constraint firstItem="o7i-dp-TyJ" firstAttribute="top" secondItem="ssx-hO-10Z" secondAttribute="top" constant="20" symbolic="YES" id="myv-cF-vJc"/>
-                            <constraint firstItem="o7i-dp-TyJ" firstAttribute="leading" secondItem="ssx-hO-10Z" secondAttribute="leading" constant="22" id="ncr-JW-JJO"/>
+                            <constraint firstAttribute="trailing" secondItem="sYE-bk-h4J" secondAttribute="trailing" constant="14" id="Qtb-Eb-CHn"/>
+                            <constraint firstItem="Dyc-QZ-Kfd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ssx-hO-10Z" secondAttribute="leading" id="jeL-Rv-MUi"/>
+                            <constraint firstItem="sYE-bk-h4J" firstAttribute="top" secondItem="ssx-hO-10Z" secondAttribute="top" constant="14" id="kR0-Ga-3dD"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="53Z-zf-SUq" secondAttribute="trailing" constant="20" symbolic="YES" id="on9-mN-Fi5"/>
                             <constraint firstAttribute="bottom" secondItem="53Z-zf-SUq" secondAttribute="bottom" constant="20" id="stP-mW-Yee"/>
-                            <constraint firstItem="53Z-zf-SUq" firstAttribute="leading" secondItem="ssx-hO-10Z" secondAttribute="leading" constant="20" symbolic="YES" id="uqg-de-31c"/>
-                            <constraint firstItem="VKC-XI-cqx" firstAttribute="top" secondItem="o7i-dp-TyJ" secondAttribute="bottom" constant="8" symbolic="YES" id="znD-UV-QvG"/>
+                            <constraint firstItem="53Z-zf-SUq" firstAttribute="leading" secondItem="ssx-hO-10Z" secondAttribute="leading" constant="14" id="uqg-de-31c"/>
                         </constraints>
                     </view>
                     <connections>
@@ -2010,13 +2036,13 @@ Gw
         </scene>
     </scenes>
     <resources>
-        <image name="Command" width="100" height="100"/>
-        <image name="Finder" width="100" height="100"/>
+        <image name="Command" width="87" height="76"/>
+        <image name="Finder" width="84" height="80"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSQuickLookTemplate" width="19" height="12"/>
         <image name="NSRemoveTemplate" width="11" height="11"/>
-        <image name="TextEditor" width="100" height="100"/>
-        <image name="Xcode" width="100" height="100"/>
+        <image name="TextEditor" width="92" height="91"/>
+        <image name="Xcode" width="128" height="128"/>
         <image name="btn-power" width="94.766067504882812" height="101.24421691894531"/>
         <image name="reload-icon-2.png" width="128" height="128"/>
     </resources>
